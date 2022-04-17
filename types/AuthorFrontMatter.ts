@@ -8,4 +8,5 @@ export type AuthorFrontMatter = {
   twitter: string
   linkedin: string
   github: string
+  juejin: string
 }

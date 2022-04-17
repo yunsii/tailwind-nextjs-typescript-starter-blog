@@ -20,6 +20,7 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
     twitter,
     linkedin,
     github,
+    juejin,
   } = frontMatter
 
   return (
@@ -48,6 +49,7 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
             <div className='flex space-x-3 pt-6'>
               <SocialIcon kind='mail' href={`mailto:${email}`} />
               <SocialIcon kind='github' href={github} />
+              <SocialIcon kind='juejin' href={juejin} />
               <SocialIcon kind='linkedin' href={linkedin} />
               <SocialIcon kind='twitter' href={twitter} />
             </div>
