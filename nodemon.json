@@ -1,7 +1,6 @@
 {
   "verbose": false,
   "debug": false,
-  "exec": "concurrently 'next dev' 'npm run watch:next-config'",
-  "watch": ["./next.config.mjs", "./tailwind.config.js", "postcss.config.js"],
-  "ext": "mjs"
+  "exec": "next dev",
+  "watch": ["./next.config.mjs", "./tailwind.config.js", "postcss.config.js"]
 }
