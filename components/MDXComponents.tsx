@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { getMDXComponent } from 'mdx-bundler/client'
 import React, { useMemo } from 'react'
 
@@ -18,14 +17,15 @@ const Wrapper: React.ComponentType<{ layout: string }> = ({
   return <Layout {...rest} />
 }
 
+// https://mdxjs.com/table-of-components/#components
 export const MDXComponents: ComponentMap = {
-  Image,
-  //@ts-ignore
-  TOCInline,
   a: CustomLink,
   pre: Pre,
   wrapper: Wrapper,
-  //@ts-ignore
+
+  // 自定义 JSX 替换组件
+  Image,
+  TOCInline,
   BlogNewsletterForm,
 }
 
