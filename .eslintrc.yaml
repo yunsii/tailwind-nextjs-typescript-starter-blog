@@ -1,4 +1,7 @@
 root: true
 extends:
-  - ./node_modules/@jannajs/lint/dist/eslint.cjs
   - next/core-web-vitals
+  - ./node_modules/@jannajs/lint/dist/eslint.cjs
+rules:
+  no-console: 'warn'
+  react/prop-types: 'off'
