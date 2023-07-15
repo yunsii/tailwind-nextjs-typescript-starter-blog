@@ -29,7 +29,9 @@ const DisqusComponent = dynamic(
 
 const Comments = ({ frontMatter }: Props) => {
   const commentProvider = siteMetadata?.comment.provider
-  if (!commentProvider) return <></>
+  if (!commentProvider) {
+    return <></>
+  }
   return (
     <div id='comment'>
       {siteMetadata.comment && siteMetadata.comment.provider === 'giscus' && (

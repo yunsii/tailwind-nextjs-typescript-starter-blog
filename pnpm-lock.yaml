@@ -23,6 +23,9 @@ dependencies:
   image-size:
     specifier: 1.0.0
     version: registry.npmmirror.com/image-size@1.0.0
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
   mdx-bundler:
     specifier: ^8.0.0
     version: registry.npmmirror.com/mdx-bundler@8.0.1(esbuild@0.13.15)
@@ -124,6 +127,9 @@ devDependencies:
   '@types/js-yaml':
     specifier: ^4.0.5
     version: registry.npmmirror.com/@types/js-yaml@4.0.5
+  '@types/lodash-es':
+    specifier: ^4.17.8
+    version: 4.17.8
   '@types/prettier':
     specifier: ^2.4.4
     version: registry.npmmirror.com/@types/prettier@2.4.4
@@ -1197,6 +1203,22 @@ packages:
       }
     dependencies:
       '@types/node': 17.0.21
+    dev: true
+
+  /@types/lodash-es@4.17.8:
+    resolution:
+      {
+        integrity: sha512-euY3XQcZmIzSy7YH5+Unb3b2X12Wtk54YWINBvvGQ5SmMvwb11JQskGsfkH/5HXK77Kr8GF0wkVDIxzAisWtog==,
+      }
+    dependencies:
+      '@types/lodash': 4.14.195
+    dev: true
+
+  /@types/lodash@4.14.195:
+    resolution:
+      {
+        integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==,
+      }
     dev: true
 
   /@types/mdast@3.0.10:
@@ -5418,6 +5440,13 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
+
+  /lodash-es@4.17.21:
+    resolution:
+      {
+        integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==,
+      }
+    dev: false
 
   /lodash.camelcase@4.3.0:
     resolution:

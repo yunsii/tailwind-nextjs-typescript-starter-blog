@@ -28,10 +28,10 @@ import siteMetadata from '../data/siteMetadata'
                   const source = fs.readFileSync(page, 'utf8')
                   const fm = matter(source)
                   if (fm.data.draft) {
-                    return
+                    return ''
                   }
                   if (fm.data.canonicalUrl) {
-                    return
+                    return ''
                   }
                 }
                 const path = page
@@ -49,7 +49,7 @@ import siteMetadata from '../data/siteMetadata'
                   page.search('pages/404.') > -1 ||
                   page.search(`pages/blog/[...slug].`) > -1
                 ) {
-                  return
+                  return ''
                 }
                 return `
                         <url>
@@ -66,6 +66,5 @@ import siteMetadata from '../data/siteMetadata'
     parser: 'html',
   })
 
-  // eslint-disable-next-line no-sync
   fs.writeFileSync('public/sitemap.xml', formatted)
 })()

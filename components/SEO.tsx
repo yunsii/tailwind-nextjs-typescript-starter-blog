@@ -14,7 +14,7 @@ interface CommonSEOProps {
     | string
     | {
         '@type': string
-        url: string
+        'url': string
       }[]
   twImage: string
   canonicalUrl?: string
@@ -56,11 +56,7 @@ const CommonSEO = ({
       <meta name='twitter:image' content={twImage} />
       <link
         rel='canonical'
-        href={
-          canonicalUrl
-            ? canonicalUrl
-            : `${siteMetadata.siteUrl}${router.asPath}`
-        }
+        href={canonicalUrl || `${siteMetadata.siteUrl}${router.asPath}`}
       />
     </Head>
   )
@@ -137,7 +133,7 @@ export const BlogSEO = ({
   const featuredImages = imagesArr.map((img) => {
     return {
       '@type': 'ImageObject',
-      url: ['http:', 'https:'].some((item) => img.startsWith(item))
+      'url': ['http:', 'https:'].some((item) => img.startsWith(item))
         ? img
         : siteMetadata.siteUrl + img,
     }
@@ -148,37 +144,37 @@ export const BlogSEO = ({
     authorList = authorDetails.map((author) => {
       return {
         '@type': 'Person',
-        name: author.name,
+        'name': author.name,
       }
     })
   } else {
     authorList = {
       '@type': 'Person',
-      name: siteMetadata.author,
+      'name': siteMetadata.author,
     }
   }
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    mainEntityOfPage: {
+    'mainEntityOfPage': {
       '@type': 'WebPage',
       '@id': url,
     },
-    headline: title,
-    image: featuredImages,
-    datePublished: publishedAt,
-    dateModified: modifiedAt,
-    author: authorList,
-    publisher: {
+    'headline': title,
+    'image': featuredImages,
+    'datePublished': publishedAt,
+    'dateModified': modifiedAt,
+    'author': authorList,
+    'publisher': {
       '@type': 'Organization',
-      name: siteMetadata.author,
-      logo: {
+      'name': siteMetadata.author,
+      'logo': {
         '@type': 'ImageObject',
-        url: `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
+        'url': `${siteMetadata.siteUrl}${siteMetadata.siteLogo}`,
       },
     },
-    description: summary,
+    'description': summary,
   }
 
   const twImageUrl = featuredImages[0].url

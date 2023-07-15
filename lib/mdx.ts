@@ -40,15 +40,16 @@ export function formatSlug(slug: string) {
 }
 
 export function dateSortDesc(a: string, b: string) {
-  if (a > b) return -1
-  if (a < b) return 1
+  if (a > b) {
+    return -1
+  }
+  if (a < b) {
+    return 1
+  }
   return 0
 }
 
-export async function getFileBySlug(
-  type: 'authors' | 'blog',
-  slug: string | string[],
-) {
+export async function getFileBySlug(type: 'authors' | 'blog', slug: string) {
   const mdxPath = path.join(root, 'data', type, `${slug}.mdx`)
   const mdPath = path.join(root, 'data', type, `${slug}.md`)
   const source = fs.existsSync(mdxPath)
@@ -75,7 +76,15 @@ export async function getFileBySlug(
 
   const toc: Toc = []
 
-  const { code, frontmatter } = await bundleMDX({
+  const { code, frontmatter } = await bundleMDX<{
+    authors?: string[]
+    layout?: string
+    date: string
+    readingTime: ReturnType<typeof readingTime>
+    fileName: string
+    title: string
+    tags?: string[]
+  }>({
     source,
     // mdx imports can be automatically source from the components directory
     cwd: path.join(root, 'components'),

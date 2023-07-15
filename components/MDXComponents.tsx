@@ -13,6 +13,7 @@ const Wrapper: React.ComponentType<{ layout: string }> = ({
   layout,
   ...rest
 }) => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const Layout = require(`../layouts/${layout}`).default
   return <Layout {...rest} />
 }

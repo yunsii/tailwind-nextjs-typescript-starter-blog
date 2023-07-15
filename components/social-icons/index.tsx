@@ -30,8 +30,9 @@ const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
     !href ||
     (kind === 'mail' &&
       !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
-  )
+  ) {
     return null
+  }
 
   const SocialSvg = components[kind] as React.ComponentType<
     React.SVGProps<SVGSVGElement> & { title?: string }

@@ -27,20 +27,20 @@ const genFrontMatter = (answers) => {
   const d = new Date()
   const date = [
     d.getFullYear(),
-    ('0' + (d.getMonth() + 1)).slice(-2),
-    ('0' + d.getDate()).slice(-2),
+    `0${d.getMonth() + 1}`.slice(-2),
+    `0${d.getDate()}`.slice(-2),
   ].join('-')
   const tagArray = answers.tags.split(',')
   tagArray.forEach((tag, index) => (tagArray[index] = tag.trim()))
-  const tags = "'" + tagArray.join("','") + "'"
+  const tags = `'${tagArray.join("','")}'`
   const authorArray =
-    answers.authors.length > 0 ? "'" + answers.authors.join("','") + "'" : ''
+    answers.authors.length > 0 ? `'${answers.authors.join("','")}'` : ''
 
   let frontMatter = dedent`---
   title: ${answers.title ? answers.title : 'Untitled'}
   date: '${date}'
   tags: [${answers.tags ? tags : ''}]
-  draft: ${answers.draft === 'yes' ? true : false}
+  draft: ${answers.draft === 'yes'}
   summary: ${answers.summary ? answers.summary : ' '}
   images: []
   layout: ${answers.layout}
@@ -48,10 +48,10 @@ const genFrontMatter = (answers) => {
   `
 
   if (answers.authors.length > 0) {
-    frontMatter = frontMatter + '\n' + `authors: [${authorArray}]`
+    frontMatter = `${frontMatter}\n` + `authors: [${authorArray}]`
   }
 
-  frontMatter = frontMatter + '\n---'
+  frontMatter = `${frontMatter}\n---`
 
   return frontMatter
 }
@@ -111,9 +111,10 @@ inquirer
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
-    if (!fs.existsSync('data/blog'))
+    if (!fs.existsSync('data/blog')) {
       fs.mkdirSync('data/blog', { recursive: true })
-    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
+    }
+    const filePath = `data/blog/${fileName || 'untitled'}.${
       answers.extension ? answers.extension : 'md'
     }`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {

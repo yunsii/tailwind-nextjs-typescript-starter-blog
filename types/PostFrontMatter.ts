@@ -1,7 +1,7 @@
-export type PostFrontMatter = {
+export interface PostFrontMatter {
   title: string
   date: string
-  tags: string[]
+  tags?: string[]
   lastmod?: string
   draft?: boolean
   summary?: string

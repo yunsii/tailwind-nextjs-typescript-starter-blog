@@ -244,7 +244,7 @@ A long description of yourself...
 You can use this information in multiple places across the template. For example in the about section of the page, we grab the default author information with this line of code:
 
 ```js
-const authorDetails = await getFileBySlug('authors', ['default'])
+const authorDetails = await getFileBySlug('authors', 'default')
 ```
 
 This is rendered in the `AuthorLayout` template.

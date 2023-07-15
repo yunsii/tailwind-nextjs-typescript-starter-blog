@@ -1,4 +1,4 @@
-import { default as Router } from 'next/router'
+import Router from 'next/router'
 import { useEffect } from 'react'
 
 /**

@@ -1,5 +1,5 @@
 import { useTheme } from 'next-themes'
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
 
@@ -28,19 +28,24 @@ const Utterances = () => {
     script.async = true
 
     const comments = document.getElementById(COMMENTS_ID)
-    if (comments) comments.appendChild(script)
+    if (comments) {
+      comments.appendChild(script)
+    }
 
     return () => {
-      // eslint-disable-next-line @typescript-eslint/no-shadow
       const comments = document.getElementById(COMMENTS_ID)
-      if (comments) comments.innerHTML = ''
+      if (comments) {
+        comments.innerHTML = ''
+      }
     }
   }, [commentsTheme])
 
   // Reload on theme change
   useEffect(() => {
     const iframe = document.querySelector('iframe.utterances-frame')
-    if (!iframe) return
+    if (!iframe) {
+      return
+    }
     LoadComments()
   }, [LoadComments])
 

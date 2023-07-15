@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import siteMetadata from '@/data/siteMetadata'
 
 import GA from './GoogleAnalytics'

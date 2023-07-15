@@ -1,14 +1,16 @@
 import { load } from 'js-yaml'
 import { visit } from 'unist-util-visit'
+import { get } from 'lodash-es'
 
-import type { Parent } from 'unist'
-import type { VFile } from 'vfile'
+import type { Node } from 'unist-util-visit'
+import type { Plugin } from 'unified'
 
-export default function extractFrontmatter() {
-  return (tree: Parent, file: VFile) => {
-    visit(tree, 'yaml', (node: Parent) => {
-      //@ts-ignore
-      file.data.frontmatter = load(node.value)
+const extractFrontmatter: Plugin = () => {
+  return (tree, file) => {
+    visit(tree, 'yaml', (node: Node) => {
+      file.data.frontmatter = load(get(node, 'value'))
     })
   }
 }
+
+export default extractFrontmatter

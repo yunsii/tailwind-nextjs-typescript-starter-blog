@@ -8,12 +8,12 @@
 import { spawn } from 'child_process'
 import http from 'http'
 import path from 'path'
-import { parse } from 'url'
+import { parse } from 'node:url'
 
 import chalk from 'chalk'
 import * as chokidar from 'chokidar'
 import { program } from 'commander'
-import express, { json, Router } from 'express'
+import express, { Router, json } from 'express'
 import next from 'next'
 import { Server } from 'socket.io'
 
@@ -66,7 +66,8 @@ app.prepare().then(() => {
           // Emit changes via socketio
           // eslint-disable-next-line @typescript-eslint/no-use-before-define
           io.sockets.emit('reload', filePathContext)
-          // @ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           app.server.hotReloader.send('building')
 
           if (options.command) {
@@ -94,6 +95,7 @@ app.prepare().then(() => {
               )
 
               // require your --script script
+              // eslint-disable-next-line @typescript-eslint/no-var-requires
               const executeFile = require(scriptPath)
 
               // run the exported function from your --script script
@@ -105,7 +107,8 @@ app.prepare().then(() => {
             }
           }
 
-          // @ts-ignore
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-expect-error
           app.server.hotReloader.send('reloadPage')
         },
       )
@@ -130,9 +133,11 @@ app.prepare().then(() => {
     }
 
     // reload the nextjs app
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     app.server.hotReloader.send('building')
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     app.server.hotReloader.send('reloadPage')
     res.end('Reload initiated')
   })
@@ -143,7 +148,9 @@ app.prepare().then(() => {
   expressApp.all('*', (req, res) => handle(req, res, parse(req.url, true)))
 
   server.addListener('error', (err) => {
-    if (err) throw err
+    if (err) {
+      throw err
+    }
   })
   // fire it up
   server.listen(port, () => {

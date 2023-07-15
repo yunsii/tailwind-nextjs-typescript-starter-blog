@@ -15,13 +15,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
+          'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
         // You can add additional params here i.e. SMS, etc.
         // https://developers.klaviyo.com/en/reference/subscribe
         body: JSON.stringify({
-          profiles: [{ email: email }],
+          profiles: [{ email }],
         }),
       },
     )

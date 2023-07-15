@@ -1,12 +1,12 @@
-export type AuthorFrontMatter = {
+export interface AuthorFrontMatter {
   layout?: string
-  name: string
-  avatar: string
-  occupation: string
-  company: string
-  email: string
-  twitter: string
-  linkedin: string
-  github: string
-  juejin: string
+  name?: string
+  avatar?: string
+  occupation?: string
+  company?: string
+  email?: string
+  twitter?: string
+  linkedin?: string
+  github?: string
+  juejin?: string
 }

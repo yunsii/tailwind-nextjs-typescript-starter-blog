@@ -3,7 +3,7 @@ import fs from 'fs'
 import sizeOf from 'image-size'
 import { visit } from 'unist-util-visit'
 
-import type { Parent, Node, Literal } from 'unist'
+import type { Literal, Node, Parent } from 'unist'
 
 type ImageNode = Parent & {
   url: string
