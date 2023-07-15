@@ -1,6 +1,6 @@
 {
-  "name": "tailwind-nextjs-starter-blog",
-  "version": "1.5.2",
+  "name": "tailwind-nextjs-typescript-starter-blog",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "cross-env SOCKET=true tsx ./scripts/next-remote-watch.ts ./data",
@@ -95,6 +95,7 @@
     "socket.io": "^4.4.0",
     "socket.io-client": "^4.4.0",
     "tailwindcss": "^3.0.23",
+    "tsx": "^3.12.7",
     "typescript": "^4.6.2",
     "vfile": "^5.3.2"
   }

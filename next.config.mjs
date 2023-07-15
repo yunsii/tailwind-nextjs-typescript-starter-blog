@@ -51,9 +51,6 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  eslint: {
-    dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
-  },
   async headers() {
     return [
       {
@@ -83,7 +80,7 @@ const nextConfig = {
     if (!dev && !isServer) {
       Object.assign(config.resolve.alias, {
         'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
+        'react': 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat',
       })

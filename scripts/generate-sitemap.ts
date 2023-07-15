@@ -8,14 +8,14 @@ import siteMetadata from '../data/siteMetadata'
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
   const pages = await globby([
-    'pages/*.js',
-    'pages/*.tsx',
+    'src/pages/*.js',
+    'src/pages/*.tsx',
     'data/blog/**/*.mdx',
     'data/blog/**/*.md',
     'public/tags/**/*.xml',
-    '!pages/_*.js',
-    '!pages/_*.tsx',
-    '!pages/api',
+    '!src/pages/_*.js',
+    '!src/pages/_*.tsx',
+    '!src/pages/api',
   ])
 
   const sitemap = `
@@ -35,7 +35,7 @@ import siteMetadata from '../data/siteMetadata'
                   }
                 }
                 const path = page
-                  .replace('pages/', '/')
+                  .replace('src/pages/', '/')
                   .replace('data/blog', '/blog')
                   .replace('public/', '/')
                   .replace('.js', '')
