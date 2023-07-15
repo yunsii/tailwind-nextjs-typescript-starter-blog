@@ -16,6 +16,8 @@ I originally thought that started from ZERO, the workload or too screaming after
 
 > Based on [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) branch of [typescript](https://github.com/timlrx/tailwind-nextjs-starter-blog/tree/typescript), commit [update to v1.5.1](https://github.com/timlrx/tailwind-nextjs-starter-blog/tree/8afcd74c2b03111037ab426c0ac913ac87c3b0c1). Temporarily refer to the original repo document, follow-up to improve own document.
 
+- [Sync to 1.5.6](./CHANGLOG.md#2023.07.15)
+
 ## Credits
 
 - [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)

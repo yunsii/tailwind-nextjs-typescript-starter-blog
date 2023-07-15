@@ -16,6 +16,8 @@
 
 > 基于 [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) 的 [typescript 分支](https://github.com/timlrx/tailwind-nextjs-starter-blog/tree/typescript)开发，commit [update to v1.5.1](https://github.com/timlrx/tailwind-nextjs-starter-blog/tree/8afcd74c2b03111037ab426c0ac913ac87c3b0c1)。暂时参照原仓库文档使用即可，后续完善自身文档。
 
+- [同步到 1.5.6](./CHANGLOG.md#2023.07.15)
+
 ## 致谢
 
 - [timlrx/tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
