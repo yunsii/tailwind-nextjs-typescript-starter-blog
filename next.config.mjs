@@ -62,6 +62,19 @@ const nextConfig = {
       },
     ]
   },
+  rewrites: async () => {
+    return {
+      beforeFiles:
+        process.env.NODE_ENV === 'production'
+          ? [
+              {
+                source: '/500',
+                destination: '/400',
+              },
+            ]
+          : [],
+    }
+  },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.svg$/,

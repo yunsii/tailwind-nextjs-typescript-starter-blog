@@ -68,7 +68,7 @@ const CommonSEO = ({
 
 interface PageSEOProps {
   title: string
-  description: string
+  description?: string
 }
 
 export const PageSEO = ({ title, description }: PageSEOProps) => {
@@ -137,7 +137,9 @@ export const BlogSEO = ({
   const featuredImages = imagesArr.map((img) => {
     return {
       '@type': 'ImageObject',
-      url: `${siteMetadata.siteUrl}${img}`,
+      url: ['http:', 'https:'].some((item) => img.startsWith(item))
+        ? img
+        : siteMetadata.siteUrl + img,
     }
   })
 
