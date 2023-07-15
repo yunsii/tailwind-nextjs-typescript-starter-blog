@@ -8,18 +8,18 @@
     "build": "next build && tsx ./scripts/generate-sitemap.ts",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
-    "lint": "npm run lint:js && npm run lint:prettier && npm run tsc",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx .",
     "lint-staged": "lint-staged",
     "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
-    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./pages ./components ./lib ./layouts ./scripts",
-    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
-    "prettier": "prettier --check --write \"(pages|components|lib|layouts|scripts)/**/*\"",
-    "prepare": "husky install"
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "prettier": "prettier --check --write --no-plugin-search \"**/*.(js|jsx|tsx|ts|css|less|scss|sass|md|yaml)\"",
+    "prepare": "husky install",
+    "lint-staged:lint": "eslint"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
-    "**/*.{js,jsx,tsx,ts,css,less,scss,sass,md,mdx,json}": [
-      "prettier --write"
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:lint",
+    "**/*.{js,jsx,tsx,ts,css,less,scss,sass,md,yaml}": [
+      "prettier --write --no-plugin-search"
     ]
   },
   "dependencies": {
@@ -49,6 +49,12 @@
     "unist-util-visit": "^4.0.0"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.35.3",
+    "@antfu/eslint-config-react": "^0.35.3",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/types": "^17.4.4",
+    "@jannajs/lint": "^2.3.5",
     "@next/bundle-analyzer": "12.0.9",
     "@prettier/plugin-xml": "^2.0.1",
     "@svgr/webpack": "^6.1.2",
@@ -61,16 +67,15 @@
     "@types/prettier": "^2.4.4",
     "@types/react": "^17.0.41",
     "@typescript-eslint/parser": "^5.15.0",
-    "@umijs/fabric": "^2.10.2",
     "autoprefixer": "^10.4.4",
     "chalk": "^5.0.1",
     "chokidar": "^3.5.3",
     "commander": "^9.1.0",
     "cross-env": "^7.0.3",
     "dedent": "^0.7.0",
-    "eslint": "^7.29.0",
-    "eslint-config-next": "12.0.9",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint": "^8.45.0",
+    "eslint-config-next": "13.4.8",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^3.3.1",
     "express": "^4.17.3",
     "file-loader": "^6.0.0",
@@ -78,12 +83,12 @@
     "husky": "^6.0.0",
     "inquirer": "^8.1.1",
     "js-yaml": "^4.1.0",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^13.2.3",
     "mdast-util-to-string": "^3.1.0",
     "next-remote-watch": "^1.0.0",
     "nodemon": "^2.0.15",
     "postcss": "^8.4.12",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "prettier-plugin-tailwindcss": "^0.1.4",
     "socket.io": "^4.4.0",
     "socket.io-client": "^4.4.0",

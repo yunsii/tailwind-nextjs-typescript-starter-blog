@@ -4,6 +4,7 @@ singleQuote: true
 trailingComma: all
 proseWrap: never
 endOfLine: lf
+quoteProps: consistent
 jsxSingleQuote: true
 semi: false
 useTabs: false
