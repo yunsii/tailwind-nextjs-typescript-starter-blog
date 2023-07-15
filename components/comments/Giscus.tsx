@@ -3,11 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
 
-interface Props {
-  mapping: string
-}
-
-const Giscus = ({ mapping }: Props) => {
+const Giscus = () => {
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
   const { theme, resolvedTheme } = useTheme()
   const commentsTheme =
@@ -27,6 +23,7 @@ const Giscus = ({ mapping }: Props) => {
       repositoryId,
       category,
       categoryId,
+      mapping,
       reactions,
       metadata,
       inputPosition,
@@ -56,7 +53,7 @@ const Giscus = ({ mapping }: Props) => {
       const comments = document.getElementById(COMMENTS_ID)
       if (comments) comments.innerHTML = ''
     }
-  }, [commentsTheme, mapping])
+  }, [commentsTheme])
 
   // Reload on theme change
   useEffect(() => {

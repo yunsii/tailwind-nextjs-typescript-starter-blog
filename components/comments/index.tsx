@@ -28,31 +28,16 @@ const DisqusComponent = dynamic(
 )
 
 const Comments = ({ frontMatter }: Props) => {
-  let term
   const commentProvider = siteMetadata?.comment.provider
   if (!commentProvider) return <></>
-  switch (
-    siteMetadata.comment.giscusConfig.mapping ||
-    siteMetadata.comment.utterancesConfig.issueTerm
-  ) {
-    case 'pathname':
-      term = frontMatter.slug
-      break
-    case 'url':
-      term = window.location.href
-      break
-    case 'title':
-      term = frontMatter.title
-      break
-  }
   return (
     <div id='comment'>
       {siteMetadata.comment && siteMetadata.comment.provider === 'giscus' && (
-        <GiscusComponent mapping={term} />
+        <GiscusComponent />
       )}
       {siteMetadata.comment &&
         siteMetadata.comment.provider === 'utterances' && (
-          <UtterancesComponent issueTerm={term} />
+          <UtterancesComponent />
         )}
       {siteMetadata.comment && siteMetadata.comment.provider === 'disqus' && (
         <DisqusComponent frontMatter={frontMatter} />

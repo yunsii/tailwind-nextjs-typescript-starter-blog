@@ -74,9 +74,6 @@ dependencies:
   sharp:
     specifier: ^0.28.3
     version: registry.npmmirror.com/sharp@0.28.3
-  smoothscroll-polyfill:
-    specifier: ^0.4.4
-    version: registry.npmmirror.com/smoothscroll-polyfill@0.4.4
   unist-util-visit:
     specifier: ^4.0.0
     version: registry.npmmirror.com/unist-util-visit@4.1.0
@@ -11517,12 +11514,6 @@ packages:
       astral-regex: registry.npmmirror.com/astral-regex@2.0.0
       is-fullwidth-code-point: registry.npmmirror.com/is-fullwidth-code-point@3.0.0
     dev: true
-
-  registry.npmmirror.com/smoothscroll-polyfill@0.4.4:
-    resolution: {integrity: sha512-TK5ZA9U5RqCwMpfoMq/l1mrH0JAR7y7KRvOBx0n2869aLxch+gT9GhN3yUfjiw+d/DiF1mKo14+hd62JyMmoBg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/smoothscroll-polyfill/-/smoothscroll-polyfill-0.4.4.tgz}
-    name: smoothscroll-polyfill
-    version: 0.4.4
-    dev: false
 
   registry.npmmirror.com/socket.io-adapter@2.3.3:
     resolution: {integrity: sha512-Qd/iwn3VskrpNO60BeRyCyr8ZWw9CPZyitW4AQwmRZ8zCiyDiL+znRnWX6tDHXnWn1sJrM1+b6Mn6wEDJJ4aYQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/socket.io-adapter/-/socket.io-adapter-2.3.3.tgz}
