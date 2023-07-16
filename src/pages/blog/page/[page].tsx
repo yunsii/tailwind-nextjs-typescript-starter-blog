@@ -1,14 +1,22 @@
+import { allBlogs } from 'contentlayer/generated'
+import metadata from 'data/metadata'
 import ListLayout from '@/layouts/ListLayout'
 import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 import { PageSEO } from '@/components/SEO'
-import { allBlogs } from 'contentlayer/generated'
-import siteMetadata from 'data/siteMetadata'
 
 import { POSTS_PER_PAGE } from '../../blog'
 
-import type { InferGetStaticPropsType } from 'next'
+import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from 'next'
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths<{
+  page: string
+}> = async () => {
   const totalPosts = allBlogs
   const totalPages = Math.ceil(totalPosts.length / POSTS_PER_PAGE)
   const paths = Array.from({ length: totalPages }, (_, i) => ({
@@ -21,12 +29,20 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async (context) => {
-  const {
-    params: { page },
-  } = context
+export const getStaticProps: GetStaticProps<
+  {
+    initialDisplayPosts: CoreContent<Blog>[]
+    posts: CoreContent<Blog>[]
+    pagination: {
+      currentPage: number
+      totalPages: number
+    }
+  },
+  { page: string }
+> = async (context) => {
+  const page = context.params!.page
   const posts = sortedBlogPost(allBlogs)
-  const pageNumber = parseInt(page as string)
+  const pageNumber = parseInt(page, 10)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber,
@@ -52,10 +68,7 @@ export default function PostPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO
-        title={siteMetadata.title}
-        description={siteMetadata.description}
-      />
+      <PageSEO title={metadata.title} description={metadata.description} />
       <ListLayout
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}

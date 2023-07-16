@@ -1,10 +1,10 @@
+import { allBlogs } from 'contentlayer/generated'
+import metadata from 'data/metadata'
 import Link from '@/components/Link'
 import NewsletterForm from '@/components/NewsletterForm'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
-import siteMetadata from 'data/siteMetadata'
 import formatDate from '@/lib/utils/formatDate'
-import { allBlogs } from 'contentlayer/generated'
 import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
@@ -28,10 +28,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <PageSEO
-        title={siteMetadata.title}
-        description={siteMetadata.description}
-      />
+      <PageSEO title={metadata.title} description={metadata.description} />
 
       <div className='divide-y divide-gray-200 dark:divide-gray-700'>
         <div className='space-y-2 pt-6 pb-8 md:space-y-5'>
@@ -39,7 +36,7 @@ export default function Home({
             Latest
           </h1>
           <p className='text-lg leading-7 text-gray-500 dark:text-gray-400'>
-            {siteMetadata.description}
+            {metadata.description}
           </p>
         </div>
         <ul className='divide-y divide-gray-200 dark:divide-gray-700'>
@@ -68,9 +65,7 @@ export default function Home({
                             </Link>
                           </h2>
                           <div className='flex flex-wrap'>
-                            {tags.map((tag) => (
-                              <Tag key={tag} text={tag} />
-                            ))}
+                            {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                           </div>
                         </div>
                         <div className='prose max-w-none text-gray-500 dark:text-gray-400'>
@@ -105,7 +100,7 @@ export default function Home({
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter.provider !== '' && (
+      {metadata?.newsletter?.provider && (
         <div className='flex items-center justify-center pt-4'>
           <NewsletterForm />
         </div>

@@ -1,14 +1,14 @@
 import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
-import projectsData from 'data/projectsData'
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
+import projectsData from 'data/projects'
 
 export default function Projects() {
   return (
     <>
       <PageSEO
-        title={`Projects - ${siteMetadata.author}`}
-        description={siteMetadata.description}
+        title={`Projects - ${metadata.author}`}
+        description={metadata.description}
       />
       <div className='divide-y divide-gray-200 dark:divide-gray-700'>
         <div className='space-y-2 pt-6 pb-8 md:space-y-5'>

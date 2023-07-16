@@ -29,6 +29,9 @@ dependencies:
   gray-matter:
     specifier: ^4.0.2
     version: registry.npmmirror.com/gray-matter@4.0.3
+  html-entities:
+    specifier: ^2.4.0
+    version: 2.4.0
   image-size:
     specifier: 1.0.0
     version: registry.npmmirror.com/image-size@1.0.0
@@ -48,8 +51,8 @@ dependencies:
     specifier: ^0.2.1
     version: 0.2.1(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
   preact:
-    specifier: ^10.6.2
-    version: registry.npmmirror.com/preact@10.6.6
+    specifier: ^10.16.0
+    version: 10.16.0
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -151,6 +154,9 @@ devDependencies:
   '@types/lodash-es':
     specifier: ^4.17.8
     version: 4.17.8
+  '@types/mailchimp__mailchimp_marketing':
+    specifier: ^3.0.9
+    version: 3.0.9
   '@types/prettier':
     specifier: ^2.4.4
     version: registry.npmmirror.com/@types/prettier@2.4.4
@@ -2434,6 +2440,13 @@ packages:
     resolution:
       {
         integrity: sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==,
+      }
+    dev: true
+
+  /@types/mailchimp__mailchimp_marketing@3.0.9:
+    resolution:
+      {
+        integrity: sha512-LPWp4PjufVycpNNO2oQoGNcnj9N6cqAWXmBYeEcwslho9icDjetLyChqTgK2LevdUxE4eSQDDuEys++gkm+K2A==,
       }
     dev: true
 
@@ -6067,6 +6080,13 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
+  /html-entities@2.4.0:
+    resolution:
+      {
+        integrity: sha512-igBTJcNNNhvZFRtm8uA6xMY6xYleeDwn3PeBCkDz7tHttv4F2hsDI2aPgNERWzvRcNYHNT3ymRaQzllmXj4YsQ==,
+      }
+    dev: false
+
   /html-void-elements@2.0.1:
     resolution:
       {
@@ -8546,6 +8566,13 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
+
+  /preact@10.16.0:
+    resolution:
+      {
+        integrity: sha512-XTSj3dJ4roKIC93pald6rWuB2qQJO9gO2iLLyTe87MrjQN+HklueLsmskbywEWqCHlclgz3/M4YLL2iBr9UmMA==,
+      }
+    dev: false
 
   /prelude-ls@1.2.1:
     resolution:
@@ -17559,17 +17586,6 @@ packages:
       picocolors: registry.npmmirror.com/picocolors@1.0.0
       source-map-js: registry.npmmirror.com/source-map-js@1.0.2
     dev: true
-
-  registry.npmmirror.com/preact@10.6.6:
-    resolution:
-      {
-        integrity: sha512-dgxpTFV2vs4vizwKohYKkk7g7rmp1wOOcfd4Tz3IB3Wi+ivZzsn/SpeKJhRENSE+n8sUfsAl4S3HiCVT923ABw==,
-        registry: https://registry.npmjs.org/,
-        tarball: https://registry.npmmirror.com/preact/-/preact-10.6.6.tgz,
-      }
-    name: preact
-    version: 10.6.6
-    dev: false
 
   registry.npmmirror.com/prebuild-install@6.1.4:
     resolution:

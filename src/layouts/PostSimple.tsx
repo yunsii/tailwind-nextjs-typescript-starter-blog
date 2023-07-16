@@ -4,8 +4,8 @@ import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
 import Comments from '@/components/comments'
-import siteMetadata from 'data/siteMetadata'
 import formatDate from '@/lib/utils/formatDate'
+import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { ReactNode } from 'react'
@@ -23,7 +23,7 @@ export default function PostSimple({ content, next, prev, children }: Props) {
 
   return (
     <SectionContainer>
-      <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...content} />
+      <BlogSEO url={`${metadata.siteUrl}/blog/${slug}`} {...content} />
       <ScrollTopAndComment />
       <article>
         <div>

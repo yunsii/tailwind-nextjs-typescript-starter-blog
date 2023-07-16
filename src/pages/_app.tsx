@@ -7,13 +7,13 @@ import Head from 'next/head'
 
 import LayoutWrapper from '@/components/LayoutWrapper'
 import Analytics from '@/components/analytics'
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 import type { AppProps } from 'next/app'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute='class' defaultTheme={siteMetadata.theme}>
+    <ThemeProvider attribute='class' defaultTheme={metadata.theme}>
       <Head>
         <meta content='width=device-width, initial-scale=1' name='viewport' />
       </Head>

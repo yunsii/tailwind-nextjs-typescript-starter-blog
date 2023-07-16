@@ -1,10 +1,13 @@
 {
   "css.lint.unknownAtRules": "ignore",
   "cSpell.words": [
+    "buttondown",
     "contentlayer",
+    "mailchimp",
     "mdast",
     "opentelemetry",
     "postbuild",
+    "Umami",
     "vfile"
   ],
   "[xml]": {

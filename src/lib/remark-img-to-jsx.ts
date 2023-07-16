@@ -2,6 +2,7 @@ import fs from 'fs'
 
 import sizeOf from 'image-size'
 import { visit } from 'unist-util-visit'
+import { get, set } from 'lodash-es'
 
 import type { Literal, Node, Parent } from 'unist'
 
@@ -17,13 +18,20 @@ export default function remarkImgToJsx() {
     visit(
       tree,
       // only visit p tags that contain an img element
-      (node: Parent): node is Parent =>
-        node.type === 'paragraph' &&
-        node.children.some((n) => n.type === 'image'),
-      (node: Parent) => {
-        const imageNode = node.children.find(
-          (n) => n.type === 'image',
-        ) as ImageNode
+      (node) => {
+        return (
+          node.type === 'paragraph' &&
+          (get(node, 'children') || []).some((n: Node) => n.type === 'image')
+        )
+      },
+      (node) => {
+        const imageNode = ((get(node, 'children') || []).find(
+          (n: Node) => n.type === 'image',
+        ) || null) as ImageNode | null
+
+        if (!imageNode) {
+          return
+        }
 
         // only local files
         if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
@@ -45,7 +53,7 @@ export default function remarkImgToJsx() {
 
           // Change node type from p to div to avoid nesting error
           node.type = 'div'
-          node.children = [imageNode]
+          set(node, 'children', [imageNode])
         }
       },
     )

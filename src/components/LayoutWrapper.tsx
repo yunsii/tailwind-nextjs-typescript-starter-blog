@@ -1,6 +1,6 @@
-import headerNavLinks from 'data/headerNavLinks'
-import siteMetadata from 'data/siteMetadata'
+import menu from 'data/menu'
 import Logo from 'data/logo.svg'
+import metadata from 'data/metadata'
 
 import Footer from './Footer'
 import Link from './Link'
@@ -20,24 +20,24 @@ const LayoutWrapper = ({ children }: Props) => {
       <div className='flex h-screen flex-col justify-between'>
         <header className='flex items-center justify-between py-10'>
           <div>
-            <Link href='/' aria-label={siteMetadata.headerTitle}>
+            <Link href='/' aria-label={metadata.headerTitle}>
               <div className='flex items-center justify-between'>
                 <div className='flex items-center sm:mr-3'>
                   <Logo />
                 </div>
-                {typeof siteMetadata.headerTitle === 'string' ? (
+                {typeof metadata.headerTitle === 'string' ? (
                   <div className='hidden text-2xl font-semibold sm:block'>
-                    {siteMetadata.headerTitle}
+                    {metadata.headerTitle}
                   </div>
                 ) : (
-                  siteMetadata.headerTitle
+                  metadata.headerTitle
                 )}
               </div>
             </Link>
           </div>
           <div className='flex items-center text-base leading-5'>
             <div className='hidden sm:block'>
-              {headerNavLinks.map((link) => (
+              {menu.map((link) => (
                 <Link
                   key={link.title}
                   href={link.href}

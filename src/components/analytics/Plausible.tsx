@@ -1,13 +1,13 @@
 import Script from 'next/script'
 
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 const PlausibleScript = () => {
   return (
     <>
       <Script
         strategy='lazyOnload'
-        data-domain={siteMetadata.analytics.plausibleDataDomain}
+        data-domain={metadata.analytics?.plausibleDataDomain}
         src='https://plausible.io/js/plausible.js'
       />
       <Script strategy='lazyOnload' id='plausible-script'>
@@ -22,6 +22,6 @@ const PlausibleScript = () => {
 export default PlausibleScript
 
 // https://plausible.io/docs/custom-event-goals
-export const logEvent = (eventName, ...rest) => {
+export const logEvent = (eventName: string, ...rest: any[]) => {
   return window.plausible?.(eventName, ...rest)
 }

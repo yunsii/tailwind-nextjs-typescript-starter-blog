@@ -1,4 +1,6 @@
-const projectsData = [
+import { defineProjects } from '@/defines/projects'
+
+export default defineProjects([
   {
     title: 'A Search Engine',
     description: `What if you could look up any information in the world? Webpages, images, videos
@@ -15,6 +17,4 @@ const projectsData = [
     imgSrc: '/static/images/time-machine.jpg',
     href: '/blog/the-time-machine',
   },
-]
-
-export default projectsData
+])

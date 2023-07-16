@@ -8,7 +8,7 @@ import type { Plugin } from 'unified'
 const extractFrontmatter: Plugin = () => {
   return (tree, file) => {
     visit(tree, 'yaml', (node: Node) => {
-      file.data.frontmatter = load(get(node, 'value'))
+      file.data.frontmatter = load(get(node, 'value') || '')
     })
   }
 }
