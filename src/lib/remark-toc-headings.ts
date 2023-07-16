@@ -1,19 +1,30 @@
 import { slug } from 'github-slugger'
 import { toString } from 'mdast-util-to-string'
 import { visit } from 'unist-util-visit'
-import { get } from 'lodash-es'
+import { remark } from 'remark'
 
-import type { Node } from 'unist-util-visit'
-import type { Parent } from 'unist'
+import type { Heading } from 'mdast'
+import type { Toc } from '@/types/Toc'
+import type { Plugin } from 'unified'
 
-export default function remarkTocHeadings(options) {
-  return (tree: Parent) =>
-    visit(tree, 'heading', (node: Node) => {
+const remarkTocHeadings: Plugin = () => {
+  return (tree, file) => {
+    const toc: Toc = []
+    visit(tree, 'heading', (node: Heading) => {
       const textContent = toString(node)
-      options.exportRef.push({
+      toc.push({
         value: textContent,
         url: `#${slug(textContent)}`,
-        depth: get(node, 'depth'),
+        depth: node.depth,
       })
     })
+    file.data.toc = toc
+  }
+}
+
+export default remarkTocHeadings
+
+export async function extractTocHeadings(markdown: string) {
+  const vfile = await remark().use(remarkTocHeadings).process(markdown)
+  return vfile.data.toc
 }

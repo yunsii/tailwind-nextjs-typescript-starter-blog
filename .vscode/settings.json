@@ -1,10 +1,13 @@
 {
   "css.lint.unknownAtRules": "ignore",
-  "json.schemas": [
-    {
-      "fileMatch": ["/nodemon.json"],
-      "url": "https://json.schemastore.org/nodemon.json"
-    }
+  "cSpell.words": [
+    "contentlayer",
+    "mdast",
+    "opentelemetry",
+    "postbuild",
+    "vfile"
   ],
-  "cSpell.words": ["mdast", "vfile"]
+  "[xml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

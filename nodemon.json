@@ -1,6 +1,0 @@
-{
-  "verbose": false,
-  "debug": false,
-  "exec": "next dev",
-  "watch": ["./next.config.mjs", "./tailwind.config.js", "postcss.config.js"]
-}

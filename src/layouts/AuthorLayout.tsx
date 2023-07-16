@@ -3,14 +3,14 @@ import { PageSEO } from '@/components/SEO'
 import SocialIcon from '@/components/social-icons'
 
 import type { ReactNode } from 'react'
-import type { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
+import type { Authors } from 'contentlayer/generated'
 
 interface Props {
   children: ReactNode
-  frontMatter: AuthorFrontMatter
+  content: Omit<Authors, '_id' | '_raw' | 'body'>
 }
 
-export default function AuthorLayout({ children, frontMatter }: Props) {
+export default function AuthorLayout({ children, content }: Props) {
   const {
     name,
     avatar,
@@ -21,7 +21,7 @@ export default function AuthorLayout({ children, frontMatter }: Props) {
     linkedin,
     github,
     juejin,
-  } = frontMatter
+  } = content
 
   return (
     <>

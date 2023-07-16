@@ -8,6 +8,9 @@ quoteProps: consistent
 jsxSingleQuote: true
 semi: false
 useTabs: false
+xmlWhitespaceSensitivity: 'ignore'
+plugins:
+  - '@prettier/plugin-xml'
 overrides:
   - files: '*.svg'
     options: { parser: 'xml' }
