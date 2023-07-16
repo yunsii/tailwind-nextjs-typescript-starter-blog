@@ -1,27 +1,14 @@
 import Link from 'next/link'
+import React from 'react'
 
-import type { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
+export interface CustomLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
-const CustomLink = ({
-  href,
-  ...rest
-}: DetailedHTMLProps<
-  AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
->) => {
+const CustomLink = ({ href, ...rest }: CustomLinkProps) => {
   const isInternalLink = href && href.startsWith('/')
-  const isAnchorLink = href && href.startsWith('#')
 
   if (isInternalLink) {
-    return (
-      <Link href={href}>
-        <a {...rest} />
-      </Link>
-    )
-  }
-
-  if (isAnchorLink) {
-    return <a href={href} {...rest} />
+    return <Link href={href} {...rest} />
   }
 
   return <a target='_blank' rel='noopener noreferrer' href={href} {...rest} />
