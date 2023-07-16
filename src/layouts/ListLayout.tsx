@@ -5,13 +5,14 @@ import Pagination from '@/components/Pagination'
 import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
 
-import type { ComponentProps } from 'react'
-import type { PostFrontMatter } from '@/types/PostFrontMatter'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+import type { Blog } from 'contentlayer/generated'
+
 interface Props {
-  posts: PostFrontMatter[]
+  posts: CoreContent<Blog>[]
   title: string
-  initialDisplayPosts?: PostFrontMatter[]
-  pagination?: ComponentProps<typeof Pagination>
+  initialDisplayPosts?: CoreContent<Blog>[]
+  pagination?: React.ComponentProps<typeof Pagination>
 }
 
 export default function ListLayout({

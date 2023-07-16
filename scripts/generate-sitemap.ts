@@ -1,56 +1,43 @@
-import fs from 'fs'
+import path from 'node:path'
 
 import globby from 'globby'
-import matter from 'gray-matter'
-import * as prettier from 'prettier'
 
+import { allBlogs } from '../.contentlayer/generated/index.mjs'
 import siteMetadata from '../data/siteMetadata'
-;(async () => {
-  const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
+
+import { writeXml } from './_helpers/xml'
+
+import type { Blog } from '../.contentlayer/generated'
+
+const outputFilePath = path.join(process.cwd(), 'public', 'sitemap.xml')
+
+async function generate() {
+  const contentPages = (allBlogs as Blog[])
+    .filter((x) => !x.draft && !x.canonicalUrl)
+    .map((x) => `/${x._raw.flattenedPath}`)
   const pages = await globby([
-    'src/pages/*.js',
-    'src/pages/*.tsx',
-    'data/blog/**/*.mdx',
-    'data/blog/**/*.md',
+    'src/pages/*.(js|tsx)',
     'public/tags/**/*.xml',
-    '!src/pages/_*.js',
-    '!src/pages/_*.tsx',
+    '!src/pages/_*.(js|tsx)',
     '!src/pages/api',
+    '!src/pages/404.(js|tsx)',
+    '!src/pages/500.(js|tsx)',
   ])
 
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${pages
+              .concat(contentPages)
               .map((page) => {
-                // Exclude drafts from the sitemap
-                if (page.search('.md') >= 1 && fs.existsSync(page)) {
-                  const source = fs.readFileSync(page, 'utf8')
-                  const fm = matter(source)
-                  if (fm.data.draft) {
-                    return ''
-                  }
-                  if (fm.data.canonicalUrl) {
-                    return ''
-                  }
-                }
                 const path = page
                   .replace('src/pages/', '/')
-                  .replace('data/blog', '/blog')
                   .replace('public/', '/')
                   .replace('.js', '')
-                  .replace('.tsx', '')
                   .replace('.mdx', '')
                   .replace('.md', '')
                   .replace('/feed.xml', '')
                 const route = path === '/index' ? '' : path
-
-                if (
-                  page.search('pages/404.') > -1 ||
-                  page.search(`pages/blog/[...slug].`) > -1
-                ) {
-                  return ''
-                }
                 return `
                         <url>
                             <loc>${siteMetadata.siteUrl}${route}</loc>
@@ -61,10 +48,7 @@ import siteMetadata from '../data/siteMetadata'
         </urlset>
     `
 
-  const formatted = prettier.format(sitemap, {
-    ...prettierConfig,
-    parser: 'html',
-  })
+  await writeXml(sitemap, outputFilePath)
+}
 
-  fs.writeFileSync('public/sitemap.xml', formatted)
-})()
+generate()

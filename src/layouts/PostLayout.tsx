@@ -8,9 +8,9 @@ import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
 import siteMetadata from 'data/siteMetadata'
 
+import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { ReactNode } from 'react'
-import type { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
-import type { PostFrontMatter } from '@/types/PostFrontMatter'
+import type { Authors, Blog } from 'contentlayer/generated'
 
 const editUrl = (fileName) =>
   `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
@@ -27,28 +27,28 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 }
 
 interface Props {
-  frontMatter: PostFrontMatter
-  authorDetails: AuthorFrontMatter[]
+  content: CoreContent<Blog>
+  authorDetails: CoreContent<Authors>[]
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
   children: ReactNode
 }
 
 export default function PostLayout({
-  frontMatter,
+  content,
   authorDetails,
   next,
   prev,
   children,
 }: Props) {
-  const { slug, fileName, date, title, tags } = frontMatter
+  const { slug, date, title, tags } = content
 
   return (
     <SectionContainer>
       <BlogSEO
         url={`${siteMetadata.siteUrl}/blog/${slug}`}
         authorDetails={authorDetails}
-        {...frontMatter}
+        {...content}
       />
       <ScrollTopAndComment />
       <article>
@@ -129,9 +129,9 @@ export default function PostLayout({
                   {'Discuss on Twitter'}
                 </Link>
                 {` • `}
-                <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
+                <Link href={editUrl(slug)}>{'View on GitHub'}</Link>
               </div>
-              <Comments frontMatter={frontMatter} />
+              <Comments frontMatter={content} />
             </div>
             <footer>
               <div className='divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y'>

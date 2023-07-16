@@ -3,8 +3,8 @@ import { useRouter } from 'next/router'
 
 import siteMetadata from 'data/siteMetadata'
 
-import type { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
-import type { PostFrontMatter } from '@/types/PostFrontMatter'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+import type { Authors, Blog } from 'contentlayer/generated'
 
 interface CommonSEOProps {
   title: string
@@ -106,8 +106,8 @@ export const TagSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
-interface BlogSeoProps extends PostFrontMatter {
-  authorDetails?: AuthorFrontMatter[]
+interface BlogSeoProps extends CoreContent<Blog> {
+  authorDetails?: CoreContent<Authors>[]
   url: string
 }
 
@@ -133,9 +133,7 @@ export const BlogSEO = ({
   const featuredImages = imagesArr.map((img) => {
     return {
       '@type': 'ImageObject',
-      'url': ['http:', 'https:'].some((item) => img.startsWith(item))
-        ? img
-        : siteMetadata.siteUrl + img,
+      'url': `${siteMetadata.siteUrl}${img}`,
     }
   })
 

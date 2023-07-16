@@ -3,18 +3,22 @@ import NewsletterForm from '@/components/NewsletterForm'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import siteMetadata from 'data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
+import { allBlogs } from 'contentlayer/generated'
+import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
+import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import type { PostFrontMatter } from '@/types/PostFrontMatter'
+import type { Blog } from 'contentlayer/generated'
 
 const MAX_DISPLAY = 5
 
 export const getStaticProps: GetStaticProps<{
-  posts: PostFrontMatter[]
+  posts: CoreContent<Blog>[]
 }> = async () => {
-  const posts = await getAllFilesFrontMatter('blog')
+  // TODO: move computation to get only the essential frontmatter to contentlayer.config
+  const sortedPosts = sortedBlogPost(allBlogs)
+  const posts = allCoreContent(sortedPosts)
 
   return { props: { posts } }
 }
