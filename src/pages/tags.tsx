@@ -4,7 +4,7 @@ import Tag from '@/components/Tag'
 import kebabCase from '@/lib/utils/kebabCase'
 import { getAllTags } from '@/lib/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 
@@ -25,7 +25,7 @@ export default function Tags({
   return (
     <>
       <PageSEO
-        title={`Tags - ${siteMetadata.author}`}
+        title={`Tags - ${metadata.author}`}
         description='Things I blog about'
       />
       <div className='flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0'>

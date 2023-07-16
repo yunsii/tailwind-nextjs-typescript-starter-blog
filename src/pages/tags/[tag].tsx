@@ -1,13 +1,19 @@
+import { allBlogs } from 'contentlayer/generated'
+import metadata from 'data/metadata'
 import { TagSEO } from '@/components/SEO'
 import ListLayout from '@/layouts/ListLayout'
 import kebabCase from '@/lib/utils/kebabCase'
 import { allCoreContent, getAllTags } from '@/lib/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
-import siteMetadata from 'data/siteMetadata'
 
-import type { InferGetStaticPropsType } from 'next'
+import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from 'next'
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths<{ tag: string }> = async () => {
   const tags = await getAllTags(allBlogs)
 
   return {
@@ -20,12 +26,21 @@ export async function getStaticPaths() {
   }
 }
 
-export const getStaticProps = async (context) => {
-  const tag = context.params.tag as string
+export const getStaticProps: GetStaticProps<
+  {
+    posts: CoreContent<Blog>[]
+    tag: string
+  },
+  {
+    tag: string
+  }
+> = async (context) => {
+  const tag = context.params!.tag
   const filteredPosts = allCoreContent(
     allBlogs.filter(
       (post) =>
-        post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(tag),
+        post.draft !== true &&
+        post.tags?.map((t) => kebabCase(t)).includes(tag),
     ),
   )
 
@@ -41,8 +56,8 @@ export default function Tag({
   return (
     <>
       <TagSEO
-        title={`${tag} - ${siteMetadata.title}`}
-        description={`${tag} tags - ${siteMetadata.author}`}
+        title={`${tag} - ${metadata.title}`}
+        description={`${tag} tags - ${metadata.author}`}
       />
       <ListLayout posts={posts} title={title} />
     </>

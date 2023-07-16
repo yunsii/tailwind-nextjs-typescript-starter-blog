@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 const UmamiScript = () => {
   return (
@@ -8,7 +8,7 @@ const UmamiScript = () => {
       <Script
         async
         defer
-        data-website-id={siteMetadata.analytics.umamiWebsiteId}
+        data-website-id={metadata.analytics?.umamiWebsiteId}
         src='https://umami.example.com/umami.js' // Replace with your umami instance
       />
     </>

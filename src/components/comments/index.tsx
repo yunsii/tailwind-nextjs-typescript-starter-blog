@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
@@ -28,20 +28,19 @@ const DisqusComponent = dynamic(
 )
 
 const Comments = ({ frontMatter }: Props) => {
-  const commentProvider = siteMetadata?.comment.provider
+  const commentProvider = metadata?.comment?.provider
   if (!commentProvider) {
     return <></>
   }
   return (
     <div id='comment'>
-      {siteMetadata.comment && siteMetadata.comment.provider === 'giscus' && (
+      {metadata.comment && metadata.comment.provider === 'giscus' && (
         <GiscusComponent />
       )}
-      {siteMetadata.comment &&
-        siteMetadata.comment.provider === 'utterances' && (
-          <UtterancesComponent />
-        )}
-      {siteMetadata.comment && siteMetadata.comment.provider === 'disqus' && (
+      {metadata.comment && metadata.comment.provider === 'utterances' && (
+        <UtterancesComponent />
+      )}
+      {metadata.comment && metadata.comment.provider === 'disqus' && (
         <DisqusComponent frontMatter={frontMatter} />
       )}
     </div>

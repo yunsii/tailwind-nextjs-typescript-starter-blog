@@ -16,12 +16,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
-      email_address: email,
-      status: 'subscribed',
-    })
+    await mailchimp.lists.addListMember(
+      process.env.MAILCHIMP_AUDIENCE_ID || '',
+      {
+        email_address: email,
+        status: 'subscribed',
+      },
+    )
     return res.status(201).json({ error: '' })
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() })
+    if (error instanceof Error) {
+      return res.status(500).json({ error: error.message || error.toString() })
+    }
+    console.error(error)
+    return res.status(500).json({ error: 'Unexpected error occurred.' })
   }
 }

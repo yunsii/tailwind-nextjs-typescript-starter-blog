@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 const ScrollTopAndComment = () => {
   const [show, setShow] = useState(false)
@@ -22,7 +22,7 @@ const ScrollTopAndComment = () => {
     window.scrollTo({ top: 0 })
   }
   const handleScrollToComment = () => {
-    document.getElementById('comment').scrollIntoView()
+    document.getElementById('comment')?.scrollIntoView()
   }
   return (
     <div
@@ -30,7 +30,7 @@ const ScrollTopAndComment = () => {
         show ? 'md:flex' : 'md:hidden'
       }`}
     >
-      {siteMetadata.comment.provider && (
+      {metadata.comment?.provider && (
         <button
           aria-label='Scroll To Comment'
           type='button'

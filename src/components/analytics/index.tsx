@@ -1,4 +1,4 @@
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 import GA from './GoogleAnalytics'
 import Plausible from './Plausible'
@@ -18,14 +18,12 @@ const isProduction = process.env.NODE_ENV === 'production'
 const Analytics = () => {
   return (
     <>
-      {isProduction && siteMetadata.analytics.plausibleDataDomain && (
-        <Plausible />
-      )}
-      {isProduction && siteMetadata.analytics.simpleAnalytics && (
+      {isProduction && metadata.analytics?.plausibleDataDomain && <Plausible />}
+      {isProduction && metadata.analytics?.simpleAnalytics && (
         <SimpleAnalytics />
       )}
-      {isProduction && siteMetadata.analytics.umamiWebsiteId && <Umami />}
-      {isProduction && siteMetadata.analytics.googleAnalyticsId && <GA />}
+      {isProduction && metadata.analytics?.umamiWebsiteId && <Umami />}
+      {isProduction && metadata.analytics?.googleAnalyticsId && <GA />}
     </>
   )
 }

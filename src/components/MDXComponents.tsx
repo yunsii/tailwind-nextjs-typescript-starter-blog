@@ -10,13 +10,13 @@ import { BlogNewsletterForm } from './NewsletterForm'
 import Pre from './Pre'
 import TOCInline from './TOCInline'
 
+import type { MDXComponents } from 'mdx/types'
 import type { DynamicLayout } from '@/layouts/dynamic'
-import type { ComponentMap } from 'mdx-bundler/client'
-import type { Authors, Blog } from 'contentlayer/generated'
+import type { Author, Blog } from 'contentlayer/generated'
 
 interface MDXLayout {
   layout: DynamicLayout
-  content: Blog | Authors
+  content: Blog | Author
   [key: string]: unknown
 }
 
@@ -26,7 +26,7 @@ const Wrapper = ({ layout, ...rest }: MDXLayout) => {
 }
 
 // https://mdxjs.com/table-of-components/#components
-export const MDXComponents: ComponentMap = {
+export const customMDXComponents: MDXComponents = {
   a: CustomLink,
   pre: Pre,
   wrapper: Wrapper,
@@ -39,7 +39,7 @@ export const MDXComponents: ComponentMap = {
 
 interface Props {
   layout: string
-  content: Blog | Authors
+  content: Blog | Author
   [key: string]: unknown
 }
 
@@ -51,7 +51,7 @@ export const MDXLayoutRenderer = ({ layout, content, ...rest }: Props) => {
     <MDXLayout
       layout={layout}
       content={mainContent}
-      components={MDXComponents}
+      components={customMDXComponents}
       {...rest}
     />
   )

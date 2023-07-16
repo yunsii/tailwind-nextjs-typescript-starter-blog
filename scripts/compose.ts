@@ -23,14 +23,14 @@ const getLayouts = () => {
   return layoutList
 }
 
-const genFrontMatter = (answers) => {
+const genFrontMatter = (answers: Record<string, any>) => {
   const d = new Date()
   const date = [
     d.getFullYear(),
     `0${d.getMonth() + 1}`.slice(-2),
     `0${d.getDate()}`.slice(-2),
   ].join('-')
-  const tagArray = answers.tags.split(',')
+  const tagArray: string[] = answers.tags.split(',')
   tagArray.forEach((tag, index) => (tagArray[index] = tag.trim()))
   const tags = `'${tagArray.join("','")}'`
   const authorArray =

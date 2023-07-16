@@ -6,17 +6,17 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
 import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { ReactNode } from 'react'
-import type { Authors, Blog } from 'contentlayer/generated'
+import type { Author, Blog } from 'contentlayer/generated'
 
-const editUrl = (fileName) =>
-  `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
-const discussUrl = (slug) =>
+const editUrl = (fileName: string) =>
+  `${metadata.siteRepo}/blob/master/data/blog/${fileName}`
+const discussUrl = (slug: string) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `${siteMetadata.siteUrl}/blog/${slug}`,
+    `${metadata.siteUrl}/blog/${slug}`,
   )}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
@@ -28,7 +28,7 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 
 interface Props {
   content: CoreContent<Blog>
-  authorDetails: CoreContent<Authors>[]
+  authorDetails: CoreContent<Author>[]
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
   children: ReactNode
@@ -46,7 +46,7 @@ export default function PostLayout({
   return (
     <SectionContainer>
       <BlogSEO
-        url={`${siteMetadata.siteUrl}/blog/${slug}`}
+        url={`${metadata.siteUrl}/blog/${slug}`}
         authorDetails={authorDetails}
         {...content}
       />
@@ -61,7 +61,7 @@ export default function PostLayout({
                   <dd className='text-base font-medium leading-6 text-gray-500 dark:text-gray-400'>
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(
-                        siteMetadata.locale,
+                        metadata.locale,
                         postDateTemplate,
                       )}
                     </time>

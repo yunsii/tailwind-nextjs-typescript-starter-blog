@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
@@ -17,13 +17,13 @@ const Disqus = ({ frontMatter }: Props) => {
   function LoadComments() {
     setEnabledLoadComments(false)
 
-    window.disqus_config = function () {
+    window.disqus_config = function (this: any) {
       this.page.url = window.location.href
       this.page.identifier = frontMatter.slug
     }
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
-      script.src = `https://${siteMetadata.comment.disqusConfig.shortname}.disqus.com/embed.js`
+      script.src = `https://${metadata.comment?.disqusConfig?.shortname}.disqus.com/embed.js`
       script.setAttribute('data-timestamp', `${new Date().valueOf()}`)
       script.setAttribute('crossorigin', 'anonymous')
       script.async = true

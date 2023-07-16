@@ -2,10 +2,10 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ArticleJsonLd, NextSeo } from 'next-seo'
 
-import siteMetadata from 'data/siteMetadata'
+import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { Authors, Blog } from 'contentlayer/generated'
+import type { Author, Blog } from 'contentlayer/generated'
 
 interface PageSEOProps {
   title: string
@@ -13,7 +13,7 @@ interface PageSEOProps {
 }
 
 export const PageSEO = ({ title, description }: PageSEOProps) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+  const ogImageUrl = metadata.siteUrl + metadata.socialBanner
   return (
     <NextSeo
       title={title}
@@ -27,7 +27,7 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
 }
 
 export const TagSEO = ({ title, description }: PageSEOProps) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+  const ogImageUrl = metadata.siteUrl + metadata.socialBanner
   const router = useRouter()
   return (
     <>
@@ -44,7 +44,7 @@ export const TagSEO = ({ title, description }: PageSEOProps) => {
           rel='alternate'
           type='application/rss+xml'
           title={`${description} - RSS feed`}
-          href={`${siteMetadata.siteUrl}${router.asPath}/feed.xml`}
+          href={`${metadata.siteUrl}${router.asPath}/feed.xml`}
         />
       </Head>
     </>
@@ -52,7 +52,7 @@ export const TagSEO = ({ title, description }: PageSEOProps) => {
 }
 
 interface BlogSeoProps extends CoreContent<Blog> {
-  authorDetails?: CoreContent<Authors>[]
+  authorDetails?: CoreContent<Author>[]
   url: string
 }
 
@@ -70,7 +70,7 @@ export const BlogSEO = ({
   const modifiedAt = new Date(lastmod || date).toISOString()
   const imagesArr =
     images.length === 0
-      ? [siteMetadata.socialBanner]
+      ? [metadata.socialBanner]
       : typeof images === 'string'
       ? [images]
       : images
@@ -78,7 +78,7 @@ export const BlogSEO = ({
   const featuredImages = imagesArr.map((img) => {
     return {
       '@type': 'ImageObject',
-      'url': `${siteMetadata.siteUrl}${img}`,
+      'url': `${metadata.siteUrl}${img}`,
     }
   })
 
@@ -93,7 +93,7 @@ export const BlogSEO = ({
   } else {
     authorList = {
       '@type': 'Person',
-      'name': siteMetadata.author,
+      'name': metadata.author,
     }
   }
 
@@ -128,9 +128,9 @@ export const BlogSEO = ({
         datePublished={publishedAt}
         dateModified={modifiedAt}
         authorName={authorList}
-        description={summary}
-        publisherName={siteMetadata.author}
-        publisherLogo={`${siteMetadata.siteUrl}${siteMetadata.siteLogo}`}
+        description={summary || ''}
+        publisherName={metadata.author}
+        publisherLogo={`${metadata.siteUrl}${metadata.siteLogo}`}
       />
     </>
   )
