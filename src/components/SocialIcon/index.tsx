@@ -1,10 +1,10 @@
-import Facebook from './facebook.svg'
-import Github from './github.svg'
-import Juejin from './juejin.svg'
-import Linkedin from './linkedin.svg'
-import Mail from './mail.svg'
-import Twitter from './twitter.svg'
-import Youtube from './youtube.svg'
+import Github from '@/assets/social-icons/github.svg'
+import Juejin from '@/assets/social-icons/juejin.svg'
+import Linkedin from '@/assets/social-icons/linkedin.svg'
+import Mail from '@/assets/social-icons/mail.svg'
+import Twitter from '@/assets/social-icons/twitter.svg'
+import Youtube from '@/assets/social-icons/youtube.svg'
+import Facebook from '@/assets/social-icons/facebook.svg'
 
 // Icons taken from: https://simpleicons.org/
 
