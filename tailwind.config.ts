@@ -1,10 +1,12 @@
 // HMR enabled by nextjs
 
-const colors = require('tailwindcss/colors')
-const defaultTheme = require('tailwindcss/defaultTheme')
+import colors from 'tailwindcss/colors'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
-/** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
-module.exports = {
+import type { PluginAPI } from 'tailwindcss/types/config'
+import type { Config } from 'tailwindcss'
+
+const config: Config = {
   content: ['./src/**/*.ts[x]', './data/**/*.mdx'],
   darkMode: 'class',
   theme: {
@@ -23,10 +25,9 @@ module.exports = {
       },
       colors: {
         primary: colors.teal,
-        //@ts-ignore
-        gray: colors.neutral, // TODO: Remove ts-ignore after tw types gets updated to v3
+        gray: colors.neutral,
       },
-      typography: (theme) => ({
+      typography: (theme: PluginAPI['theme']) => ({
         DEFAULT: {
           css: {
             'color': theme('colors.gray.700'),
@@ -161,3 +162,5 @@ module.exports = {
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 }
+
+export default config
