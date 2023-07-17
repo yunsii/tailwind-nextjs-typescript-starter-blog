@@ -10,6 +10,7 @@
     "postbuild": "npm run sitemap && npm run rss",
     "sitemap": "tsx ./scripts/generate-sitemap.ts",
     "rss": "tsx ./scripts/generate-rss.ts",
+    "compose": "tsx ./scripts/compose.ts",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx .",
@@ -40,6 +41,7 @@
   "dependencies": {
     "@fontsource/inter": "4.5.2",
     "@mailchimp/mailchimp_marketing": "^3.0.58",
+    "consola": "^3.2.3",
     "fs-extra": "^11.1.1",
     "github-slugger": "^2.0.0",
     "html-entities": "^2.4.0",

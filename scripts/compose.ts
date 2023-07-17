@@ -3,6 +3,7 @@ import path from 'path'
 
 import dedent from 'dedent'
 import inquirer from 'inquirer'
+import consola from 'consola'
 
 const root = process.cwd()
 
@@ -64,12 +65,6 @@ inquirer
       type: 'input',
     },
     {
-      name: 'extension',
-      message: 'Choose post extension:',
-      type: 'list',
-      choices: ['mdx', 'md'],
-    },
-    {
       name: 'authors',
       message: 'Choose authors:',
       type: 'checkbox',
@@ -114,21 +109,19 @@ inquirer
     if (!fs.existsSync('data/blog')) {
       fs.mkdirSync('data/blog', { recursive: true })
     }
-    const filePath = `data/blog/${fileName || 'untitled'}.${
-      answers.extension ? answers.extension : 'md'
-    }`
+    const filePath = `data/blog/${fileName || 'untitled'}.mdx`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
       } else {
-        console.log(`Blog post generated successfully at ${filePath}`)
+        consola.log(`Blog post generated successfully at ${filePath}`)
       }
     })
   })
   .catch((error) => {
     if (error.isTtyError) {
-      console.log("Prompt couldn't be rendered in the current environment")
+      consola.log("Prompt couldn't be rendered in the current environment")
     } else {
-      console.log('Something went wrong, sorry!')
+      consola.log('Something went wrong, sorry!')
     }
   })
