@@ -1,14 +1,18 @@
+import 'katex/dist/katex.css'
+
 import React from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { coreContent } from '@/lib/utils/contentlayer'
 import { mdxDynamicLayouts } from '@/layouts/dynamic'
 
-import Image from './Image'
-import CustomLink from './Link'
-import { BlogNewsletterForm } from './NewsletterForm'
-import Pre from './Pre'
-import TOCInline from './TOCInline'
+import Image from '../Image'
+import CustomLink from '../Link'
+import { BlogNewsletterForm } from '../NewsletterForm'
+import Pre from '../Pre'
+import TOCInline from '../TOCInline'
+
+import styles from './prism.module.scss'
 
 import type { MDXComponents } from 'mdx/types'
 import type { DynamicLayout } from '@/layouts/dynamic'
@@ -48,11 +52,13 @@ export const MDXLayoutRenderer = ({ layout, content, ...rest }: Props) => {
   const mainContent = coreContent(content)
 
   return (
-    <MDXLayout
-      layout={layout}
-      content={mainContent}
-      components={customMDXComponents}
-      {...rest}
-    />
+    <div className={styles['mdx-wrapper']}>
+      <MDXLayout
+        layout={layout}
+        content={mainContent}
+        components={customMDXComponents}
+        {...rest}
+      />
+    </div>
   )
 }
