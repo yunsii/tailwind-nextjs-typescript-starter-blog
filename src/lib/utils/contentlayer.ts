@@ -1,4 +1,4 @@
-import kebabCase from '@/lib/utils/kebabCase'
+import { slug } from 'github-slugger'
 
 import type { Blog, DocumentTypes } from 'contentlayer/generated'
 
@@ -67,7 +67,7 @@ export async function getAllTags(allBlogs: Blog[]) {
   allBlogs.forEach((file) => {
     if (file.tags && file.draft !== true) {
       file.tags.forEach((tag) => {
-        const formattedTag = kebabCase(tag)
+        const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
         } else {

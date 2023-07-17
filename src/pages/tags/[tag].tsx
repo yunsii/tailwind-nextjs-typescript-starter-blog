@@ -1,8 +1,9 @@
+import { slug } from 'github-slugger'
+
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
 import { TagSEO } from '@/components/SEO'
 import ListLayout from '@/layouts/ListLayout'
-import kebabCase from '@/lib/utils/kebabCase'
 import { allCoreContent, getAllTags } from '@/lib/utils/contentlayer'
 
 import type { Blog } from 'contentlayer/generated'
@@ -39,8 +40,7 @@ export const getStaticProps: GetStaticProps<
   const filteredPosts = allCoreContent(
     allBlogs.filter(
       (post) =>
-        post.draft !== true &&
-        post.tags?.map((t) => kebabCase(t)).includes(tag),
+        post.draft !== true && post.tags?.map((t) => slug(t)).includes(tag),
     ),
   )
 
