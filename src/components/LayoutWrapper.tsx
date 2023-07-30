@@ -1,5 +1,5 @@
 import menu from 'data/menu'
-import Logo from 'data/logo.svg'
+import Logo from 'data/logo.svg?svgr'
 import metadata from 'data/metadata'
 
 import Footer from './Footer'
