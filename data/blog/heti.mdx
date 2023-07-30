@@ -1,6 +1,7 @@
 ---
 title: 赫蹏排版演示
 date: '2023-07-23'
+tags: ['赫蹏']
 draft: false
 summary:
 layout: PostHeti
@@ -22,7 +23,7 @@ images: []
 - 自适应黑暗模式；
 - 中西文混排美化，不再手敲空格（基于JavaScript脚本）；
 - 标点挤压（基于JavaScript脚本）；
-- 兼容*normalize.css*、*CSS Reset<sup><a id="ref-01" href="#fn-01">[1]</a></sup>等常见样式重置；
+- 兼容<i><heti-spacing class="heti-spacing-end">normalize.css</heti-spacing></i>、<i><heti-spacing class="heti-spacing-start">CSS Reset</heti-spacing><sup><a id="ref-01" href="#fn-01">[1]</a></sup></i>等常见样式重置；
 - 移动端支持；
 - ……
 
@@ -77,7 +78,7 @@ images: []
 <div className="heti heti--ancient mt-6">
 # 出师表
 
-<p className='heti-meta heti-small'>作者：諸葛亮（181年～234年10月8日）</p>
+<p className='heti-meta heti-small'>作者：<abbr title="字孔明">諸葛亮</abbr>（181年～234年10月8日）</p>
 
 先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。
 
@@ -142,8 +143,7 @@ images: []
 
 <div className="heti heti--poetry mt-6">
 
-{/* prettier-ignore */}
-<h2>一剪梅<heti-spacing className='heti-spacing-start heti-spacing-end'>·</heti-spacing>红藕香残玉簟秋<span className='heti-meta heti-small'>[宋]李清照</span></h2>
+<h2>一剪梅<heti-spacing className='heti-spacing-start heti-spacing-end'>·</heti-spacing>红藕香残玉簟秋<span className='heti-meta heti-small'><heti-spacing className="heti-spacing-start heti-spacing-end">[</heti-spacing>宋<heti-spacing className="heti-spacing-start heti-spacing-end">]</heti-spacing><abbr title="号易安居士">李清照</abbr></span></h2>
 
 红藕香残玉簟秋。轻解罗裳，独上兰舟<span className="heti-hang">。</span>  
 云中谁寄锦书来，雁字回时，月满西楼<span className="heti-hang">。</span>  
@@ -156,8 +156,7 @@ images: []
 
 <div className="heti heti--poetry">
 
-{/* prettier-ignore */}
-<h2>赠汪伦<span className='heti-meta heti-small'>[唐]李白</span></h2>
+<h2>赠汪伦<span className="heti-meta heti-small"><heti-spacing className="heti-spacing-start heti-spacing-end">[</heti-spacing>唐<heti-spacing className="heti-spacing-start heti-spacing-end">]</heti-spacing><abbr title="号青莲居士">李白</abbr></span></h2>
 
 李白乘舟将欲行<span className="heti-hang">，</span>  
 忽闻岸上踏歌声<span className="heti-hang">。</span>  
@@ -342,11 +341,11 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 
 </details>
 
-<footer class="heti-fn">
+<footer className="heti-fn">
   <ol>
     <li id="fn-01">
       <a href="#ref-01" title="移至">^</a>
-      CSS Reset：指代类似<heti-spacing class="heti-spacing-start heti-spacing-end">Eric Meyer's Reset CSS</heti-spacing>的样式重置方案
+      CSS Reset：指代类似<heti-spacing className="heti-spacing-start heti-spacing-end">Eric Meyer's Reset CSS</heti-spacing>的样式重置方案
     </li>
   </ol>
 </footer>

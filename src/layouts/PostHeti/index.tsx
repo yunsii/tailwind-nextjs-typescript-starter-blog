@@ -36,10 +36,10 @@ export default function HetiLayout(props: React.PropsWithChildren<Props>) {
       <ScrollTopAndComment />
       <article
         lang='zh'
-        className={`heti heti--classic ${styles['heti-custom']} mx-auto`}
+        className={`heti heti--classic ${styles['heti-custom']} mx-auto text-[#161823] dark:text-[#a3a3a3]`}
       >
         <header>
-          <div className='space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700'>
+          <div className='space-y-1 border-b border-gray-200 pb-4 text-center dark:border-gray-700'>
             <dl>
               <div>
                 <dt className='sr-only'>发表于</dt>

@@ -1,3 +1,7 @@
+// 暗色主题参考：
+// - https://github.com/sivan/heti/blob/9c18b4f97e1e645b4dbf1db45e7673f760e7d97c/_site/index.css
+// - https://github.com/sivan/heti/blob/9c18b4f97e1e645b4dbf1db45e7673f760e7d97c/_site/heti.css
+
 .heti-custom {
   :global {
     .card {
@@ -35,6 +39,72 @@
         line-height: 24px;
         border-block-start: 1px solid hsl(0deg, 0%, 93%);
       }
+    }
+
+    a {
+      color: #177cb0;
+    }
+  }
+}
+
+:is(:global(.dark)) {
+  .heti-custom:global(.heti) {
+    :global {
+      .card {
+        @screen sm {
+          box-shadow: 0 4px 16px #e5e5e5;
+        }
+
+        .card-vertical-container {
+          border-color: hsl(0deg, 0%, 20%);
+        }
+
+        > figcaption {
+          border-block-start: 1px solid hsl(0deg, 0%, 20%);
+        }
+      }
+    }
+
+    blockquote {
+      background-color: hsla(0deg, 0%, 100%, 0.054);
+    }
+
+    hr {
+      background-color: hsl(0deg, 0%, 25%);
+    }
+
+    pre {
+      background-color: hsla(0deg, 0%, 100%, 0.054);
+    }
+
+    table {
+      border-color: hsl(0deg, 0%, 25%);
+    }
+
+    th,
+    td {
+      border-color: hsl(0deg, 0%, 25%);
+    }
+
+    mark {
+      background-color: hsla(58deg, 100%, 15%, 0.88);
+    }
+
+    sup:target,
+    sup a:target {
+      background-color: hsl(210deg, 40%, 38%);
+    }
+
+    u[title] {
+      border-block-end-color: hsla(0deg, 0%, 100%, 0.54);
+    }
+
+    .heti-fn {
+      border-block-start-color: hsl(0deg, 0%, 25%);
+    }
+
+    .heti-fn li:target {
+      background-color: hsl(210deg, 40%, 38%);
     }
   }
 }
