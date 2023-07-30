@@ -1,11 +1,10 @@
 import '@/css/tailwind.css'
-import '@fontsource/inter/variable-full.css'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 
 import LayoutWrapper from '@/components/LayoutWrapper'
-import Analytics from '@/components/analytics'
 import metadata from 'data/metadata'
+import Analytics from '@/components/Analytics'
 
 import type { AppProps } from 'next/app'
 

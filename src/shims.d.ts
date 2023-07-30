@@ -1,6 +1,7 @@
 interface Window {
   disqus_config: () => void
   DISQUS: any
+  analytics: import('analytics').AnalyticsInstance
 }
 
 declare module 'heti/js/heti-addon' {
@@ -30,4 +31,9 @@ declare module '*.svg?svgr' {
     props: React.SVGProps<SVGSVGElement>,
   ) => React.ReactElement
   export default SvgSpriteSymbol
+}
+
+declare module '@analytics/google-tag-manager' {
+  const gtm: (options: { containerId?: string }) => Record<string, unknown>
+  export default gtm
 }

@@ -36,15 +36,7 @@ export interface Metadata {
    */
   locale: string
   analytics?: {
-    // supports plausible, simpleAnalytics, umami or googleAnalytics
-    // e.g. tailwind-nextjs-starter-blog.vercel.app
-    plausibleDataDomain?: string
-    /** true or false */
-    simpleAnalytics?: boolean
-    /** e.g. 123e4567-e89b-12d3-a456-426614174000 */
-    umamiWebsiteId?: string
-    /** e.g. UA-000000-2 or G-XXXXXXX */
-    googleAnalyticsId?: string
+    gtmContainerId?: string
   }
   newsletter?: {
     // Please add your .env file and modify it according to your selection
