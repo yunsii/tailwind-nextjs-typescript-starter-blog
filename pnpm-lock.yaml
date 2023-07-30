@@ -18,7 +18,7 @@ dependencies:
     specifier: ^0.5.5
     version: 0.5.5
   '@mailchimp/mailchimp_marketing':
-    specifier: ^3.0.58
+    specifier: ^3.0.74
     version: registry.npmmirror.com/@mailchimp/mailchimp_marketing@3.0.74
   analytics:
     specifier: ^0.8.9
@@ -51,14 +51,14 @@ dependencies:
     specifier: ^4.0.0
     version: 4.0.0
   next:
-    specifier: ^13.4.10
-    version: 13.4.10(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
+    specifier: ^13.4.12
+    version: 13.4.12(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
   next-seo:
     specifier: ^6.1.0
-    version: 6.1.0(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
+    version: 6.1.0(next@13.4.12)(react-dom@18.2.0)(react@18.2.0)
   next-themes:
     specifier: ^0.2.1
-    version: 0.2.1(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
+    version: 0.2.1(next@13.4.12)(react-dom@18.2.0)(react@18.2.0)
   preact:
     specifier: ^10.16.0
     version: 10.16.0
@@ -72,10 +72,10 @@ dependencies:
     specifier: 1.3.0
     version: registry.npmmirror.com/reading-time@1.3.0
   rehype-autolink-headings:
-    specifier: ^6.1.0
+    specifier: ^6.1.1
     version: registry.npmmirror.com/rehype-autolink-headings@6.1.1
   rehype-citation:
-    specifier: ^0.2.0
+    specifier: ^0.2.5
     version: registry.npmmirror.com/rehype-citation@0.2.5
   rehype-katex:
     specifier: ^6.0.2
@@ -84,10 +84,10 @@ dependencies:
     specifier: 6.0.0
     version: registry.npmmirror.com/rehype-preset-minify@6.0.0
   rehype-prism-plus:
-    specifier: ^1.1.3
+    specifier: ^1.3.2
     version: registry.npmmirror.com/rehype-prism-plus@1.3.2
   rehype-slug:
-    specifier: ^5.0.0
+    specifier: ^5.0.1
     version: registry.npmmirror.com/rehype-slug@5.0.1
   remark:
     specifier: ^14.0.3
@@ -102,7 +102,7 @@ dependencies:
     specifier: ^5.1.1
     version: registry.npmmirror.com/remark-math@5.1.1
   unist-util-visit:
-    specifier: ^4.0.0
+    specifier: ^4.1.0
     version: registry.npmmirror.com/unist-util-visit@4.1.0
 
 devDependencies:
@@ -131,13 +131,13 @@ devDependencies:
     specifier: ^3.1.1
     version: 3.1.1(prettier@3.0.0)
   '@svgr/webpack':
-    specifier: ^6.1.2
+    specifier: ^6.2.1
     version: registry.npmmirror.com/@svgr/webpack@6.2.1
   '@tailwindcss/forms':
-    specifier: ^0.4.0
+    specifier: ^0.4.1
     version: registry.npmmirror.com/@tailwindcss/forms@0.4.1(tailwindcss@3.3.3)
   '@tailwindcss/typography':
-    specifier: ^0.5.0
+    specifier: ^0.5.2
     version: registry.npmmirror.com/@tailwindcss/typography@0.5.2(tailwindcss@3.3.3)
   '@types/fs-extra':
     specifier: ^11.0.1
@@ -194,7 +194,7 @@ devDependencies:
     specifier: ^8.8.0
     version: 8.8.0(eslint@8.45.0)
   eslint-plugin-prettier:
-    specifier: ^3.3.1
+    specifier: ^3.4.1
     version: registry.npmmirror.com/eslint-plugin-prettier@3.4.1(eslint-config-prettier@8.8.0)(eslint@8.45.0)(prettier@3.0.0)
   execa:
     specifier: ^7.1.1
@@ -206,7 +206,7 @@ devDependencies:
     specifier: ^6.0.0
     version: registry.npmmirror.com/husky@6.0.0
   inquirer:
-    specifier: ^8.1.1
+    specifier: ^8.2.1
     version: registry.npmmirror.com/inquirer@8.2.1
   js-yaml:
     specifier: ^4.1.0
@@ -216,7 +216,7 @@ devDependencies:
     version: 13.2.3
   next-contentlayer:
     specifier: ^0.3.4
-    version: 0.3.4(contentlayer@0.3.4)(esbuild@0.18.13)(next@13.4.10)(react-dom@18.2.0)(react@18.2.0)
+    version: 0.3.4(contentlayer@0.3.4)(esbuild@0.18.13)(next@13.4.12)(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: ^8.4.12
     version: registry.npmmirror.com/postcss@8.4.12
@@ -904,7 +904,7 @@ packages:
       '@contentlayer/core': 0.3.4(esbuild@0.18.13)
       '@contentlayer/utils': 0.3.4
       chokidar: 3.5.3
-      fast-glob: 3.3.0
+      fast-glob: 3.3.1
       gray-matter: 4.0.3
       imagescript: 1.2.16
       micromatch: 4.0.5
@@ -1898,10 +1898,10 @@ packages:
       - supports-color
     dev: true
 
-  /@next/env@13.4.10:
+  /@next/env@13.4.12:
     resolution:
       {
-        integrity: sha512-3G1yD/XKTSLdihyDSa8JEsaWOELY+OWe08o0LUYzfuHp1zHDA8SObQlzKt+v+wrkkPcnPweoLH1ImZeUa0A1NQ==,
+        integrity: sha512-RmHanbV21saP/6OEPBJ7yJMuys68cIf8OBBWd7+uj40LdpmswVAwe1uzeuFyUsd6SfeITWT3XnQfn6wULeKwDQ==,
       }
 
   /@next/eslint-plugin-next@13.4.8:
@@ -1913,10 +1913,10 @@ packages:
       glob: 7.1.7
     dev: true
 
-  /@next/swc-darwin-arm64@13.4.10:
+  /@next/swc-darwin-arm64@13.4.12:
     resolution:
       {
-        integrity: sha512-4bsdfKmmg7mgFGph0UorD1xWfZ5jZEw4kKRHYEeTK9bT1QnMbPVPlVXQRIiFPrhoDQnZUoa6duuPUJIEGLV1Jg==,
+        integrity: sha512-deUrbCXTMZ6ZhbOoloqecnUeNpUOupi8SE2tx4jPfNS9uyUR9zK4iXBvH65opVcA/9F5I/p8vDXSYbUlbmBjZg==,
       }
     engines: { node: '>= 10' }
     cpu: [arm64]
@@ -1924,10 +1924,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-darwin-x64@13.4.10:
+  /@next/swc-darwin-x64@13.4.12:
     resolution:
       {
-        integrity: sha512-ngXhUBbcZIWZWqNbQSNxQrB9T1V+wgfCzAor2olYuo/YpaL6mUYNUEgeBMhr8qwV0ARSgKaOp35lRvB7EmCRBg==,
+        integrity: sha512-WRvH7RxgRHlC1yb5oG0ZLx8F7uci9AivM5/HGGv9ZyG2Als8Ij64GC3d+mQ5sJhWjusyU6T6V1WKTUoTmOB0zQ==,
       }
     engines: { node: '>= 10' }
     cpu: [x64]
@@ -1935,10 +1935,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-arm64-gnu@13.4.10:
+  /@next/swc-linux-arm64-gnu@13.4.12:
     resolution:
       {
-        integrity: sha512-SjCZZCOmHD4uyM75MVArSAmF5Y+IJSGroPRj2v9/jnBT36SYFTORN8Ag/lhw81W9EeexKY/CUg2e9mdebZOwsg==,
+        integrity: sha512-YEKracAWuxp54tKiAvvq73PUs9lok57cc8meYRibTWe/VdPB2vLgkTVWFcw31YDuRXdEhdX0fWS6Q+ESBhnEig==,
       }
     engines: { node: '>= 10' }
     cpu: [arm64]
@@ -1946,10 +1946,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-arm64-musl@13.4.10:
+  /@next/swc-linux-arm64-musl@13.4.12:
     resolution:
       {
-        integrity: sha512-F+VlcWijX5qteoYIOxNiBbNE8ruaWuRlcYyIRK10CugqI/BIeCDzEDyrHIHY8AWwbkTwe6GRHabMdE688Rqq4Q==,
+        integrity: sha512-LhJR7/RAjdHJ2Isl2pgc/JaoxNk0KtBgkVpiDJPVExVWA1c6gzY57+3zWuxuyWzTG+fhLZo2Y80pLXgIJv7g3g==,
       }
     engines: { node: '>= 10' }
     cpu: [arm64]
@@ -1957,10 +1957,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-x64-gnu@13.4.10:
+  /@next/swc-linux-x64-gnu@13.4.12:
     resolution:
       {
-        integrity: sha512-WDv1YtAV07nhfy3i1visr5p/tjiH6CeXp4wX78lzP1jI07t4PnHHG1WEDFOduXh3WT4hG6yN82EQBQHDi7hBrQ==,
+        integrity: sha512-1DWLL/B9nBNiQRng+1aqs3OaZcxC16Nf+mOnpcrZZSdyKHek3WQh6j/fkbukObgNGwmCoVevLUa/p3UFTTqgqg==,
       }
     engines: { node: '>= 10' }
     cpu: [x64]
@@ -1968,10 +1968,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-linux-x64-musl@13.4.10:
+  /@next/swc-linux-x64-musl@13.4.12:
     resolution:
       {
-        integrity: sha512-zFkzqc737xr6qoBgDa3AwC7jPQzGLjDlkNmt/ljvQJ/Veri5ECdHjZCUuiTUfVjshNIIpki6FuP0RaQYK9iCRg==,
+        integrity: sha512-kEAJmgYFhp0VL+eRWmUkVxLVunn7oL9Mdue/FS8yzRBVj7Z0AnIrHpTIeIUl1bbdQq1VaoOztnKicAjfkLTRCQ==,
       }
     engines: { node: '>= 10' }
     cpu: [x64]
@@ -1979,10 +1979,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-arm64-msvc@13.4.10:
+  /@next/swc-win32-arm64-msvc@13.4.12:
     resolution:
       {
-        integrity: sha512-IboRS8IWz5mWfnjAdCekkl8s0B7ijpWeDwK2O8CdgZkoCDY0ZQHBSGiJ2KViAG6+BJVfLvcP+a2fh6cdyBr9QQ==,
+        integrity: sha512-GMLuL/loR6yIIRTnPRY6UGbLL9MBdw2anxkOnANxvLvsml4F0HNIgvnU3Ej4BjbqMTNjD4hcPFdlEow4XHPdZA==,
       }
     engines: { node: '>= 10' }
     cpu: [arm64]
@@ -1990,10 +1990,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-ia32-msvc@13.4.10:
+  /@next/swc-win32-ia32-msvc@13.4.12:
     resolution:
       {
-        integrity: sha512-bSA+4j8jY4EEiwD/M2bol4uVEu1lBlgsGdvM+mmBm/BbqofNBfaZ2qwSbwE2OwbAmzNdVJRFRXQZ0dkjopTRaQ==,
+        integrity: sha512-PhgNqN2Vnkm7XaMdRmmX0ZSwZXQAtamBVSa9A/V1dfKQCV1rjIZeiy/dbBnVYGdj63ANfsOR/30XpxP71W0eww==,
       }
     engines: { node: '>= 10' }
     cpu: [ia32]
@@ -2001,10 +2001,10 @@ packages:
     requiresBuild: true
     optional: true
 
-  /@next/swc-win32-x64-msvc@13.4.10:
+  /@next/swc-win32-x64-msvc@13.4.12:
     resolution:
       {
-        integrity: sha512-g2+tU63yTWmcVQKDGY0MV1PjjqgZtwM4rB1oVVi/v0brdZAcrcTV+04agKzWtvWroyFz6IqtT0MoZJA7PNyLVw==,
+        integrity: sha512-Z+56e/Ljt0bUs+T+jPjhFyxYBcdY2RIq9ELFU+qAMQMteHo7ymbV7CKmlcX59RI9C4YzN8PgMgLyAoi916b5HA==,
       }
     engines: { node: '>= 10' }
     cpu: [x64]
@@ -3579,10 +3579,10 @@ packages:
     engines: { node: '>=6' }
     dev: true
 
-  /caniuse-lite@1.0.30001516:
+  /caniuse-lite@1.0.30001517:
     resolution:
       {
-        integrity: sha512-Wmec9pCBY8CWbmI4HsjBeQLqDTqV91nFVR83DnZpYyRnPI1wePDsTg0bGLPC5VU/3OIZV1fmxEea1b+tFKe86g==,
+        integrity: sha512-Vdhm5S11DaFVLlyiKu4hiUTkpZu+y1KA/rZZqVQfOD5YdDT/eQKlkt7NaE0WGOFgX32diqt9MiP9CAiFeRklaA==,
       }
 
   /ccount@2.0.1:
@@ -5619,6 +5619,20 @@ packages:
     resolution:
       {
         integrity: sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==,
+      }
+    engines: { node: '>=8.6.0' }
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.5
+    dev: true
+
+  /fast-glob@3.3.1:
+    resolution:
+      {
+        integrity: sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==,
       }
     engines: { node: '>=8.6.0' }
     dependencies:
@@ -8340,7 +8354,7 @@ packages:
       }
     dev: true
 
-  /next-contentlayer@0.3.4(contentlayer@0.3.4)(esbuild@0.18.13)(next@13.4.10)(react-dom@18.2.0)(react@18.2.0):
+  /next-contentlayer@0.3.4(contentlayer@0.3.4)(esbuild@0.18.13)(next@13.4.12)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-UtUCwgAl159KwfhNaOwyiI7Lg6sdioyKMeh+E7jxx0CJ29JuXGxBEYmCI6+72NxFGIFZKx8lvttbbQhbnYWYSw==,
@@ -8354,7 +8368,7 @@ packages:
       '@contentlayer/core': 0.3.4(esbuild@0.18.13)
       '@contentlayer/utils': 0.3.4
       contentlayer: 0.3.4(esbuild@0.18.13)
-      next: 13.4.10(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
+      next: 13.4.12(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -8364,7 +8378,7 @@ packages:
       - supports-color
     dev: true
 
-  /next-seo@6.1.0(next@13.4.10)(react-dom@18.2.0)(react@18.2.0):
+  /next-seo@6.1.0(next@13.4.12)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-iMBpFoJsR5zWhguHJvsoBDxDSmdYTHtnVPB1ij+CD0NReQCP78ZxxbdL9qkKIf4oEuZEqZkrjAQLB0bkII7RYA==,
@@ -8374,12 +8388,12 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      next: 13.4.10(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
+      next: 13.4.12(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /next-themes@0.2.1(next@13.4.10)(react-dom@18.2.0)(react@18.2.0):
+  /next-themes@0.2.1(next@13.4.12)(react-dom@18.2.0)(react@18.2.0):
     resolution:
       {
         integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==,
@@ -8389,15 +8403,15 @@ packages:
       react: '*'
       react-dom: '*'
     dependencies:
-      next: 13.4.10(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
+      next: 13.4.12(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /next@13.4.10(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6):
+  /next@13.4.12(@babel/core@7.17.8)(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)(sass@1.63.6):
     resolution:
       {
-        integrity: sha512-4ep6aKxVTQ7rkUW2fBLhpBr/5oceCuf4KmlUpvG/aXuDTIf9mexNSpabUD6RWPspu6wiJJvozZREhXhueYO36A==,
+        integrity: sha512-eHfnru9x6NRmTMcjQp6Nz0J4XH9OubmzOa7CkWL+AUrUxpibub3vWwttjduu9No16dug1kq04hiUUpo7J3m3Xw==,
       }
     engines: { node: '>=16.8.0' }
     hasBin: true
@@ -8415,11 +8429,11 @@ packages:
       sass:
         optional: true
     dependencies:
-      '@next/env': 13.4.10
+      '@next/env': 13.4.12
       '@opentelemetry/api': 1.4.1
       '@swc/helpers': 0.5.1
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001516
+      caniuse-lite: 1.0.30001517
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -8428,15 +8442,15 @@ packages:
       watchpack: 2.4.0
       zod: 3.21.4
     optionalDependencies:
-      '@next/swc-darwin-arm64': 13.4.10
-      '@next/swc-darwin-x64': 13.4.10
-      '@next/swc-linux-arm64-gnu': 13.4.10
-      '@next/swc-linux-arm64-musl': 13.4.10
-      '@next/swc-linux-x64-gnu': 13.4.10
-      '@next/swc-linux-x64-musl': 13.4.10
-      '@next/swc-win32-arm64-msvc': 13.4.10
-      '@next/swc-win32-ia32-msvc': 13.4.10
-      '@next/swc-win32-x64-msvc': 13.4.10
+      '@next/swc-darwin-arm64': 13.4.12
+      '@next/swc-darwin-x64': 13.4.12
+      '@next/swc-linux-arm64-gnu': 13.4.12
+      '@next/swc-linux-arm64-musl': 13.4.12
+      '@next/swc-linux-x64-gnu': 13.4.12
+      '@next/swc-linux-x64-musl': 13.4.12
+      '@next/swc-win32-arm64-msvc': 13.4.12
+      '@next/swc-win32-ia32-msvc': 13.4.12
+      '@next/swc-win32-x64-msvc': 13.4.12
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
@@ -14301,7 +14315,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: registry.npmmirror.com/browserslist@4.20.2
-      caniuse-lite: registry.npmmirror.com/caniuse-lite@1.0.30001319
+      caniuse-lite: 1.0.30001517
       fraction.js: registry.npmmirror.com/fraction.js@4.2.0
       normalize-range: registry.npmmirror.com/normalize-range@0.1.2
       picocolors: registry.npmmirror.com/picocolors@1.0.0
@@ -14485,7 +14499,7 @@ packages:
     engines: { node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7 }
     hasBin: true
     dependencies:
-      caniuse-lite: registry.npmmirror.com/caniuse-lite@1.0.30001319
+      caniuse-lite: 1.0.30001517
       electron-to-chromium: registry.npmmirror.com/electron-to-chromium@1.4.88
       escalade: registry.npmmirror.com/escalade@3.1.1
       node-releases: registry.npmmirror.com/node-releases@2.0.2
@@ -14515,16 +14529,6 @@ packages:
     version: 6.3.0
     engines: { node: '>=10' }
     dev: true
-
-  registry.npmmirror.com/caniuse-lite@1.0.30001319:
-    resolution:
-      {
-        integrity: sha512-xjlIAFHucBRSMUo1kb5D4LYgcN1M45qdKP++lhqowDpwJwGkpIRTt5qQqnhxjj1vHcI7nrJxWhCC1ATrCEBTcw==,
-        registry: https://registry.npmjs.org/,
-        tarball: https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001319.tgz,
-      }
-    name: caniuse-lite
-    version: 1.0.30001319
 
   registry.npmmirror.com/ccount@2.0.1:
     resolution:
@@ -17617,7 +17621,7 @@ packages:
     name: rxjs
     version: 7.5.5
     dependencies:
-      tslib: registry.npmmirror.com/tslib@2.3.1
+      tslib: 2.6.0
     dev: true
 
   registry.npmmirror.com/safe-buffer@5.1.2:
@@ -17915,17 +17919,6 @@ packages:
     name: tr46
     version: 0.0.3
     dev: false
-
-  registry.npmmirror.com/tslib@2.3.1:
-    resolution:
-      {
-        integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==,
-        registry: https://registry.npmjs.org/,
-        tarball: https://registry.npmmirror.com/tslib/-/tslib-2.3.1.tgz,
-      }
-    name: tslib
-    version: 2.3.1
-    dev: true
 
   registry.npmmirror.com/type-fest@0.21.3:
     resolution:
