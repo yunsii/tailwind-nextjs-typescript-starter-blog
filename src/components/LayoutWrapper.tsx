@@ -10,19 +10,22 @@ import ThemeSwitch from './ThemeSwitch'
 import type { ReactNode } from 'react'
 
 interface Props {
+  className?: string
   children: ReactNode
 }
 
-const LayoutWrapper = ({ children }: Props) => {
+const LayoutWrapper = ({ className = '', children }: Props) => {
   return (
-    <div className='mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0'>
+    <div
+      className={`${className} mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0`}
+    >
       <div className='flex h-screen flex-col justify-between'>
         <header className='flex items-center justify-between py-10'>
           <div>
             <Link href='/' aria-label={metadata.headerTitle}>
               <div className='flex items-center justify-between'>
                 <div className='flex items-center sm:mr-3'>
-                  <Logo />
+                  <Logo height={44} />
                 </div>
                 {typeof metadata.headerTitle === 'string' ? (
                   <div className='hidden text-2xl font-semibold sm:block'>
