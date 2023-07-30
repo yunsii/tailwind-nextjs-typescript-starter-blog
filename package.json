@@ -44,6 +44,7 @@
     "consola": "^3.2.3",
     "fs-extra": "^11.1.1",
     "github-slugger": "^2.0.0",
+    "heti": "^0.9.4",
     "html-entities": "^2.4.0",
     "image-size": "1.0.0",
     "katex": "^0.16.8",

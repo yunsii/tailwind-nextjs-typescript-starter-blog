@@ -29,6 +29,9 @@ dependencies:
   github-slugger:
     specifier: ^2.0.0
     version: 2.0.0
+  heti:
+    specifier: ^0.9.4
+    version: 0.9.4
   html-entities:
     specifier: ^2.4.0
     version: 2.4.0
@@ -5843,6 +5846,22 @@ packages:
       hast-util-parse-selector: 3.1.0
       property-information: 6.1.1
       space-separated-tokens: 2.0.1
+
+  /heti-findandreplacedomtext@0.5.0:
+    resolution:
+      {
+        integrity: sha512-GFZjqU8LAdu1uR72GqrReI+lzNLMlcWtvdz1TKNJiofyo1mfTecFYSZEoEbcLcRMl+KwEldnNQoS4BwO8wtg0A==,
+      }
+    dev: false
+
+  /heti@0.9.4:
+    resolution:
+      {
+        integrity: sha512-DI1A/R6VabM8wulXrGVbeHZNZ8jJUm+Pwn+PEYZcNBxAO+4mXWPEX+Xu9R/YrHETGcevNrLO34m/99ZCnFnlhw==,
+      }
+    dependencies:
+      heti-findandreplacedomtext: 0.5.0
+    dev: false
 
   /hosted-git-info@2.8.9:
     resolution:

@@ -2,7 +2,6 @@ import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import SectionContainer from '@/components/SectionContainer'
 import Comments from '@/components/comments'
 import formatDate from '@/lib/utils/formatDate'
 import metadata from 'data/metadata'
@@ -22,7 +21,7 @@ export default function PostSimple({ content, next, prev, children }: Props) {
   const { slug, date, title } = content
 
   return (
-    <SectionContainer>
+    <div className='mx-auto'>
       <BlogSEO url={`${metadata.siteUrl}/blog/${slug}`} {...content} />
       <ScrollTopAndComment />
       <article>
@@ -47,7 +46,7 @@ export default function PostSimple({ content, next, prev, children }: Props) {
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <div className='divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0'>
-              <div className='prose max-w-none pt-10 pb-8 dark:prose-dark'>
+              <div className='prose max-w-none pb-8 pt-10 dark:prose-dark'>
                 {children}
               </div>
             </div>
@@ -79,6 +78,6 @@ export default function PostSimple({ content, next, prev, children }: Props) {
           </div>
         </div>
       </article>
-    </SectionContainer>
+    </div>
   )
 }

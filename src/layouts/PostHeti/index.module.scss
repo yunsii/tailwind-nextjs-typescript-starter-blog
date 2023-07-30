@@ -1,0 +1,40 @@
+.heti-custom {
+  :global {
+    .card {
+      @apply relative rounded-sm text-left;
+      @apply sm:-left-[20%] sm:w-[140%];
+
+      margin-block-start: 24px;
+      margin-block-end: 24px;
+      padding-block-start: 12px;
+      padding-block-end: 12px;
+      padding-inline-start: 12px;
+      padding-inline-end: 12px;
+
+      @screen sm {
+        padding-block-start: 24px;
+        padding-block-end: 24px;
+        padding-inline-start: 32px;
+        padding-inline-end: 32px;
+        box-shadow: 0 4px 16px hsla(0deg, 0%, 0%, 0.16);
+      }
+
+      &-vertical-container {
+        @apply h-[30em] w-full overflow-auto;
+        border: 1px solid hsl(0deg, 0%, 93%);
+        writing-mode: vertical-rl;
+      }
+
+      > figcaption {
+        @apply inline-block;
+        margin-block-start: 16px;
+        padding-block-start: 4px;
+        padding-block-end: 3px;
+        padding-inline-start: 0;
+        padding-inline-end: 72px;
+        line-height: 24px;
+        border-block-start: 1px solid hsl(0deg, 0%, 93%);
+      }
+    }
+  }
+}

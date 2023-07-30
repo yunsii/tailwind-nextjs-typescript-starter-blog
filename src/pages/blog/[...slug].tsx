@@ -7,7 +7,7 @@ import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { Author, Blog } from 'contentlayer/generated'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 
-const DEFAULT_LAYOUT = 'PostLayout'
+const DEFAULT_LAYOUT = 'PostDefault'
 
 export async function getStaticPaths() {
   return {

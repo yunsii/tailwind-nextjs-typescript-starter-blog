@@ -12,6 +12,7 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 
+import { Layout } from './src/layouts/constants'
 import remarkImgToJsx from './src/lib/remark-img-to-jsx'
 import { extractTocHeadings } from './src/lib/remark-toc-headings'
 import remarkCodeTitles from './src/lib/remark-code-title'
@@ -35,7 +36,7 @@ export const Blog = defineDocumentType(() => ({
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    layout: { type: 'string' },
+    layout: { type: 'enum', options: Object.keys(Layout) },
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
     tags: { type: 'list', of: { type: 'string' } },
@@ -55,7 +56,7 @@ export const Authors = defineDocumentType(() => ({
   filePathPattern: 'authors/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    layout: { type: 'string' },
+    layout: { type: 'enum', options: Object.keys(Layout) },
     name: { type: 'string', required: true },
     avatar: { type: 'string' },
     occupation: { type: 'string' },

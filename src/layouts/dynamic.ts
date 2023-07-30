@@ -1,13 +1,20 @@
 import dynamic from 'next/dynamic'
 
-const DynamicAuthorLayout = dynamic(() => import('./AuthorLayout'))
-const DynamicPostLayout = dynamic(() => import('./PostLayout'))
+import type React from 'react'
+import type { Layout } from './constants'
+
+const DynamicAuthorDefault = dynamic(() => import('./AuthorLayout'))
+const DynamicPostDefault = dynamic(() => import('./PostLayout'))
 const DynamicPostSimple = dynamic(() => import('./PostSimple'))
+const DynamicPostHeti = dynamic(() => import('./PostHeti'))
 
-export const mdxDynamicLayouts = {
-  AuthorLayout: DynamicAuthorLayout,
-  PostLayout: DynamicPostLayout,
+const _dynamicLayout = {
+  AuthorDefault: DynamicAuthorDefault,
+  PostDefault: DynamicPostDefault,
   PostSimple: DynamicPostSimple,
-}
+  PostHeti: DynamicPostHeti,
+} satisfies Record<Layout, React.ComponentType<any>>
 
-export type DynamicLayout = keyof typeof mdxDynamicLayouts
+export function getLayout(layout: Layout) {
+  return _dynamicLayout[layout]
+}

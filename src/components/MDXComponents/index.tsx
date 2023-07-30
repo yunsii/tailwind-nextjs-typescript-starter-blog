@@ -4,28 +4,29 @@ import React from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { coreContent } from '@/lib/utils/contentlayer'
-import { mdxDynamicLayouts } from '@/layouts/dynamic'
+import { getLayout } from '@/layouts/dynamic'
 
 import Image from '../Image'
 import CustomLink from '../Link'
 import { BlogNewsletterForm } from '../NewsletterForm'
 import Pre from '../Pre'
 import TOCInline from '../TOCInline'
+import Ruby from '../Ruby'
 
 import styles from './prism.module.scss'
 
+import type { Layout } from '@/layouts/constants'
 import type { MDXComponents } from 'mdx/types'
-import type { DynamicLayout } from '@/layouts/dynamic'
 import type { Author, Blog } from 'contentlayer/generated'
 
 interface MDXLayout {
-  layout: DynamicLayout
+  layout: Layout
   content: Blog | Author
   [key: string]: unknown
 }
 
 const Wrapper = ({ layout, ...rest }: MDXLayout) => {
-  const Layout = mdxDynamicLayouts[layout]
+  const Layout = getLayout(layout)
   return <Layout {...(rest as any)} />
 }
 
@@ -39,10 +40,11 @@ export const customMDXComponents: MDXComponents = {
   Image,
   TOCInline,
   BlogNewsletterForm,
+  Ruby,
 }
 
 interface Props {
-  layout: string
+  layout: Layout | `${Layout}`
   content: Blog | Author
   [key: string]: unknown
 }

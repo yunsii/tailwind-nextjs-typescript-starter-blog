@@ -5,7 +5,6 @@ import metadata from 'data/metadata'
 import Footer from './Footer'
 import Link from './Link'
 import MobileNav from './MobileNav'
-import SectionContainer from './SectionContainer'
 import ThemeSwitch from './ThemeSwitch'
 
 import type { ReactNode } from 'react'
@@ -16,7 +15,7 @@ interface Props {
 
 const LayoutWrapper = ({ children }: Props) => {
   return (
-    <SectionContainer>
+    <div className='mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0'>
       <div className='flex h-screen flex-col justify-between'>
         <header className='flex items-center justify-between py-10'>
           <div>
@@ -54,7 +53,7 @@ const LayoutWrapper = ({ children }: Props) => {
         <main className='mb-auto'>{children}</main>
         <Footer />
       </div>
-    </SectionContainer>
+    </div>
   )
 }
 

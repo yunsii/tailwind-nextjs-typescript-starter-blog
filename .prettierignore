@@ -2,3 +2,4 @@
 .prettierignore
 LICENSE
 /dist
+*.mdx

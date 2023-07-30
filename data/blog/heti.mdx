@@ -1,0 +1,352 @@
+---
+title: 赫蹏排版演示
+date: '2023-07-23'
+draft: false
+summary:
+layout: PostHeti
+images: []
+---
+
+> 古代称用以书写的小幅绢帛。后亦以借指纸。《汉书·外戚传下·孝成赵皇后》：「武（籍武）发篋中，有裹药二枚，赫蹏书。」颜师古注：「邓展曰：『赫音兄弟鬩墙之鬩。』应劭曰：『赫蹏，薄小纸也。』」宋赵彦卫 《云麓漫钞》卷七：「《赵后传》所谓『赫蹏』者，注云『薄小纸』，然其寔亦縑帛。」
+
+## 介绍
+
+<Ruby rubyText="hè'tí">赫蹏</Ruby>是专为中文网页内容设计的排版样式增强。它基于通行的中文排版规范，可为网站的读者带来更好的内容阅读体验。它的主要特性有：
+
+- 贴合网格的排版；
+- 全标签样式美化；
+- 预置古文、诗词样式；
+- 预置多种排版样式（行间注、多栏、竖排等）；
+- 多种预设字体族（仅限桌面端）；
+- 简/繁体中文支持；
+- 自适应黑暗模式；
+- 中西文混排美化，不再手敲空格（基于JavaScript脚本）；
+- 标点挤压（基于JavaScript脚本）；
+- 兼容*normalize.css*、*CSS Reset<sup><a id="ref-01" href="#fn-01">[1]</a></sup>等常见样式重置；
+- 移动端支持；
+- ……
+
+总之，用上就会变好看。
+
+---
+
+## 使用方法
+
+项目地址：[https://github.com/sivan/heti](https://github.com/sivan/heti)，使用方法如下：
+
+1.  在页面的`</head>`标签前中引入`heti.css`样式文件：
+
+```
+<link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css" />`
+```
+
+2.  在要作用的容器元素上增加`className="heti"`的类名即可：
+
+```
+<article className="entry heti">
+  <h1>我的世界观</h1>
+  <p>有钱人的生活就是这么朴实无华，且枯燥。</p>
+  ……
+</article>
+```
+
+注：赫蹏是正文区域的样式增强，不是*normalize.css*或*CSS Reset*的替代。因此**不建议**将它作用在根标签（如`<body>`或`<div className="container">`）上。
+
+---
+
+## 效果示例
+
+本页面*全页*应用了赫蹏样式，所见即所得。下面是内置的多种排版效果演示。
+
+### 古文
+
+<details>
+<summary>如何使用？</summary>
+
+为容器元素`<div className="heti">`添加名为`heti--ancient`的class即可实现古文版式：
+
+```
+<div className="heti heti--ancient">...</div>
+```
+
+</details>
+
+<details open>
+<summary>示例</summary>
+
+<div className="heti heti--ancient mt-6">
+# 出师表
+
+<p className='heti-meta heti-small'>作者：諸葛亮（181年～234年10月8日）</p>
+
+先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。
+
+宫中府中，俱为一体；陟罚臧否，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理；不宜偏私，使内外异法也。
+
+侍中、侍郎郭攸之、费祎、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗陛下：愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨补阙漏，有所广益。
+
+将军向宠，性行淑均，晓畅军事，试用于昔日，先帝称之曰能，是以众议举宠为督。愚以为营中之事，悉以咨之，必能使行阵和睦，优劣得所。
+
+亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。先帝在时，每与臣论此事，未尝不叹息痛恨于桓、灵也。侍中、尚书、长史、参军，此悉贞良死节之臣，愿陛下亲之信之，则汉室之隆，可计日而待也。
+
+臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻达于诸侯。先帝不以臣卑鄙，猥自枉屈，三顾臣于草庐之中，咨臣以当世之事，由是感激，遂许先帝以驱驰。后值倾覆，受任于败军之际，奉命于危难之间，尔来二十有一年矣。
+
+先帝知臣谨慎，故临崩寄臣以大事也。受命以来，夙夜忧叹，恐托付不效，以伤先帝之明；故五月渡泸，深入不毛。今南方已定，兵甲已足，当奖率三军，北定中原，庶竭驽钝，攘除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。至于斟酌损益，进尽忠言，则攸之、祎、允之任也。
+
+愿陛下托臣以讨贼兴复之效，不效，则治臣之罪，以告先帝之灵。若无兴德之言，则责攸之、祎、允等之慢，以彰其咎；陛下亦宜自谋，以咨诹善道，察纳雅言，深追先帝遗诏。臣不胜受恩感激。
+
+今当远离，临表涕零，不知所言。
+
+</div>
+</details>
+
+### 诗词
+
+<details>
+<summary>如何使用？</summary>
+
+- 诗词：为容器元素`<div className="heti">`添加名为`heti--poetry`的class实现诗词版式：
+
+```
+<div className="heti heti--poetry">
+  <h2>九月九日忆山东兄弟<span className="heti-meta heti-small">[唐]<abbr title="号摩诘居士">王维</abbr></span></h2>
+  <p className="heti-x-large">
+    独在异乡为异客<span className="heti-hang">，</span><br />
+    每逢佳节倍思亲<span className="heti-hang">。</span><br />
+    遥知兄弟登高处<span className="heti-hang">，</span><br />
+    遍插茱萸少一人<span className="heti-hang">。</span>
+  </p>
+</div>
+```
+
+- 诗节：在古文版式`<div className="heti heti--ancient">`中，为诗句添加名为`heti-verse`的class可以将其居中显示：
+
+```
+<div className="heti heti--ancient">
+  <h2>一剪梅·红藕香残玉簟秋<span className="heti-meta heti-small">[宋]<abbr title="号易安居士">李清照</abbr></span></h2>
+  <p className="heti-verse heti-x-large">
+    红藕香残玉簟秋。轻解罗裳，独上兰舟<span className="heti-hang">。</span><br />
+    云中谁寄锦书来，雁字回时，月满西楼<span className="heti-hang">。</span><br />
+    花自飘零水自流。一种相思，两处闲愁<span className="heti-hang">。</span><br />
+    此情无计可消除，才下眉头，却上心头<span className="heti-hang">。</span>
+  </p>
+</div>
+```
+
+- 搭配使用标点悬挂`<span className="heti-hang"></span>`、元信息`<span className="heti-meta heti-small"><span />`来丰富展示效果。
+
+</details>
+
+<details open>
+<summary>示例</summary>
+
+<div className="heti heti--poetry mt-6">
+
+{/* prettier-ignore */}
+<h2>一剪梅<heti-spacing className='heti-spacing-start heti-spacing-end'>·</heti-spacing>红藕香残玉簟秋<span className='heti-meta heti-small'>[宋]李清照</span></h2>
+
+红藕香残玉簟秋。轻解罗裳，独上兰舟<span className="heti-hang">。</span>  
+云中谁寄锦书来，雁字回时，月满西楼<span className="heti-hang">。</span>  
+花自飘零水自流。一种相思，两处闲愁<span className="heti-hang">。</span>  
+此情无计可消除，才下眉头，却上心头<span className="heti-hang">。</span>
+
+</div>
+
+---
+
+<div className="heti heti--poetry">
+
+{/* prettier-ignore */}
+<h2>赠汪伦<span className='heti-meta heti-small'>[唐]李白</span></h2>
+
+李白乘舟将欲行<span className="heti-hang">，</span>  
+忽闻岸上踏歌声<span className="heti-hang">。</span>  
+桃花潭水深千尺<span className="heti-hang">，</span>  
+不及汪伦送我情<span className="heti-hang">。</span>
+
+</div>
+
+</details>
+
+### 行间注
+
+<details>
+<summary>如何使用？</summary>
+
+为容器元素`<div className="heti">`添加名为`heti--annotation`的class后，搭配`<ruby>`元素即可实现整齐的行间注效果：
+
+```
+<div className="heti heti--annotation">...</div>
+```
+
+</details>
+
+<details open>
+<summary>示例</summary>
+
+<div className="heti heti--ancient heti--annotation mt-6">
+
+## 庖丁解牛
+
+<p className='heti-meta heti-small'>作者：<abbr title="庄子">庄周</abbr>（公元前369～公元前286年）</p>
+
+吾生也有涯，而知也无涯。以有涯随无涯，殆已！已而为知者，殆而已矣！为善无近名，为恶无近刑。缘督以为经，可以保身，可以全生，可以养亲，可以尽年。
+
+{<p>
+  <u title='名丁的厨工。先秦古书往往以职业放在人名前'>
+    <Ruby rubyText="páo">庖</Ruby><span>丁</span>
+  </u>为文惠君解牛，手之所触，肩之所倚，足之所履，膝之所<u title="支撑，接触"><Ruby rubyText="yǐ">踦</Ruby></u>，
+  <u title="砉然：砉，又读 xū，象声词。砉然，皮骨相离的声音">
+    <Ruby rubyText="huā">砉</Ruby><span>然</span>
+  </u><Ruby rubyText="xiǎng">向</Ruby>然，奏刀
+  <u title="騞然：象声词，形容比砉然更大的进刀解牛声"><Ruby rubyText="huō">騞</Ruby>然</u>，莫不中音。合于《桑林》之舞，乃中《经首》之会。
+</p>}
+文惠君曰：「嘻，善哉！技<u title="通「盍」，何，怎样"><Ruby rubyText="hé">盖</Ruby></u>至此乎？」
+
+{
+  <p>
+  <span>庖丁释刀对曰：「臣之所好者，道也，进乎技矣。始臣之解牛之时，所见无非牛者。三年之后，未尝见全牛也。</span>
+  <span>方今之时，臣以神遇而不以目视，官知止而<u title="指精神活动">神欲</u>行。依乎<u title="指牛的生理上的天然结构">天理</u>，</span>
+  <u title="击入大的缝隙">批大<Ruby rubyText="xì">郤</Ruby></u>，
+  <u title="顺着（骨节间的）空处进刀">导大<Ruby rubyText="kuǎn">窾</Ruby></u>，<u title="依">因</u>其<u title="指牛体本来的结构">固然</u>，
+  <span>技经肯<Ruby rubyText="qìng">綮</Ruby>之未尝，而况大<Ruby rubyText="gū">軱</Ruby>乎！</span>
+  <span>良庖岁更刀，割也；族庖月更刀，折也。今臣之刀十九年矣，所解数千牛矣，而刀刃若新发于<Ruby rubyText="xíng">硎</Ruby>。</span>
+  <span>彼节者有间，而刀刃者无厚；以无厚入有间，恢恢乎其于<em>游刃必有余地</em>矣，是以十九年而刀刃若新发于硎。</span>
+  <span>虽然，每至于族，吾见其难为，<Ruby rubyText="chù">怵</Ruby>然为戒，视为止，行为迟。动刀甚微，<Ruby rubyText="huò">謋</Ruby>然已解，如土委地。</span>
+  <span>提刀而立，为之四顾，为之<Ruby rubyText="chóu'chú">踌躇</Ruby>满志，善刀而藏之。」</span>
+  </p>
+}
+
+文惠君曰：「善哉！吾闻庖丁之言，得养生焉。」
+
+</div>
+
+</details>
+
+### 多栏排版
+
+赫蹏预置了多种多栏布局类，可以按栏数或每栏行宽进行设置。
+
+<details>
+<summary>如何使用？</summary>
+
+为容器元素`<div className="heti">`添加名为`heti--columns-2`的class即可实现双栏排版：
+
+```
+<div className="heti heti--columns-2">...</div>
+```
+
+| 方式       | 对应类名             | 可选数值                           |
+| ---------- | -------------------- | ---------------------------------- |
+| 按栏目数量 | `heti--columns-3`    | 2, 3, 4                            |
+| 按每栏行宽 | `heti--columns-16em` | 16em, 20em, 24em, … +4em, … , 48em |
+
+</details>
+
+<details open>
+<summary>示例</summary>
+
+<figure className='card'>
+
+<section className="heti--columns-2">
+
+先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。
+
+宫中府中，俱为一体；陟罚臧否，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理；不宜偏私，使内外异法也。
+
+侍中、侍郎郭攸之、费祎、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗陛下：愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨补阙漏，有所广益。
+
+将军向宠，性行淑均，晓畅军事，试用于昔日，先帝称之曰能，是以众议举宠为督。愚以为营中之事，悉以咨之，必能使行阵和睦，优劣得所。
+
+亲贤臣，远小人，此先汉所以兴隆也；亲小人，远贤臣，此后汉所以倾颓也。先帝在时，每与臣论此事，未尝不叹息痛恨于桓、灵也。侍中、尚书、长史、参军，此悉贞良死节之臣，愿陛下亲之信之，则汉室之隆，可计日而待也。
+
+臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻达于诸侯。先帝不以臣卑鄙，猥自枉屈，三顾臣于草庐之中，咨臣以当世之事，由是感激，遂许先帝以驱驰。后值倾覆，受任于败军之际，奉命于危难之间，尔来二十有一年矣。
+
+先帝知臣谨慎，故临崩寄臣以大事也。受命以来，夙夜忧叹，恐托付不效，以伤先帝之明；故五月渡泸，深入不毛。今南方已定，兵甲已足，当奖率三军，北定中原，庶竭驽钝，攘除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。至于斟酌损益，进尽忠言，则攸之、祎、允之任也。
+
+愿陛下托臣以讨贼兴复之效，不效，则治臣之罪，以告先帝之灵。若无兴德之言，则责攸之、祎、允等之慢，以彰其咎；陛下亦宜自谋，以咨诹善道，察纳雅言，深追先帝遗诏。臣不胜受恩感激。
+
+今当远离，临表涕零，不知所言。
+
+</section>
+<figcaption>多栏排版演示</figcaption>
+</figure>
+
+</details>
+
+### 竖排排版
+
+赫蹏预置了传统的竖排（直排）方向排版，同样贴合栅格。
+
+<details>
+<summary>如何使用？</summary>
+
+为容器元素`<div className="heti">`添加名为`heti--vertical`的class即可实现竖排布局：
+
+```
+<div className="heti heti--vertical">...</div>
+```
+
+</details>
+
+<details open>
+<summary>示例</summary>
+
+<figure className='card'>
+<div className="card-vertical-container">
+
+<section className="heti--vertical heti--ancient">
+
+# 出師表
+
+作者：<abbr title="字孔明">諸葛亮</abbr>（181年－234年10月8日）
+
+先帝創業未半，而中道崩殂；今天下三分，益州疲弊，此誠危急存亡之秋也﹗然侍衞之臣，不懈於內；忠志之士，忘身於外者，蓋追先帝之殊遇，欲報之於陛下也。
+
+誠宜開張聖聽，以光先帝遺德，恢弘志士之氣﹔不宜妄自菲薄，引喻失義，以塞忠諫之路也。
+
+宮中、府中，俱為一體；陟罰臧否，不宜異同。若有作姦、犯科，及為忠善者，宜付有司，論其刑賞，以昭陛下平明之治；不宜偏私，使內外異法也。
+
+侍中、侍郎郭攸之、費禕、董允等，此皆良實，志慮忠純，是以先帝簡拔以遺陛下。愚以為宮中之事，事無大小，悉以咨之，然後施行，必能裨補闕漏，有所廣益。將軍向寵，性行淑均，曉暢軍事，試用於昔日，先帝稱之曰「能」，是以眾議舉寵為督。愚以為營中之事，悉以咨之，必能使行陣和睦，優劣得所。
+
+親賢臣，遠小人，此先漢所以興隆也﹔親小人，遠賢臣，此後漢所以傾頹也。先帝在時，每與臣論此事，未嘗不歎息痛恨於桓、靈也！侍中、尚書、長史、參軍，此悉貞良死節之臣，願陛下親之、信之，則漢室之隆，可計日而待也。
+
+臣本布衣，躬耕於南陽，苟全性命於亂世，不求聞達於諸侯。先帝不以臣卑鄙，猥自枉屈，三顧臣於草廬之中，諮臣以當世之事；由是感激，遂許先帝以驅馳。後值傾覆，受任於敗軍之際，奉命於危難之間，爾來二十有一年矣。先帝知臣謹慎，故臨崩寄臣以大事也。受命以來，夙夜憂歎，恐託付不效，以傷先帝之明。故五月渡瀘，深入不毛。今南方已定，兵甲已足，當獎率三軍，北定中原，庶竭駑鈍，攘除姦凶，興復漢室，還於舊都。此臣所以報先帝而忠陛下之職分也。至於斟酌損益，進盡忠言，則攸之、禕、允之任也。
+
+願陛下託臣以討賊興復之效；不效，則治臣之罪，以告先帝之靈。若無興德之言，則責攸之、禕、允等之慢，以彰其咎。陛下亦宜自謀，以諮諏善道，察納雅言，深追先帝遺詔。臣不勝受恩感激。今當遠離，臨表涕零，不知所言！
+
+</section>
+
+</div>
+<figcaption>竖排排版演示</figcaption>
+</figure>
+
+</details>
+
+### 英文排版
+
+<details>
+<summary>效果演示</summary>
+
+<div lang='en-US'>
+
+# Lorem Ipsum
+
+There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain...
+
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like <em>Aldus PageMaker</em> including versions of Lorem Ipsum.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+</div>
+
+</details>
+
+<footer class="heti-fn">
+  <ol>
+    <li id="fn-01">
+      <a href="#ref-01" title="移至">^</a>
+      CSS Reset：指代类似<heti-spacing class="heti-spacing-start heti-spacing-end">Eric Meyer's Reset CSS</heti-spacing>的样式重置方案
+    </li>
+  </ol>
+</footer>
