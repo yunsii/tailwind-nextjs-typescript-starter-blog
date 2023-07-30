@@ -1,5 +1,7 @@
 import 'heti/umd/heti.min.css'
 
+import { useEffect, useRef } from 'react'
+
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import formatDate from '@/lib/utils/formatDate'
@@ -22,13 +24,22 @@ interface Props {
 export default function HetiLayout(props: React.PropsWithChildren<Props>) {
   const { content, next, prev, children } = props
   const { slug, date, title } = content
+  const addonRef = useRef(false)
 
-  // 尝试使用 autoSpacing 功能，貌似不生效
-  // useEffect(() => {
-  //   const Heti = require('heti/js/heti-addon').default
-  //   const heti = new Heti('.heti')
-  //   heti.autoSpacing() // 自动进行中西文混排美化和标点挤压
-  // }, [])
+  useEffect(() => {
+    if (addonRef.current) {
+      return
+    }
+    addonRef.current = true
+
+    async function run() {
+      const Heti = (await import('heti/js/heti-addon')).default
+      const heti = new Heti('.heti')
+      heti.autoSpacing() // 自动进行中西文混排美化和标点挤压
+    }
+
+    run()
+  }, [])
 
   return (
     <div className='mx-auto'>
