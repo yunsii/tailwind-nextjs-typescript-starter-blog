@@ -1,4 +1,4 @@
-import '@/css/tailwind.css'
+import '@/css/global.css'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
