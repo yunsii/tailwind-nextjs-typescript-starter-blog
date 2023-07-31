@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .text-primary {
+    @apply text-primary-700 dark:text-primary-500;
+  }
+  .text-primary-hover {
+    @apply text-primary-600 dark:text-primary-400;
+  }
+
+  .btn-primary {
+    @apply text-primary rounded border border-primary-700 hover:bg-primary-700 hover:text-white [&:not(:last-child)]:mr-3;
+    @apply dark:border-primary-500 dark:hover:bg-primary-500 dark:hover:text-white;
+    @apply transition-colors;
+  }
+
+  .btn-link {
+    @apply btn-primary px-2 py-1 text-sm font-medium;
+  }
+}
+
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {

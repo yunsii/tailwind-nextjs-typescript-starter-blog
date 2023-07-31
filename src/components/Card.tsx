@@ -54,7 +54,7 @@ const Card = (props: CardProps) => {
           {href && (
             <Link
               href={href}
-              className='text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+              className='text-primary hover:text-primary-hover text-base font-medium leading-6'
               aria-label={`Link to ${title}`}
             >
               Learn more &rarr;
