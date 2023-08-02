@@ -24,6 +24,6 @@ export default defineMetadata({
     provider: 'buttondown',
   },
   analytics: {
-    gtmContainerId: "GTM-T5Q5PVJT"
-  }
+    gtmContainerId: 'GTM-T7HK7BWS',
+  },
 })
