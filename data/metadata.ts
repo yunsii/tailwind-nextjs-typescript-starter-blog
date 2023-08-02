@@ -23,4 +23,7 @@ export default defineMetadata({
   newsletter: {
     provider: 'buttondown',
   },
+  analytics: {
+    gtmContainerId: "GTM-T5Q5PVJT"
+  }
 })
