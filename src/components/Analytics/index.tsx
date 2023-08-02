@@ -16,22 +16,29 @@ export default function _Analytics() {
       return
     }
 
-    const plugins = []
+    requestIdleCallback(
+      () => {
+        const plugins = []
 
-    if (metadata.analytics?.gtmContainerId) {
-      plugins.push(
-        googleTagManager({
-          containerId: metadata.analytics?.gtmContainerId,
-        }),
-      )
-    }
+        if (metadata.analytics?.gtmContainerId) {
+          plugins.push(
+            googleTagManager({
+              containerId: metadata.analytics?.gtmContainerId,
+            }),
+          )
+        }
 
-    const analytics = Analytics({
-      // More analytic plugins: https://github.com/DavidWells/analytics#analytic-plugins
-      plugins,
-    })
+        const analytics = Analytics({
+          // More analytic plugins: https://github.com/DavidWells/analytics#analytic-plugins
+          plugins,
+        })
 
-    window.analytics = analytics
+        window.analytics = analytics
+      },
+      {
+        timeout: 2e3,
+      },
+    )
   }, [])
 
   return (
