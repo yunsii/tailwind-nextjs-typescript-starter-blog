@@ -47,6 +47,7 @@
     "github-slugger": "^2.0.0",
     "heti": "^0.9.4",
     "html-entities": "^2.4.0",
+    "idlization": "^0.0.3",
     "image-size": "1.0.0",
     "katex": "^0.16.8",
     "lodash-es": "^4.17.21",

@@ -4,6 +4,7 @@ import googleTagManager from '@analytics/google-tag-manager'
 
 import metadata from 'data/metadata'
 import { IS_DEV } from '@/helpers/env'
+import { idleQueue } from '@/helpers/idle'
 
 export default function _Analytics() {
   const initRef = useRef()
@@ -16,29 +17,24 @@ export default function _Analytics() {
       return
     }
 
-    requestIdleCallback(
-      () => {
-        const plugins = []
+    idleQueue.pushTask(() => {
+      const plugins = []
 
-        if (metadata.analytics?.gtmContainerId) {
-          plugins.push(
-            googleTagManager({
-              containerId: metadata.analytics?.gtmContainerId,
-            }),
-          )
-        }
+      if (metadata.analytics?.gtmContainerId) {
+        plugins.push(
+          googleTagManager({
+            containerId: metadata.analytics?.gtmContainerId,
+          }),
+        )
+      }
 
-        const analytics = Analytics({
-          // More analytic plugins: https://github.com/DavidWells/analytics#analytic-plugins
-          plugins,
-        })
+      const analytics = Analytics({
+        // More analytic plugins: https://github.com/DavidWells/analytics#analytic-plugins
+        plugins,
+      })
 
-        window.analytics = analytics
-      },
-      {
-        timeout: 2e3,
-      },
-    )
+      window.analytics = analytics
+    })
   }, [])
 
   return (
