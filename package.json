@@ -115,6 +115,6 @@
     "tailwindcss": "^3.3.3",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6",
-    "unplugin-svg-sprite": "^1.1.2"
+    "unplugin-svg-sprite": "^1.1.3"
   }
 }
