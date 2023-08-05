@@ -6,6 +6,7 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
 import metadata from 'data/metadata'
+import ArrowLeft from '@/assets/arrow-left.svg'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { ReactNode } from 'react'
@@ -139,7 +140,7 @@ export default function PostLayout({
                     <h2 className='text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400'>
                       Tags
                     </h2>
-                    <div className='flex flex-wrap'>
+                    <div className='mt-2 flex flex-wrap gap-y-3'>
                       {tags.map((tag) => (
                         <Tag key={tag} text={tag} />
                       ))}
@@ -176,7 +177,8 @@ export default function PostLayout({
                   href='/blog'
                   className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
                 >
-                  &larr; Back to the blog
+                  <ArrowLeft className='mr-2 w-6 scale-75' />
+                  Back to the blog
                 </Link>
               </div>
             </footer>

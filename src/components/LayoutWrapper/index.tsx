@@ -1,11 +1,15 @@
+import { clsx } from 'clsx'
+
 import menu from 'data/menu'
 import Logo from 'data/logo.svg?svgr'
 import metadata from 'data/metadata'
 
-import Footer from './Footer'
-import Link from './Link'
-import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
+import Footer from '../Footer'
+import Link from '../Link'
+import MobileNav from '../MobileNav'
+import ThemeSwitch from '../ThemeSwitch'
+
+import styles from './index.module.scss'
 
 import type { ReactNode } from 'react'
 
@@ -17,7 +21,10 @@ interface Props {
 const LayoutWrapper = ({ className = '', children }: Props) => {
   return (
     <div
-      className={`${className} mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0`}
+      className={clsx(
+        className,
+        `mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0`,
+      )}
     >
       <div className='flex h-screen flex-col justify-between'>
         <header className='flex items-center justify-between py-10'>
@@ -43,7 +50,10 @@ const LayoutWrapper = ({ className = '', children }: Props) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className='p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4'
+                  className={clsx(
+                    styles['menu-item'],
+                    'p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4',
+                  )}
                 >
                   {link.title}
                 </Link>

@@ -1,5 +1,6 @@
 import Image from './Image'
 import Link from './Link'
+import LinkGo from './LinkGo'
 
 export interface CardProps {
   title: string
@@ -52,13 +53,13 @@ const Card = (props: CardProps) => {
             {description}
           </p>
           {href && (
-            <Link
+            <LinkGo
               href={href}
-              className='text-primary hover:text-primary-hover text-base font-medium leading-6'
+              className='text-primary text-base font-medium leading-6 hover:text-primary-hover'
               aria-label={`Link to ${title}`}
             >
-              Learn more &rarr;
-            </Link>
+              Learn more
+            </LinkGo>
           )}
         </div>
       </div>

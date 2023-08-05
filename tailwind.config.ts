@@ -170,7 +170,7 @@ const config: Config = {
       // https://github.com/tailwindlabs/tailwindcss-intellisense/issues/227#issuecomment-1269592872
       addComponents({
         '.text-primary': {
-          '@apply text-primary-700 dark:text-primary-500': {},
+          '@apply text-primary-700 dark:text-primary-500 transition-colors': {},
         },
         '.text-primary-hover': {
           '@apply text-primary-600 dark:text-primary-400': {},
@@ -183,7 +183,8 @@ const config: Config = {
           '@apply transition-colors': {},
         },
         '.btn-link': {
-          '@apply btn-primary px-2 py-1 text-sm font-medium': {},
+          '@apply btn-primary px-2 py-1 text-sm font-medium transition-colors':
+            {},
         },
       })
     }),

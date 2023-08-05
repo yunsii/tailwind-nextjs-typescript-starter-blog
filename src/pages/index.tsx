@@ -6,6 +6,7 @@ import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
 import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
+import LinkGo from '@/components/LinkGo'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
@@ -73,13 +74,12 @@ export default function Home({
                         </div>
                       </div>
                       <div className='text-base font-medium leading-6'>
-                        <Link
+                        <LinkGo
                           href={`/blog/${slug}`}
-                          className='text-primary hover:text-primary-hover'
                           aria-label={`Read "${title}"`}
                         >
-                          Read more &rarr;
-                        </Link>
+                          Read more
+                        </LinkGo>
                       </div>
                     </div>
                   </div>
@@ -91,13 +91,9 @@ export default function Home({
       </div>
       {posts.length > MAX_DISPLAY && (
         <div className='flex justify-end text-base font-medium leading-6'>
-          <Link
-            href='/blog'
-            className='text-primary hover:text-primary-hover'
-            aria-label='all posts'
-          >
-            All Posts &rarr;
-          </Link>
+          <LinkGo href='/blog' aria-label='all posts'>
+            All Posts
+          </LinkGo>
         </div>
       )}
       {metadata?.newsletter?.provider && (

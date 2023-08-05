@@ -5,6 +5,8 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Comments from '@/components/comments'
 import formatDate from '@/lib/utils/formatDate'
 import metadata from 'data/metadata'
+import ArrowRight from '@/assets/arrow-right.svg'
+import ArrowLeft from '@/assets/arrow-left.svg'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { ReactNode } from 'react'
@@ -57,9 +59,10 @@ export default function PostSimple({ content, next, prev, children }: Props) {
                   <div className='pt-4 xl:pt-8'>
                     <Link
                       href={`/blog/${prev.slug}`}
-                      className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+                      className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
                     >
-                      &larr; {prev.title}
+                      <ArrowLeft className='mr-2 w-6 scale-75' />
+                      {prev.title}
                     </Link>
                   </div>
                 )}
@@ -67,9 +70,10 @@ export default function PostSimple({ content, next, prev, children }: Props) {
                   <div className='pt-4 xl:pt-8'>
                     <Link
                       href={`/blog/${next.slug}`}
-                      className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+                      className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
                     >
-                      {next.title} &rarr;
+                      {next.title}
+                      <ArrowRight className='ml-2 w-6 scale-75' />
                     </Link>
                   </div>
                 )}

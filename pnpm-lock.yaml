@@ -23,6 +23,9 @@ dependencies:
   analytics:
     specifier: ^0.8.9
     version: 0.8.9(@types/dlv@1.1.2)
+  clsx:
+    specifier: ^2.0.0
+    version: 2.0.0
   consola:
     specifier: ^3.2.3
     version: 3.2.3
@@ -2874,6 +2877,11 @@ packages:
       process-nextick-args: 2.0.1
       readable-stream: 2.3.7
     dev: true
+
+  /clsx@2.0.0:
+    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
+    engines: {node: '>=6'}
+    dev: false
 
   /color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}

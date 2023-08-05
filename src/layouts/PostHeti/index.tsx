@@ -8,6 +8,8 @@ import formatDate from '@/lib/utils/formatDate'
 import Comments from '@/components/comments'
 import Link from '@/components/Link'
 import metadata from 'data/metadata'
+import ArrowRight from '@/assets/arrow-right.svg'
+import ArrowLeft from '@/assets/arrow-left.svg'
 
 import styles from './index.module.scss'
 import { autoSpacing } from './helpers'
@@ -64,31 +66,33 @@ export default function HetiLayout(props: React.PropsWithChildren<Props>) {
         </header>
         <div className='max-w-none pb-8 pt-10'>{children}</div>
         <Comments frontMatter={content} />
-        <footer>
-          <div className='flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base'>
-            {prev && (
-              <div className='pt-4 xl:pt-8'>
-                <Link
-                  href={`/blog/${prev.slug}`}
-                  className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                >
-                  &larr; {prev.title}
-                </Link>
-              </div>
-            )}
-            {next && (
-              <div className='pt-4 xl:pt-8'>
-                <Link
-                  href={`/blog/${next.slug}`}
-                  className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
-                >
-                  {next.title} &rarr;
-                </Link>
-              </div>
-            )}
-          </div>
-        </footer>
       </article>
+      <footer>
+        <div className='flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base'>
+          {prev && (
+            <div className='pt-4 xl:pt-8'>
+              <Link
+                href={`/blog/${prev.slug}`}
+                className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+              >
+                <ArrowLeft className='mr-2 w-6 scale-75' />
+                {prev.title}
+              </Link>
+            </div>
+          )}
+          {next && (
+            <div className='pt-4 xl:pt-8'>
+              <Link
+                href={`/blog/${next.slug}`}
+                className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+              >
+                {next.title}
+                <ArrowRight className='ml-2 w-6 scale-75' />
+              </Link>
+            </div>
+          )}
+        </div>
+      </footer>
     </div>
   )
 }
