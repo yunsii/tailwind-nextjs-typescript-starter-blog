@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-import { Icon } from './Icon'
+import SunAndMoonSvg from './Icon'
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
@@ -62,9 +62,12 @@ const ThemeSwitch = () => {
 
   return (
     <button
-      aria-label='Toggle Dark Mode'
+      title='Toggles light & dark'
+      aria-label='auto'
+      aria-live='polite'
+      id='theme-toggle'
       type='button'
-      className='ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4'
+      className='theme-toggle ml-1 mr-1 rounded p-1 sm:ml-4'
       onClick={handleClick}
       style={
         {
@@ -72,7 +75,7 @@ const ThemeSwitch = () => {
         } as EnhancedStyle
       }
     >
-      {mounted && <Icon dark={theme === 'dark' || resolvedTheme === 'dark'} />}
+      {mounted && <SunAndMoonSvg />}
     </button>
   )
 }

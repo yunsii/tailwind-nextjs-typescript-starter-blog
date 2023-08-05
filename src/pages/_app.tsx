@@ -1,4 +1,5 @@
 import '@/css/global.css'
+import '@/css/theme-switch.scss'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'

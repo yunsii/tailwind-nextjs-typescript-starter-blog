@@ -120,6 +120,10 @@ const nextConfig = {
                 name: 'removeViewBox',
                 active: false,
               },
+              {
+                name: 'prefixIds',
+                active: true,
+              },
             ],
           },
         },
