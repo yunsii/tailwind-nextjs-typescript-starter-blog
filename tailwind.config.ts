@@ -2,6 +2,7 @@
 
 import colors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
+import plugin from 'tailwindcss/plugin'
 
 import type { PluginAPI } from 'tailwindcss/types/config'
 import type { Config } from 'tailwindcss'
@@ -165,6 +166,27 @@ const config: Config = {
     require('@tailwindcss/typography'),
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     require('tailwind-scrollbar')({ nocompatible: true }),
+    plugin(({ addComponents }) => {
+      // https://github.com/tailwindlabs/tailwindcss-intellisense/issues/227#issuecomment-1269592872
+      addComponents({
+        '.text-primary': {
+          '@apply text-primary-700 dark:text-primary-500': {},
+        },
+        '.text-primary-hover': {
+          '@apply text-primary-600 dark:text-primary-400': {},
+        },
+        '.btn-primary': {
+          '@apply text-primary rounded border border-primary-700 hover:bg-primary-700 hover:text-white [&:not(:last-child)]:mr-3':
+            {},
+          '@apply dark:border-primary-500 dark:hover:bg-primary-500 dark:hover:text-white':
+            {},
+          '@apply transition-colors': {},
+        },
+        '.btn-link': {
+          '@apply btn-primary px-2 py-1 text-sm font-medium': {},
+        },
+      })
+    }),
   ],
 }
 
