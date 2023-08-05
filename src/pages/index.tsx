@@ -78,7 +78,8 @@ export default function Home({
                           href={`/blog/${slug}`}
                           aria-label={`Read "${title}"`}
                         >
-                          Read more
+                          {/* Read more is bad practice, ref: https://developer.chrome.com/docs/lighthouse/seo/link-text */}
+                          Read now
                         </LinkGo>
                       </div>
                     </div>
