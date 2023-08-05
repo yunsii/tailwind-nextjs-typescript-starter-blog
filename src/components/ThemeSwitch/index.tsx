@@ -1,8 +1,7 @@
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-import SunSvg from '@/assets/theme/sun.svg'
-import MoonSvg from '@/assets/theme/moon.svg'
+import { Icon } from './Icon'
 
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false)
@@ -68,11 +67,7 @@ const ThemeSwitch = () => {
       className='ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4'
       onClick={handleClick}
     >
-      {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
-        <SunSvg className='text-gray-900 dark:text-gray-100' />
-      ) : (
-        <MoonSvg className='text-gray-900 dark:text-gray-100' />
-      )}
+      {mounted && <Icon dark={theme === 'dark' || resolvedTheme === 'dark'} />}
     </button>
   )
 }
