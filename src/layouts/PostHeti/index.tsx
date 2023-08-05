@@ -1,6 +1,6 @@
 import 'heti/umd/heti.min.css'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
@@ -10,6 +10,7 @@ import Link from '@/components/Link'
 import metadata from 'data/metadata'
 
 import styles from './index.module.scss'
+import { autoSpacing } from './helpers'
 
 import type { Blog } from 'contentlayer/generated'
 import type { CoreContent } from '@/lib/utils/contentlayer'
@@ -24,6 +25,7 @@ interface Props {
 export default function HetiLayout(props: React.PropsWithChildren<Props>) {
   const { content, next, prev, children } = props
   const { slug, date, title } = content
+  const [layoutPolished, setLayoutPolished] = useState(false)
   const addonRef = useRef(false)
 
   useEffect(() => {
@@ -32,17 +34,13 @@ export default function HetiLayout(props: React.PropsWithChildren<Props>) {
     }
     addonRef.current = true
 
-    async function run() {
-      const Heti = (await import('heti/js/heti-addon')).default
-      const heti = new Heti('.heti')
-      heti.autoSpacing() // 自动进行中西文混排美化和标点挤压
-    }
-
-    run()
+    autoSpacing().finally(() => {
+      setLayoutPolished(true)
+    })
   }, [])
 
   return (
-    <div className='mx-auto'>
+    <div className={`mx-auto ${layoutPolished ? 'block' : 'hidden'}`}>
       <BlogSEO url={`${metadata.siteUrl}/blog/${slug}`} {...content} />
       <ScrollTopAndComment />
       <article
