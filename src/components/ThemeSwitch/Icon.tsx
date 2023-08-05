@@ -11,6 +11,6 @@ export function Icon(props: IconProps) {
   return dark ? (
     <MoonSvg className='dark:text-gray-100' />
   ) : (
-    <SunSvg className='text-[#ea8836]' />
+    <SunSvg className='text-gray-900' />
   )
 }

@@ -51,3 +51,7 @@ declare module 'flubber' {
     },
   ) => (v: number) => any
 }
+
+declare interface EnhancedStyle extends React.CSSProperties {
+  viewTransitionName?: string
+}

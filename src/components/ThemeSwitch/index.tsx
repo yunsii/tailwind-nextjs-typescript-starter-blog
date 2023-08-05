@@ -66,6 +66,11 @@ const ThemeSwitch = () => {
       type='button'
       className='ml-1 mr-1 h-8 w-8 rounded p-1 sm:ml-4'
       onClick={handleClick}
+      style={
+        {
+          viewTransitionName: 'theme-switch-button',
+        } as EnhancedStyle
+      }
     >
       {mounted && <Icon dark={theme === 'dark' || resolvedTheme === 'dark'} />}
     </button>
