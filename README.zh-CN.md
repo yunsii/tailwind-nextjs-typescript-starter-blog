@@ -4,6 +4,27 @@
 
 > 基于 [Tailwind](https://github.com/tailwindlabs/tailwindcss) + [Next.js](https://github.com/vercel/next.js) + **[TypeScript](https://github.com/microsoft/TypeScript)** 的博客模板。
 
+## 功能特色
+
+- 🦄 [Next.js](https://nextjs.org/) 结合 [TypeScript](https://github.com/microsoft/TypeScript)
+- 💎 基于 [Tailwind CSS](https://tailwindcss.com/) 的样式定制
+- ☀️ 支持亮色 🌘 暗色主题
+- 😎 基于 [MDX](https://mdxjs.com/) 和 [Contentlayer](https://contentlayer.dev/) 的内容管理
+- 🚀 SEO 优先
+  - 基于 [idlization](https://github.com/yunsii/idlization) 尽可能实现基于 [_idle-until-urgent_](https://philipwalton.com/articles/idle-until-urgent/) 模式的数值计算与事件回调优化
+  - [LazyFramerMotion](./src/components/LazyFramerMotion/index.tsx) 组件
+- 📊 基于 [analytics](https://github.com/DavidWells/analytics) 的数据分析
+- ❤️ 赫蹏中文排版
+- 🎈 基于 [unplugin-svg-sprite](https://github.com/yunsii/unplugin-svg-sprite) 构建 SVG 雪碧图
+
+开发体验优化基于:
+
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [commitlint](https://commitlint.js.org/)
+
+由 [@jannajs/lint](https://github.com/jannajs/janna) 初始化相关配置。
+
 ## 使用
 
 - `Use this template` 或者 fork 该仓库
@@ -21,21 +42,6 @@
 ## 部署
 
 由于存在一部分 API 功能，最好选择 [Vercel](https://vercel.com/)。
-
-## 技术栈
-
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://github.com/microsoft/TypeScript)
-- [Contentlayer](https://contentlayer.dev/)
-
-开发体验优化基于:
-
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [commitlint](https://commitlint.js.org/)
-
-由 [@jannajs/lint](https://github.com/jannajs/janna) 初始化相关配置。
 
 ## 动机
 
