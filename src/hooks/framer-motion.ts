@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useTransform } from 'framer-motion'
 
 import { idleQueue } from '@/helpers/idle'
 
@@ -45,15 +44,20 @@ export function useFramerMotion() {
     pushed = true
 
     idleQueue.pushTask(async () => {
-      const result = await importFramerMotion()
+      const coreFramerMotionModules = await importFramerMotion()
       const { interpolate } = await import('flubber')
 
       const useFlubber = (progress: MotionValue<number>, paths: string[]) => {
-        return useTransform(progress, paths.map(getIndex), paths, {
-          mixer: (a, b) => {
-            return interpolate(a, b, { maxSegmentLength: 0.1 })
+        return coreFramerMotionModules.useTransform(
+          progress,
+          paths.map(getIndex),
+          paths,
+          {
+            mixer: (a, b) => {
+              return interpolate(a, b, { maxSegmentLength: 0.1 })
+            },
           },
-        })
+        )
       }
 
       // normalize path
@@ -61,7 +65,7 @@ export function useFramerMotion() {
       // run script: Array.from($$('#root > div > div.cards > div.animation-wrapper > div > ul li code')).map(item=> item.innerText).join(' ')
 
       modules = {
-        ...result,
+        ...coreFramerMotionModules,
         useFlubber,
       }
 
