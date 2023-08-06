@@ -2,10 +2,10 @@ import React from 'react'
 
 import { useFramerMotion } from '@/hooks/framer-motion'
 
-import type { MergedFramerMotionModules } from '@/hooks/framer-motion'
+import type { FramerMotionModules } from '@/hooks/framer-motion'
 
 export interface LazyFramerMotionChildrenProps {
-  modules: MergedFramerMotionModules
+  modules: FramerMotionModules
   fallback: React.ReactNode
 }
 

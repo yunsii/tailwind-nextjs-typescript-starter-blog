@@ -5,24 +5,12 @@ import { idleQueue } from '@/helpers/idle'
 import { useMountOnce } from './react'
 
 import type React from 'react'
-import type { MotionValue } from 'framer-motion'
-
-export const getIndex = (_: any, index: number) => index
 
 async function importFramerMotion() {
   return await import('framer-motion')
 }
 
-type UseFlubber = (
-  progress: MotionValue<number>,
-  paths: string[],
-) => MotionValue<string>
-
 export type FramerMotionModules = Awaited<ReturnType<typeof importFramerMotion>>
-
-export interface MergedFramerMotionModules extends FramerMotionModules {
-  useFlubber: UseFlubber
-}
 
 export type UseFramerMotionResult =
   | {
@@ -31,10 +19,10 @@ export type UseFramerMotionResult =
     }
   | {
       ready: true
-      modules: MergedFramerMotionModules
+      modules: FramerMotionModules
     }
 
-let modules: MergedFramerMotionModules | null = null
+let modules: FramerMotionModules | null = null
 let pushed = false
 const callbacks: (() => void)[] = []
 
@@ -50,36 +38,57 @@ export function useFramerMotion() {
     pushed = true
 
     idleQueue.pushTask(async () => {
-      const coreFramerMotionModules = await importFramerMotion()
-      const { interpolate } = await import('flubber')
-
-      const useFlubber = (progress: MotionValue<number>, paths: string[]) => {
-        return coreFramerMotionModules.useTransform(
-          progress,
-          paths.map(getIndex),
-          paths,
-          {
-            mixer: (a, b) => {
-              return interpolate(a, b, { maxSegmentLength: 0.1 })
-            },
-          },
-        )
-      }
-
-      // normalize path
-      // https://svg-path-visualizer.netlify.app/
-      // run script: Array.from($$('#root > div > div.cards > div.animation-wrapper > div > ul li code')).map(item=> item.innerText).join(' ')
-
-      modules = {
-        ...coreFramerMotionModules,
-        useFlubber,
-      }
-
+      modules = await importFramerMotion()
       callbacks.forEach((item) => item())
     })
   })
 
   return { ready, modules } as UseFramerMotionResult
+}
+
+async function importFlubber() {
+  return await import('flubber')
+}
+
+export type InterpolateFn = Awaited<
+  ReturnType<typeof importFlubber>
+>['interpolate']
+
+export type UseFlubberInterpolateResult =
+  | {
+      ready: false
+      interpolate: null
+    }
+  | {
+      ready: true
+      interpolate: InterpolateFn
+    }
+
+let interpolate: InterpolateFn | null = null
+let interpolateTaskPushed = false
+const interpolateCallbacks: (() => void)[] = []
+
+export function useFlubberInterpolate(): UseFlubberInterpolateResult {
+  const [ready, setReady] = useState(!!modules)
+
+  useMountOnce(() => {
+    callbacks.push(() => setReady(true))
+
+    if (interpolateTaskPushed) {
+      return
+    }
+    interpolateTaskPushed = true
+
+    idleQueue.pushTask(async () => {
+      const result = await importFlubber()
+
+      interpolate = result.interpolate
+
+      interpolateCallbacks.forEach((item) => item())
+    })
+  })
+
+  return { ready, interpolate } as UseFlubberInterpolateResult
 }
 
 export function useRuntimeComponent<T>(component: React.FC<T>) {
