@@ -1,3 +1,9 @@
+/**
+ * Imported rules must come before all other types of rules, except @charset rules and layer creating @layer statements. 
+ * ref: https://developer.mozilla.org/en-US/docs/Web/CSS/@import#description
+ */
+@import url('https://unpkg.com/open-props/easings.min.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
