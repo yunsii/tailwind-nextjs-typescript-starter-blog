@@ -1,14 +1,9 @@
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 
 import SunAndMoonSvg from './Icon'
 
 const ThemeSwitch = () => {
-  const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
-
-  // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [])
 
   const updateTheme = () => {
     setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')
@@ -75,7 +70,7 @@ const ThemeSwitch = () => {
         } as EnhancedStyle
       }
     >
-      {mounted && <SunAndMoonSvg />}
+      <SunAndMoonSvg />
     </button>
   )
 }
