@@ -62,7 +62,7 @@ const ThemeSwitch = () => {
       aria-live='polite'
       id='theme-toggle'
       type='button'
-      className='theme-toggle ml-1 mr-2 rounded p-1 sm:ml-4'
+      className='theme-toggle ml-1 mr-2 w-6 rounded p-1 sm:ml-4'
       onClick={handleClick}
       style={
         {
