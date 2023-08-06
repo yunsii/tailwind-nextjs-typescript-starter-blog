@@ -1,17 +1,19 @@
 import { clsx } from 'clsx'
+import { type ReactNode, useRef, useState } from 'react'
 
 import menu from 'data/menu'
 import metadata from 'data/metadata'
 
 import Footer from '../Footer'
 import Link from '../Link'
-import MobileNav from '../MobileNav'
 import ThemeSwitch from '../ThemeSwitch'
 
 import Logo from './Logo'
 import styles from './index.module.scss'
+import MenuButton from './MenuButton'
+import MenuMobile from './MenuMobile'
 
-import type { ReactNode } from 'react'
+import type { MenuButtonAction } from './MenuButton'
 
 interface Props {
   className?: string
@@ -19,12 +21,15 @@ interface Props {
 }
 
 const LayoutWrapper = ({ className = '', children }: Props) => {
+  const [open, setOpen] = useState(false)
+  const menuButtonActionRef = useRef<MenuButtonAction>(null)
+
   return (
     <div
       className={`${className} mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0`}
     >
       <div className='flex h-screen flex-col justify-between'>
-        <header className='flex items-center justify-between py-10'>
+        <header className='relative z-20 flex items-center justify-between py-10'>
           <div>
             <Link href='/' aria-label={metadata.headerTitle}>
               <div
@@ -64,9 +69,20 @@ const LayoutWrapper = ({ className = '', children }: Props) => {
               ))}
             </div>
             <ThemeSwitch />
-            <MobileNav />
+            <MenuButton
+              ref={menuButtonActionRef}
+              open={open}
+              onChange={setOpen}
+            />
           </div>
         </header>
+        <MenuMobile
+          open={open}
+          onChange={setOpen}
+          getTrigger={() => {
+            return menuButtonActionRef.current?.getTrigger()
+          }}
+        />
         <main className='mb-auto'>{children}</main>
         <Footer />
       </div>

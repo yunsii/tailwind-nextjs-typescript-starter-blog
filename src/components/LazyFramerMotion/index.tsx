@@ -10,15 +10,16 @@ export interface LazyFramerMotionChildrenProps {
 }
 
 export interface ILazyFramerMotionProps {
+  fallbackOnly?: boolean
   fallback: React.ReactNode
   children: (props: LazyFramerMotionChildrenProps) => JSX.Element
 }
 
 const LazyFramerMotion: React.FC<ILazyFramerMotionProps> = (props) => {
-  const { fallback, children } = props
+  const { fallback, fallbackOnly, children } = props
   const { ready, modules } = useFramerMotion()
 
-  if (ready) {
+  if (ready && !fallbackOnly) {
     return children({ modules, fallback })
   }
 

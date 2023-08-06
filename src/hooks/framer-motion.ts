@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 
 import { idleQueue } from '@/helpers/idle'
 
+import { useMountOnce } from './react'
+
+import type React from 'react'
 import type { MotionValue } from 'framer-motion'
 
 export const getIndex = (_: any, index: number) => index
@@ -33,11 +36,14 @@ export type UseFramerMotionResult =
 
 let modules: MergedFramerMotionModules | null = null
 let pushed = false
+const callbacks: (() => void)[] = []
 
 export function useFramerMotion() {
   const [ready, setReady] = useState(!!modules)
 
-  useEffect(() => {
+  useMountOnce(() => {
+    callbacks.push(() => setReady(true))
+
     if (pushed) {
       return
     }
@@ -69,9 +75,13 @@ export function useFramerMotion() {
         useFlubber,
       }
 
-      setReady(true)
+      callbacks.forEach((item) => item())
     })
-  }, [])
+  })
 
   return { ready, modules } as UseFramerMotionResult
+}
+
+export function useRuntimeComponent<T>(component: React.FC<T>) {
+  return useRef(component).current
 }
