@@ -8,10 +8,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-/* https://github.com/w3c/csswg-drafts/issues/6028 */
-body *:not(svg) {
+:root {
+  /* https://github.com/w3c/csswg-drafts/issues/6028 */
   scrollbar-gutter: stable both-edges;
+}
+
+:root,
+body *:not(svg) {
   @apply scrollbar-thin scrollbar-thumb-rounded-full;
   @apply scrollbar-track-transparent scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-400;
   @apply dark:scrollbar-thumb-gray-600 dark:hover:scrollbar-thumb-gray-500;
