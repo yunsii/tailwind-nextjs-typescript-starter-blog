@@ -69,7 +69,7 @@ let interpolateTaskPushed = false
 const interpolateCallbacks: (() => void)[] = []
 
 export function useFlubberInterpolate(): UseFlubberInterpolateResult {
-  const [ready, setReady] = useState(!!modules)
+  const [ready, setReady] = useState(!!interpolate)
 
   useMountOnce(() => {
     callbacks.push(() => setReady(true))
