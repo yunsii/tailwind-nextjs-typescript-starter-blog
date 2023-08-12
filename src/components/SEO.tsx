@@ -64,7 +64,7 @@ export const BlogSEO = ({
   lastmod,
   url,
   images = [],
-  canonicalUrl,
+  canonicalUrl = url,
 }: BlogSeoProps) => {
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()

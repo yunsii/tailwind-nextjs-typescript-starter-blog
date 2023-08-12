@@ -13,10 +13,10 @@ import type { ReactNode } from 'react'
 import type { Author, Blog } from 'contentlayer/generated'
 
 const editUrl = (fileName: string) =>
-  `${metadata.siteRepo}/blob/master/data/blog/${fileName}`
+  `${metadata.siteRepo}/blob/master/data/${fileName}`
 const discussUrl = (slug: string) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `${metadata.siteUrl}/blog/${slug}`,
+    `${metadata.siteUrl}/${slug}`,
   )}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
@@ -41,12 +41,12 @@ export default function PostLayout({
   prev,
   children,
 }: Props) {
-  const { slug, date, title, tags } = content
+  const { path, date, title, tags, filePath } = content
 
   return (
     <div className='mx-auto'>
       <BlogSEO
-        url={`${metadata.siteUrl}/blog/${slug}`}
+        url={`${metadata.siteUrl}/${path}`}
         authorDetails={authorDetails}
         {...content}
       />
@@ -125,11 +125,11 @@ export default function PostLayout({
                 {children}
               </div>
               <div className='pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300'>
-                <Link href={discussUrl(slug)} rel='nofollow'>
+                <Link href={discussUrl(path)} rel='nofollow'>
                   {'Discuss on Twitter'}
                 </Link>
                 {` • `}
-                <Link href={editUrl(slug)}>{'View on GitHub'}</Link>
+                <Link href={editUrl(filePath)}>{'View on GitHub'}</Link>
               </div>
               <Comments frontMatter={content} />
             </div>
@@ -175,7 +175,7 @@ export default function PostLayout({
               <div className='pt-4 xl:pt-8'>
                 <Link
                   href='/blog'
-                  className='text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
+                  className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
                 >
                   <ArrowLeft className='mr-2 w-6 scale-75' />
                   Back to the blog
