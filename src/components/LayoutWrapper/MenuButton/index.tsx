@@ -1,9 +1,6 @@
 import clsx from 'clsx'
 import React, { useRef } from 'react'
 
-import MenuSvg from '@/assets/menu.svg'
-import CloseSvg from '@/assets/close.svg'
-
 import LazyFramerMotion from '../../LazyFramerMotion'
 
 import { LazyIcon } from './lazy'
@@ -44,7 +41,11 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
     <LazyFramerMotion
       fallback={
         <button ref={fallbackRef} {...buttonProps}>
-          {open ? <CloseSvg /> : <MenuSvg />}
+          {open ? (
+            <span className='i-custom--close w-full h-full' />
+          ) : (
+            <span className='i-custom--menu w-full h-full' />
+          )}
         </button>
       }
     >

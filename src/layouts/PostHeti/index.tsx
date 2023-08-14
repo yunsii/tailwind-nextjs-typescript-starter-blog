@@ -8,8 +8,6 @@ import formatDate from '@/lib/utils/formatDate'
 import Comments from '@/components/comments'
 import Link from '@/components/Link'
 import metadata from 'data/metadata'
-import ArrowRight from '@/assets/arrow-right.svg'
-import ArrowLeft from '@/assets/arrow-left.svg'
 
 import styles from './index.module.scss'
 import { autoSpacing } from './helpers'
@@ -75,7 +73,7 @@ export default function HetiLayout(props: React.PropsWithChildren<Props>) {
                 href={`/blog/${prev.slug}`}
                 className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
               >
-                <ArrowLeft className='mr-2 w-6 scale-75' />
+                <span className='i-iconamoon--arrow-left-1 mr-1 text-xl' />
                 {prev.title}
               </Link>
             </div>
@@ -87,7 +85,7 @@ export default function HetiLayout(props: React.PropsWithChildren<Props>) {
                 className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
               >
                 {next.title}
-                <ArrowRight className='ml-2 w-6 scale-75' />
+                <span className='i-iconamoon--arrow-right-1 ml-1 text-xl' />
               </Link>
             </div>
           )}

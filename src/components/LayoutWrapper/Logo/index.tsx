@@ -1,4 +1,4 @@
-import LogoSvg from 'data/logo.svg?svgr'
+import LogoSvg from 'data/logo.svg'
 
 import LazyFramerMotion from '../../LazyFramerMotion'
 

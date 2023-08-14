@@ -1,21 +1,13 @@
-import Github from '@/assets/social-icons/github.svg'
-import Juejin from '@/assets/social-icons/juejin.svg'
-import Linkedin from '@/assets/social-icons/linkedin.svg'
-import Mail from '@/assets/social-icons/mail.svg'
-import Twitter from '@/assets/social-icons/twitter.svg'
-import Youtube from '@/assets/social-icons/youtube.svg'
-import Facebook from '@/assets/social-icons/facebook.svg'
-
-// Icons taken from: https://simpleicons.org/
+import clsx from 'clsx'
 
 const components = {
-  mail: Mail,
-  github: Github,
-  juejin: Juejin,
-  facebook: Facebook,
-  youtube: Youtube,
-  linkedin: Linkedin,
-  twitter: Twitter,
+  mail: clsx('i-bi--envelope-fill'),
+  github: clsx('i-bi--github'),
+  juejin: clsx('i-social--juejin'),
+  facebook: clsx('i-bi--facebook'),
+  youtube: clsx('i-bi--youtube'),
+  linkedin: clsx('i-bi--linkedin'),
+  twitter: clsx('i-bi--twitter'),
 }
 
 export interface SocialIconProps {
@@ -34,9 +26,7 @@ const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
     return null
   }
 
-  const SocialSvg = components[kind] as React.ComponentType<
-    React.SVGProps<SVGSVGElement> & { title?: string }
-  >
+  const iconClassName = components[kind]
 
   return (
     <a
@@ -46,8 +36,11 @@ const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
       href={href}
     >
       <span className='sr-only'>{kind}</span>
-      <SocialSvg
-        className={`fill-current text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400`}
+      <span
+        className={clsx(
+          iconClassName,
+          `fill-current text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400`,
+        )}
         style={{
           width: `${size}rem`,
           height: `${size}rem`,

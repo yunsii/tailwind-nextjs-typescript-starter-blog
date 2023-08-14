@@ -6,7 +6,6 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
 import metadata from 'data/metadata'
-import ArrowLeft from '@/assets/arrow-left.svg'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { ReactNode } from 'react'
@@ -177,7 +176,7 @@ export default function PostLayout({
                   href='/blog'
                   className='flex items-center text-primary-500 hover:text-primary-600 dark:hover:text-primary-400'
                 >
-                  <ArrowLeft className='mr-2 w-6 scale-75' />
+                  <span className='i-iconamoon--arrow-left-1 mr-1 text-xl' />
                   Back to the blog
                 </Link>
               </div>

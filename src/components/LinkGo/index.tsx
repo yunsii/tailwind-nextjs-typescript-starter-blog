@@ -2,8 +2,6 @@ import Link from 'next/link'
 import React from 'react'
 import { clsx } from 'clsx'
 
-import ArrowRight from '@/assets/arrow-right.svg'
-
 import type { LinkProps } from 'next/link'
 
 export interface ILinkGoProps extends LinkProps {
@@ -22,7 +20,7 @@ const LinkGo: React.FC<ILinkGoProps> = (props) => {
       )}
     >
       <span>{children}</span>
-      <ArrowRight className='ml-1 h-6 w-6 translate-x-0 scale-75 transition-all group-hover:translate-x-1' />
+      <span className='i-iconamoon--arrow-right-1 ml-1 translate-x-0 text-xl transition-all group-hover:translate-x-1' />
     </Link>
   )
 }

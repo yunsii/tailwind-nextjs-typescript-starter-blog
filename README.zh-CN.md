@@ -15,7 +15,7 @@
   - [LazyFramerMotion](./src/components/LazyFramerMotion/index.tsx) 组件
 - 📊 基于 [analytics](https://github.com/DavidWells/analytics) 的数据分析
 - ❤️ 赫蹏中文排版
-- 🎈 基于 [unplugin-svg-sprite](https://github.com/yunsii/unplugin-svg-sprite) 构建 SVG 雪碧图
+- 🎈 基于 [tailwindcss-plugin-iconify](https://github.com/yunsii/tailwindcss-plugin-iconify) 使用纯 CSS 图标库
 
 开发体验优化基于:
 

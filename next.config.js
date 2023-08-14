@@ -1,5 +1,3 @@
-const path = require('node:path')
-
 const bundleAnalyzer = require('@next/bundle-analyzer')
 const { withContentlayer } = require('next-contentlayer')
 
@@ -76,35 +74,8 @@ const nextConfig = {
     }
   },
   webpack: (config, { dev, isServer }) => {
-    config.plugins.push(
-      require('unplugin-svg-sprite/webpack').default({
-        content: ['src/**/*.svg'],
-        sprites: {
-          symbol: {
-            runtime: {
-              itemGenerator: path.join(
-                __dirname,
-                'scripts',
-                'svg-sprite',
-                'symbol',
-                'item-generator.mjs',
-              ),
-              spriteGenerator: path.join(
-                __dirname,
-                'scripts',
-                'svg-sprite',
-                'symbol',
-                'sprite-generator.mjs',
-              ),
-            },
-          },
-        },
-      }),
-    )
-
     config.module.rules.push({
       test: /\.svg$/,
-      resourceQuery: /svgr/,
       use: {
         loader: '@svgr/webpack',
         options: {

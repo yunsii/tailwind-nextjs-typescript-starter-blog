@@ -1,8 +1,12 @@
 // HMR enabled by nextjs
 
+import path from 'node:path'
+
 import colors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
+import { addDynamicIconSelectors } from 'tailwindcss-plugin-iconify'
+import { getLocalIconSets } from 'tailwindcss-plugin-iconify/dist/extensions/local-icon-sets'
 
 import type { PluginAPI } from 'tailwindcss/types/config'
 import type { Config } from 'tailwindcss'
@@ -166,6 +170,26 @@ const config: Config = {
     require('@tailwindcss/typography'),
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     require('tailwind-scrollbar')({ nocompatible: true }),
+    addDynamicIconSelectors({
+      prefix: 'i',
+      iconSets: getLocalIconSets({
+        define: {
+          custom: {
+            path: path.join(process.cwd(), './src/assets'),
+            options: {
+              includeSubDirs: false,
+            },
+          },
+          social: {
+            path: path.join(process.cwd(), './src/assets/social-icons'),
+            options: {
+              includeSubDirs: false,
+            },
+          },
+        },
+      }),
+      preprocessSets: ['bi', 'iconamoon', 'svg-spinners'],
+    }),
     plugin(({ addComponents }) => {
       // https://github.com/tailwindlabs/tailwindcss-intellisense/issues/227#issuecomment-1269592872
       addComponents({

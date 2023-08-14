@@ -15,7 +15,7 @@ English | [简体中文](./README.zh-CN.md)
   - [LazyFramerMotion](./src/components/LazyFramerMotion/index.tsx) component
 - 📊 Analytics based on [analytics](https://github.com/DavidWells/analytics)
 - ❤️ Heti post layout (for Chinese)
-- 🎈 Svg sprite based on [unplugin-svg-sprite](https://github.com/yunsii/unplugin-svg-sprite)
+- 🎈 Pure CSS icons based on [tailwindcss-plugin-iconify](https://github.com/yunsii/tailwindcss-plugin-iconify)
 
 Developers experience (DX) based on:
 

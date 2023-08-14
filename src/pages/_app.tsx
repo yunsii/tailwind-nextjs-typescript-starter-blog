@@ -10,8 +10,6 @@ import Analytics from '@/components/Analytics'
 
 import type { AppProps } from 'next/app'
 
-import SvgSprite from '~svg-sprite/symbol'
-
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -21,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta content='width=device-width, initial-scale=1' name='viewport' />
       </Head>
       <Analytics />
-      <SvgSprite />
       <LayoutWrapper className={`${inter.className} ${inter.variable}`}>
         <Component {...pageProps} />
       </LayoutWrapper>
