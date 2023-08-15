@@ -76,7 +76,7 @@ export default function Home({
                       <div className='text-base font-medium leading-6'>
                         <LinkGo
                           href={`/blog/${slug}`}
-                          aria-label={`Read "${title}"`}
+                          aria-label={`Read now of "${title}"`}
                         >
                           {/* Read more is bad practice, ref: https://developer.chrome.com/docs/lighthouse/seo/link-text */}
                           Read now
