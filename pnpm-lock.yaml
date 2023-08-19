@@ -257,8 +257,8 @@ devDependencies:
     specifier: ^3.3.3
     version: 3.3.3(ts-node@10.9.1)
   tailwindcss-plugin-iconify:
-    specifier: 0.0.1-next.3
-    version: 0.0.1-next.3(ts-node@10.9.1)
+    specifier: 0.0.1
+    version: 0.0.1(ts-node@10.9.1)
   tsx:
     specifier: ^3.12.7
     version: 3.12.7
@@ -9546,8 +9546,8 @@ packages:
       tailwindcss: 3.3.3(ts-node@10.9.1)
     dev: true
 
-  /tailwindcss-plugin-iconify@0.0.1-next.3(ts-node@10.9.1):
-    resolution: {integrity: sha512-Jm6Iux27wGtKX4iebXeBwjVO9jGvV5DnYvMqCA/IBBLS2Vg35KgPY7bJ3y77tf2USEA/H8FOsr6vSuLIbLVRbQ==}
+  /tailwindcss-plugin-iconify@0.0.1(ts-node@10.9.1):
+    resolution: {integrity: sha512-b09eN140c3AFWaqDR6oZTvAi5d0qvTo2hpjkMUWuImA7Sz9QmpbjnMrYWfGBH2g7LLBc8o2UrnRmOf69NSxdrw==}
     dependencies:
       '@iconify/tools': 3.0.5
       '@iconify/types': 2.0.0
