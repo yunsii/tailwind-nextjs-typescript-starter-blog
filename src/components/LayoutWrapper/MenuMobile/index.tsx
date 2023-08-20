@@ -10,8 +10,8 @@ import { renderMenuMobileItem } from './helpers'
 
 import type { LazyMenuProps } from './lazy'
 
-export default function MenuMobile(props: LazyMenuProps) {
-  const { open, onChange } = props
+export default function MenuMobile(props: Partial<LazyMenuProps>) {
+  const { open, onChange, triggerCenter } = props
 
   const bgClassName = clsx(
     'fixed inset-0 pt-32',
@@ -20,7 +20,7 @@ export default function MenuMobile(props: LazyMenuProps) {
 
   return (
     <LazyFramerMotion
-      // fallbackOnly
+      fallbackOnly={!triggerCenter}
       fallback={
         <nav className={open ? 'fixed inset-0 z-10 block sm:hidden' : 'hidden'}>
           <ul className={bgClassName}>
@@ -38,7 +38,9 @@ export default function MenuMobile(props: LazyMenuProps) {
       }
     >
       {(_props) => {
-        return <LazyMenu {..._props} {...props} />
+        return (
+          <LazyMenu {..._props} {...props} triggerCenter={triggerCenter!} />
+        )
       }}
     </LazyFramerMotion>
   )

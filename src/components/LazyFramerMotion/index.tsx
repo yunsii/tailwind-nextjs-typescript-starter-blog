@@ -29,6 +29,7 @@ export interface LazyFramerMotionProps<Dom extends HTMLElement = any> {
    * Render fallback only, you can use it for:
    *
    * - Debug for fallback dom
+   * - Wait some state ready to use
    * - No others modules deps, except `motion` module
    */
   fallbackOnly?: boolean

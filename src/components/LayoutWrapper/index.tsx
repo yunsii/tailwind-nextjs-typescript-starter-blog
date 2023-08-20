@@ -1,5 +1,5 @@
 import { clsx } from 'clsx'
-import { type ReactNode, useRef, useState } from 'react'
+import { type ReactNode, useEffect, useRef, useState } from 'react'
 
 import menu from 'data/menu'
 import metadata from 'data/metadata'
@@ -22,7 +22,24 @@ interface Props {
 
 const LayoutWrapper = ({ className = '', children }: Props) => {
   const [open, setOpen] = useState(false)
+  const [triggerCenter, setTriggerCenter] = useState<{
+    x: number
+    y: number
+  }>()
   const menuButtonActionRef = useRef<MenuButtonAction>(null)
+
+  useEffect(() => {
+    const target = menuButtonActionRef.current?.getTrigger()
+    if (!target) {
+      return
+    }
+    const clientRect = target.getBoundingClientRect()
+
+    setTriggerCenter({
+      x: Math.round(clientRect.x + clientRect.width / 2),
+      y: Math.round(clientRect.y + clientRect.height / 2),
+    })
+  }, [])
 
   return (
     <div
@@ -79,9 +96,7 @@ const LayoutWrapper = ({ className = '', children }: Props) => {
         <MenuMobile
           open={open}
           onChange={setOpen}
-          getTrigger={() => {
-            return menuButtonActionRef.current?.getTrigger()
-          }}
+          triggerCenter={triggerCenter}
         />
         <main className='mb-auto'>{children}</main>
         <Footer />

@@ -37,63 +37,46 @@ const menuItemVariants = {
 export interface LazyMenuProps {
   open?: boolean
   onChange?: (_open: boolean) => void
-  getTrigger?: () => HTMLElement | null | void
+  triggerCenter: {
+    x: number
+    y: number
+  }
 }
 
 export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
-  const { m, open, onChange, getTrigger } = props
+  const { m, open, onChange, triggerCenter } = props
   const navRef = useRef<HTMLElement>(null)
 
-  const triggerCenter = useMemo(() => {
-    const target = getTrigger?.()
-    if (!target) {
-      return null
-    }
-    const clientRect = target.getBoundingClientRect()
-
-    return {
-      x: Math.round(clientRect.x + clientRect.width / 2),
-      y: Math.round(clientRect.y + clientRect.height / 2),
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   const bgVariants = useMemo(() => {
-    if (!triggerCenter) {
-      return null
-    }
-
     const endRadius = Math.ceil(
       Math.hypot(
-        Math.max(triggerCenter.x, innerWidth - triggerCenter.x),
-        Math.max(triggerCenter.y, innerHeight - triggerCenter.y),
+        Math.max(triggerCenter.x, window.innerWidth - triggerCenter.x),
+        Math.max(triggerCenter.y, window.innerHeight - triggerCenter.y),
       ),
     )
 
     return {
       open: {
-        clipPath: `circle(${endRadius * 4}px at ${triggerCenter.x}px ${
+        clipPath: `circle(${endRadius * 2 + 200}px at ${triggerCenter.x}px ${
           triggerCenter.y
         }px)`,
         transition: {
           type: 'spring',
           stiffness: 20,
           restDelta: 2,
-          duration: 5,
         },
       },
       closed: {
         clipPath: `circle(0 at ${triggerCenter.x}px ${triggerCenter.y}px)`,
         transition: {
-          delay: 0.2,
+          delay: 0.5,
           type: 'spring',
           stiffness: 400,
           damping: 40,
-          duration: 5,
         },
       },
     } as Variants
-  }, [triggerCenter])
+  }, [triggerCenter.x, triggerCenter.y])
 
   useEffect(() => {
     if (open === true) {
@@ -126,15 +109,13 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
       }}
       className={'fixed inset-0 z-10 sm:hidden'}
     >
-      {bgVariants && (
-        <m.div
-          className={clsx(
-            'h-full w-full',
-            'bg-gray-200 backdrop-blur-lg duration-300 ease-in-out dark:bg-gray-800',
-          )}
-          variants={bgVariants}
-        />
-      )}
+      <m.div
+        className={clsx(
+          'absolute inset-0',
+          'bg-gray-200 backdrop-blur-lg duration-300 ease-in-out dark:bg-gray-800',
+        )}
+        variants={bgVariants}
+      />
       <m.ul variants={ulVariants} className='absolute inset-0 pt-32'>
         {menu.map((link) => (
           <m.li
