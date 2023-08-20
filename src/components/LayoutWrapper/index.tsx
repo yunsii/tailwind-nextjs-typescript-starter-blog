@@ -9,7 +9,6 @@ import Link from '../Link'
 import ThemeSwitch from '../ThemeSwitch'
 
 import Logo from './Logo'
-import styles from './index.module.scss'
 import MenuButton from './MenuButton'
 import MenuMobile from './MenuMobile'
 
@@ -77,7 +76,6 @@ const LayoutWrapper = ({ className = '', children }: Props) => {
                   key={link.title}
                   href={link.href}
                   className={clsx(
-                    styles['menu-item'],
                     'p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4',
                   )}
                 >
