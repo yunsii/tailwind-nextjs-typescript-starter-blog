@@ -10,11 +10,12 @@ export function renderMenuMobileItem(link: MenuItem, onClick?: () => void) {
       href={link.href}
       className={clsx(
         'text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100',
-        'flex px-4 py-4',
+        'flex px-10 py-4 items-center',
+        link.icon,
       )}
       onClick={onClick}
     >
-      {link.title}
+      <span className='ml-1'>{link.title}</span>
     </Link>
   )
 }

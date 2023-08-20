@@ -12,7 +12,7 @@ import type { PluginAPI } from 'tailwindcss/types/config'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ['./src/**/*.ts[x]', './data/**/*.mdx'],
+  content: ['./src/**/*.{ts,tsx}', './data/**/*.{ts,mdx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -188,7 +188,7 @@ const config: Config = {
           },
         },
       }),
-      preprocessSets: ['bi', 'iconamoon', 'svg-spinners'],
+      preprocessSets: ['bi', 'bx', 'iconamoon', 'svg-spinners', 'mdi'],
     }),
     plugin(({ addComponents }) => {
       // https://github.com/tailwindlabs/tailwindcss-intellisense/issues/227#issuecomment-1269592872

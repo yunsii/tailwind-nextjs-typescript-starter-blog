@@ -136,9 +136,15 @@ devDependencies:
   '@iconify-json/bi':
     specifier: ^1.1.18
     version: 1.1.18
+  '@iconify-json/bx':
+    specifier: ^1.1.7
+    version: 1.1.7
   '@iconify-json/iconamoon':
     specifier: ^1.1.1
     version: 1.1.1
+  '@iconify-json/mdi':
+    specifier: ^1.1.54
+    version: 1.1.54
   '@iconify-json/svg-spinners':
     specifier: ^1.1.2
     version: 1.1.2
@@ -2730,8 +2736,20 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
+  /@iconify-json/bx@1.1.7:
+    resolution: {integrity: sha512-Ugh8uUU9VtK8fI9BBnhLA7VvhPh7erSmJz+eqjvl8HCRRjkz5mbMO5/KYpCOriUVdiiKB9Yv1ObMqS73WLMSwA==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify-json/iconamoon@1.1.1:
     resolution: {integrity: sha512-tgypCU1PxdUXCjSbzyCRyINEDqkGIZDx82x+p69yBAD8WJlEH8hUetHtD6ZHRBcDp1mfs3AcpdmUk88JgTOp2Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/mdi@1.1.54:
+    resolution: {integrity: sha512-3QAsxte90EalbN2e8J30OqSSZz9qN2x+kmykQwsPahoW2dOtSvj+BR9YdiUd9A5XKk2nuU4UH5Gj/cq6WZ6CzQ==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

@@ -121,7 +121,7 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
           <m.li
             key={link.title}
             variants={menuItemVariants}
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             {renderMenuMobileItem(link, () => {
