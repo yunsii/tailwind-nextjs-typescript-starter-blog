@@ -55,7 +55,7 @@
     "katex": "^0.16.8",
     "lodash-es": "^4.17.21",
     "mdast-util-to-string": "^4.0.0",
-    "next": "^13.4.12",
+    "next": "^13.4.19",
     "next-seo": "^6.1.0",
     "next-themes": "^0.2.1",
     "preact": "^10.16.0",
