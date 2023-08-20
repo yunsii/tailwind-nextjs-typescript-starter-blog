@@ -73,6 +73,11 @@ const nextConfig = {
           : [],
     }
   },
+  modularizeImports: {
+    'lodash-es': {
+      transform: 'lodash-es/{{member}}',
+    },
+  },
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.svg$/,

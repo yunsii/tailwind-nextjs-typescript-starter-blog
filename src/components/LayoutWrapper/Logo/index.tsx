@@ -1,15 +1,26 @@
+import { useRef } from 'react'
+
 import LogoSvg from 'data/logo.svg'
 
-import LazyFramerMotion from '../../LazyFramerMotion'
+import { withLazyFramerMotion } from '../../LazyFramerMotion'
 
-import { LazyLogo } from './lazy'
+import type { LazyFramerMotionChildrenProps } from '../../LazyFramerMotion'
 
-export default function Logo() {
+export interface LogoProps extends LazyFramerMotionChildrenProps {}
+
+function Logo(props: LogoProps) {
+  const { m, fallbackDom } = props
+  const constraintsRef = useRef(null)
+
   return (
-    <LazyFramerMotion fallback={<LogoSvg height={44} />}>
-      {(props) => {
-        return <LazyLogo {...props} />
-      }}
-    </LazyFramerMotion>
+    <m.div ref={constraintsRef}>
+      <m.div drag dragConstraints={constraintsRef}>
+        {fallbackDom}
+      </m.div>
+    </m.div>
   )
 }
+
+export default withLazyFramerMotion(Logo, {
+  fallback: <LogoSvg height={44} />,
+})

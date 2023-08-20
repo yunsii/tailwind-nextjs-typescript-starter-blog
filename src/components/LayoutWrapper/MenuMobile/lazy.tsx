@@ -41,8 +41,7 @@ export interface LazyMenuProps {
 }
 
 export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
-  const { modules, open, onChange, getTrigger } = props
-  const { motion } = modules
+  const { m, open, onChange, getTrigger } = props
   const navRef = useRef<HTMLElement>(null)
 
   const triggerCenter = useMemo(() => {
@@ -115,7 +114,7 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
   }, [open])
 
   return (
-    <motion.nav
+    <m.nav
       ref={navRef}
       initial={false}
       animate={open ? 'open' : 'closed'}
@@ -128,7 +127,7 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
       className={'fixed inset-0 z-10 sm:hidden'}
     >
       {bgVariants && (
-        <motion.div
+        <m.div
           className={clsx(
             'h-full w-full',
             'bg-gray-200 backdrop-blur-lg duration-300 ease-in-out dark:bg-gray-800',
@@ -136,9 +135,9 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
           variants={bgVariants}
         />
       )}
-      <motion.ul variants={ulVariants} className='absolute inset-0 pt-32'>
+      <m.ul variants={ulVariants} className='absolute inset-0 pt-32'>
         {menu.map((link) => (
-          <motion.li
+          <m.li
             key={link.title}
             variants={menuItemVariants}
             whileHover={{ scale: 1.1 }}
@@ -147,9 +146,9 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
             {renderMenuMobileItem(link, () => {
               onChange?.(false)
             })}
-          </motion.li>
+          </m.li>
         ))}
-      </motion.ul>
-    </motion.nav>
+      </m.ul>
+    </m.nav>
   )
 }

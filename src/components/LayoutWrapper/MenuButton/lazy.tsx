@@ -6,11 +6,10 @@ import type { LazyFramerMotionChildrenProps } from '@/components/LazyFramerMotio
 export function LazyIcon(
   props: LazyFramerMotionChildrenProps & { open?: boolean },
 ) {
-  const { modules, open } = props
-  const { motion } = modules
+  const { m, open } = props
 
   const Path = useRuntimeComponent((props: SVGMotionProps<SVGPathElement>) => (
-    <motion.path
+    <m.path
       fill='transparent'
       strokeWidth='3'
       stroke='currentColor'
@@ -20,7 +19,7 @@ export function LazyIcon(
   ))
 
   return (
-    <motion.svg
+    <m.svg
       initial={false}
       animate={open ? 'open' : 'closed'}
       viewBox='-1.5 -2 24 24'
@@ -45,6 +44,6 @@ export function LazyIcon(
           open: { d: 'M 3 2.5 L 17 16.346' },
         }}
       />
-    </motion.svg>
+    </m.svg>
   )
 }
