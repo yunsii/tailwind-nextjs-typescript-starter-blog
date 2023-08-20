@@ -6,7 +6,7 @@ import menu from 'data/menu'
 import LazyFramerMotion from '../../LazyFramerMotion'
 
 import { LazyMenu } from './lazy'
-import { renderMenuMobileItem } from './helpers'
+import MenuMobileItem from './MenuMobileItem'
 
 import type { LazyMenuProps } from './lazy'
 
@@ -27,9 +27,12 @@ export default function MenuMobile(props: Partial<LazyMenuProps>) {
             {menu.map((link) => {
               return (
                 <li key={link.title}>
-                  {renderMenuMobileItem(link, () => {
-                    onChange?.(false)
-                  })}
+                  <MenuMobileItem
+                    link={link}
+                    onClick={() => {
+                      onChange?.(false)
+                    }}
+                  />
                 </li>
               )
             })}

@@ -1,10 +1,18 @@
+import React from 'react'
 import clsx from 'clsx'
 
 import Link from '@/components/Link'
 
 import type { MenuItem } from '@/defines/menu'
 
-export function renderMenuMobileItem(link: MenuItem, onClick?: () => void) {
+export interface IMenuMobileItemProps {
+  link: MenuItem
+  onClick?: () => void
+}
+
+const MenuMobileItem: React.FC<IMenuMobileItemProps> = (props) => {
+  const { link, onClick } = props
+
   return (
     <Link
       href={link.href}
@@ -19,3 +27,5 @@ export function renderMenuMobileItem(link: MenuItem, onClick?: () => void) {
     </Link>
   )
 }
+
+export default MenuMobileItem

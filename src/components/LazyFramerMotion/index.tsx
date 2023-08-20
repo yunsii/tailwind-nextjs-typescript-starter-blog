@@ -65,7 +65,7 @@ function LazyFramerMotion<Dom extends HTMLElement = any>(
     const fallbackMotion = {} as typeof motion
 
     ;[...htmlElements, ...svgElements].forEach((item) => {
-      const component = React.forwardRef<any, any>((_props, ref) => {
+      function FallbackMotionElement(_props: any, ref: any) {
         const props: any = omitBy(_props, (_, key) => {
           if (key === 'style') {
             return false
@@ -74,7 +74,9 @@ function LazyFramerMotion<Dom extends HTMLElement = any>(
         })
 
         return React.createElement(item, { ref, ...props })
-      })
+      }
+
+      const component = React.forwardRef<any, any>(FallbackMotionElement)
       component.displayName = item
 
       fallbackMotion[item] = component as any

@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useRef } from 'react'
 
 import menu from 'data/menu'
 
-import { renderMenuMobileItem } from './helpers'
+import MenuMobileItem from './MenuMobileItem'
 
 import type { Variants } from 'framer-motion'
 import type { LazyFramerMotionChildrenProps } from '@/components/LazyFramerMotion'
@@ -124,9 +124,12 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {renderMenuMobileItem(link, () => {
-              onChange?.(false)
-            })}
+            <MenuMobileItem
+              link={link}
+              onClick={() => {
+                onChange?.(false)
+              }}
+            />
           </m.li>
         ))}
       </m.ul>
