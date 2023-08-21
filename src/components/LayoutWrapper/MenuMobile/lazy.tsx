@@ -67,7 +67,9 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
         },
       },
       closed: {
-        clipPath: `circle(0 at ${triggerCenter.x}px ${triggerCenter.y}px)`,
+        // Ensure unit types are the same across definitions
+        // ref: https://github.com/framer/motion/issues/2298#issuecomment-1686255324
+        clipPath: `circle(0px at ${triggerCenter.x}px ${triggerCenter.y}px)`,
         transition: {
           delay: 0.5,
           type: 'spring',
