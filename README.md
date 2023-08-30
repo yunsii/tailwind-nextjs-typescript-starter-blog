@@ -8,8 +8,9 @@ English | [简体中文](./README.zh-CN.md)
 
 - 🦄 [Next.js](https://nextjs.org/) with [TypeScript](https://github.com/microsoft/TypeScript)
 - 💎 Easy styling customization with [Tailwind CSS](https://tailwindcss.com/)
+- 🌱 Tagged classnames based on [tagged-classnames-free](https://github.com/yunsii/tagged-classnames-free)
 - ☀️ Light and 🌘 dark theme
-- 😎 Content management base on [MDX](https://mdxjs.com/) with [Contentlayer](https://contentlayer.dev/)
+- 😎 Content management based on [MDX](https://mdxjs.com/) with [Contentlayer](https://contentlayer.dev/)
 - 🚀 SEO first
   - Calculates and event callbacks optimize for [_idle-until-urgent_](https://philipwalton.com/articles/idle-until-urgent/) pattern as much as possible based on [idlization](https://github.com/yunsii/idlization)
   - [LazyFramerMotion](./src/components/LazyFramerMotion/index.tsx) component
