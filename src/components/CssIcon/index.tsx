@@ -1,6 +1,3 @@
-import React from 'react'
-import { tw } from 'tagged-classnames-free'
-
 export interface ICssIconProps {
   className?: string
   style?: React.CSSProperties

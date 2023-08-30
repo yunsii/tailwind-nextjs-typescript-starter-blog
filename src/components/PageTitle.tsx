@@ -1,7 +1,5 @@
-import type { ReactNode } from 'react'
-
 interface Props {
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export default function PageTitle({ children }: Props) {

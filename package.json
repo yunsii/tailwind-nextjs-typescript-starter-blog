@@ -126,6 +126,7 @@
     "tailwindcss-plugin-iconify": "0.0.1",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6",
+    "unplugin-auto-import": "^0.16.6",
     "unplugin-polish-tagged-templates": "0.1.1-beta.2",
     "unplugin-svg-sprite": "^1.1.4"
   }

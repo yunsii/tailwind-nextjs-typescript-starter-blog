@@ -80,6 +80,22 @@ const nextConfig = {
   },
   webpack: (config, { dev, isServer }) => {
     config.plugins.push(
+      require('unplugin-auto-import/webpack')({
+        include: [
+          /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        ],
+        injectAtEnd: false,
+        imports: [
+          'react',
+          {
+            'react': ['Fragment', 'createElement'],
+            'tagged-classnames-free': ['cls', 'tw'],
+          },
+        ],
+      }),
+    )
+
+    config.plugins.push(
       require('unplugin-polish-tagged-templates/webpack').default({
         cssTags: ['cls', 'tw'],
       }),

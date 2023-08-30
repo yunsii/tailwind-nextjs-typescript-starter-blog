@@ -1,6 +1,3 @@
-import React, { useRef } from 'react'
-import { cls } from 'tagged-classnames-free'
-
 import LazyFramerMotion from '../../LazyFramerMotion'
 
 import { LazyIcon } from './lazy'
@@ -29,7 +26,7 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
     },
   }
 
-  React.useImperativeHandle(ref, () => {
+  useImperativeHandle(ref, () => {
     return {
       getTrigger: () => {
         return renderRef.current || fallbackRef.current
@@ -60,4 +57,4 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
   )
 }
 
-export default React.forwardRef<MenuButtonAction, MenuButtonProps>(MenuButton)
+export default forwardRef<MenuButtonAction, MenuButtonProps>(MenuButton)

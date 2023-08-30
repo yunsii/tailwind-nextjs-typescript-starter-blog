@@ -1,6 +1,5 @@
 import 'katex/dist/katex.css'
 
-import React from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import { coreContent } from '@/lib/utils/contentlayer'

@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 
 export interface CustomLinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}

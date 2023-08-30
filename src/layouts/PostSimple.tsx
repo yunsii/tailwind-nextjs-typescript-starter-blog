@@ -7,12 +7,11 @@ import formatDate from '@/lib/utils/formatDate'
 import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { ReactNode } from 'react'
 import type { Blog } from 'contentlayer/generated'
 
 interface Props {
   content: CoreContent<Blog>
-  children: ReactNode
+  children: React.ReactNode
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
 }

@@ -2,11 +2,10 @@ import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
 import SocialIcon from '@/components/SocialIcon'
 
-import type { ReactNode } from 'react'
 import type { Author } from 'contentlayer/generated'
 
 interface Props {
-  children: ReactNode
+  children: React.ReactNode
   content: Omit<Author, '_id' | '_raw' | 'body'>
 }
 

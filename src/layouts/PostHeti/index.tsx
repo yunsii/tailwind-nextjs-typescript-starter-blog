@@ -1,7 +1,5 @@
 import 'heti/umd/heti.min.css'
 
-import { useEffect, useRef, useState } from 'react'
-
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import formatDate from '@/lib/utils/formatDate'

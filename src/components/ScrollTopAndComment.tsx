@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 import metadata from 'data/metadata'
 
 const ScrollTopAndComment = () => {
@@ -26,7 +24,7 @@ const ScrollTopAndComment = () => {
   }
   return (
     <div
-      className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${
+      className={`fixed bottom-8 right-8 hidden flex-col gap-3 ${
         show ? 'md:flex' : 'md:hidden'
       }`}
     >

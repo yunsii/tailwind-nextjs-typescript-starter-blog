@@ -1,5 +1,4 @@
 import Analytics from 'analytics'
-import { useEffect, useRef } from 'react'
 import googleTagManager from '@analytics/google-tag-manager'
 
 import metadata from 'data/metadata'

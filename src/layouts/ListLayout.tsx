@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import Link from '@/components/Link'
 import Pagination from '@/components/Pagination'
 import Tag from '@/components/Tag'

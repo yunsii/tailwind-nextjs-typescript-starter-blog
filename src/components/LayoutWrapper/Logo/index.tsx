@@ -1,5 +1,3 @@
-import { useRef } from 'react'
-
 import LogoSvg from 'data/logo.svg'
 
 import { withLazyFramerMotion } from '../../LazyFramerMotion'

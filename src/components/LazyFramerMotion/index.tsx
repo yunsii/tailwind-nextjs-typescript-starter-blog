@@ -1,4 +1,3 @@
-import React, { useMemo, useRef } from 'react'
 import { omit, omitBy } from 'lodash-es'
 import { isValidMotionProp, type motion } from 'framer-motion'
 
@@ -49,7 +48,7 @@ function LazyFramerMotion<Dom extends HTMLElement = any>(
   const fallbackRef = useRef<Dom>(null)
   const renderRef = useRef<Dom>(null)
 
-  React.useImperativeHandle(actionRef, () => {
+  useImperativeHandle(actionRef, () => {
     return {
       getDom: () => {
         return renderRef.current || fallbackRef.current
@@ -73,10 +72,10 @@ function LazyFramerMotion<Dom extends HTMLElement = any>(
           return isValidMotionProp(key)
         })
 
-        return React.createElement(item, { ref, ...props })
+        return createElement(item, { ref, ...props })
       }
 
-      const component = React.forwardRef<any, any>(FallbackMotionElement)
+      const component = forwardRef<any, any>(FallbackMotionElement)
       component.displayName = item
 
       fallbackMotion[item] = component as any

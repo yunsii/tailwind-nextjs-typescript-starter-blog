@@ -1,10 +1,6 @@
-import { useRef, useState } from 'react'
-
 import { idleQueue } from '@/helpers/idle'
 
 import { useMountOnce } from './react'
-
-import type React from 'react'
 
 async function importFramerMotion() {
   return await import('framer-motion')

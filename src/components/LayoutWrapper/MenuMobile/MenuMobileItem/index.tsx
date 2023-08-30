@@ -1,6 +1,3 @@
-import React from 'react'
-import { tw } from 'tagged-classnames-free'
-
 import Link from '@/components/Link'
 
 import type { MenuItem } from '@/defines/menu'

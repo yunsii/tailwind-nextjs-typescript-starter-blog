@@ -1,6 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
-import { tw } from 'tagged-classnames-free'
 
 import type { LinkProps } from 'next/link'
 

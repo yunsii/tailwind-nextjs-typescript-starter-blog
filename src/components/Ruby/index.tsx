@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment } from 'react'
 
 import type { FunctionComponent } from 'mdx/types'
 
@@ -16,12 +16,12 @@ const Ruby: FunctionComponent<IRubyProps> = (props) => {
       <ruby {...rubyProps}>
         {rubyText.split("'").map((item, index) => {
           return (
-            <React.Fragment key={item}>
+            <Fragment key={item}>
               {children.split('')[index]}
               <rp>(</rp>
               <rt {...rubyTextProps}>{item}</rt>
               <rp>)</rp>
-            </React.Fragment>
+            </Fragment>
           )
         })}
       </ruby>

@@ -1,5 +1,3 @@
-import { cls } from 'tagged-classnames-free'
-
 import { defineMenu } from '@/defines/menu'
 
 export default defineMenu([

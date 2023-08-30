@@ -1,6 +1,3 @@
-import React from 'react'
-import { cls } from 'tagged-classnames-free'
-
 import menu from 'data/menu'
 
 import LazyFramerMotion from '../../LazyFramerMotion'

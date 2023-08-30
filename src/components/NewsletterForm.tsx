@@ -1,5 +1,3 @@
-import React, { useRef, useState } from 'react'
-
 import metadata from 'data/metadata'
 
 const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {

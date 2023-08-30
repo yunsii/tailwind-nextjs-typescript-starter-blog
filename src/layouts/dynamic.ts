@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic'
 
-import type React from 'react'
 import type { Layout } from './constants'
 
 const DynamicAuthorDefault = dynamic(() => import('./AuthorLayout'))

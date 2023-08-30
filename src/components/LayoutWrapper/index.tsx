@@ -1,6 +1,3 @@
-import { type ReactNode, useEffect, useRef, useState } from 'react'
-import { cls } from 'tagged-classnames-free'
-
 import menu from 'data/menu'
 import metadata from 'data/metadata'
 
@@ -16,7 +13,7 @@ import type { MenuButtonAction } from './MenuButton'
 
 interface Props {
   className?: string
-  children: ReactNode
+  children: React.ReactNode
 }
 
 const LayoutWrapper = ({ className = '', children }: Props) => {

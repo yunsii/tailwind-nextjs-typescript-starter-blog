@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useFlubberInterpolate, useFramerMotion } from '@/hooks/framer-motion'
 
 import type { MotionValue } from 'framer-motion'

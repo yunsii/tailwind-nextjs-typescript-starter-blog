@@ -1,6 +1,3 @@
-import React, { useEffect, useMemo, useRef } from 'react'
-import { cls } from 'tagged-classnames-free'
-
 import menu from 'data/menu'
 
 import MenuMobileItem from './MenuMobileItem'

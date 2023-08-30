@@ -8,7 +8,6 @@ import Comments from '@/components/comments'
 import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { ReactNode } from 'react'
 import type { Author, Blog } from 'contentlayer/generated'
 
 const editUrl = (fileName: string) =>
@@ -30,7 +29,7 @@ interface Props {
   authorDetails: CoreContent<Author>[]
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
-  children: ReactNode
+  children: React.ReactNode
 }
 
 export default function PostLayout({

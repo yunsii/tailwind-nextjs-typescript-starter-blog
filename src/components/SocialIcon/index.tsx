@@ -1,5 +1,3 @@
-import { cls, tw } from 'tagged-classnames-free'
-
 const components = {
   mail: cls`i-bi--envelope-fill`,
   github: cls`i-bi--github`,
