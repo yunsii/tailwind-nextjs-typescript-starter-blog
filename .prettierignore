@@ -1,6 +1,5 @@
+pnpm-lock.yaml
 *.lock
-.prettierignore
 LICENSE
 /dist
 *.mdx
-pnpm-lock.yaml
