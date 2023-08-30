@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React from 'react'
+import { cls } from 'tagged-classnames-free'
 
 import menu from 'data/menu'
 
@@ -13,10 +13,10 @@ import type { LazyMenuProps } from './lazy'
 export default function MenuMobile(props: Partial<LazyMenuProps>) {
   const { open, onChange, triggerCenter } = props
 
-  const bgClassName = clsx(
-    'fixed inset-0 pt-32',
-    'bg-gray-200 backdrop-blur-lg duration-300 ease-in-out dark:bg-gray-800',
-  )
+  const bgClassName = cls`
+    fixed inset-0 pt-32
+    bg-gray-200 backdrop-blur-lg duration-300 ease-in-out dark:bg-gray-800
+  `
 
   return (
     <LazyFramerMotion

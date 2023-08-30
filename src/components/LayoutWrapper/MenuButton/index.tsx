@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React, { useRef } from 'react'
+import { cls } from 'tagged-classnames-free'
 
 import LazyFramerMotion from '../../LazyFramerMotion'
 
@@ -22,7 +22,7 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
 
   const buttonProps: React.ButtonHTMLAttributes<HTMLButtonElement> = {
     'type': 'button',
-    'className': clsx('ml-1 mr-1 h-6 w-6 rounded sm:hidden'),
+    'className': cls`ml-1 mr-1 h-6 w-6 rounded sm:hidden`,
     'aria-label': 'Toggle Menu',
     'onClick': () => {
       onChange?.(!open)
@@ -42,9 +42,9 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
       fallback={
         <button ref={fallbackRef} {...buttonProps}>
           {open ? (
-            <span className='i-custom--close w-full h-full' />
+            <span className='i-custom--close h-full w-full' />
           ) : (
-            <span className='i-custom--menu w-full h-full' />
+            <span className='i-custom--menu h-full w-full' />
           )}
         </button>
       }

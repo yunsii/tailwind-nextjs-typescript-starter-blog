@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { clsx } from 'clsx'
+import { tw } from 'tagged-classnames-free'
 
 import type { LinkProps } from 'next/link'
 
@@ -14,10 +14,10 @@ const LinkGo: React.FC<ILinkGoProps> = (props) => {
   return (
     <Link
       {...rest}
-      className={clsx(
-        'group text-primary inline-flex items-center hover:text-primary-hover',
-        className,
-      )}
+      className={tw`
+        group text-primary inline-flex items-center hover:text-primary-hover
+        ${className}
+      `}
     >
       <span>{children}</span>
       <span className='i-iconamoon--arrow-right-1 ml-1 translate-x-0 text-xl transition-all group-hover:translate-x-1' />

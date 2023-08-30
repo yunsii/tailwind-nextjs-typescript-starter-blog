@@ -1,5 +1,5 @@
 import React from 'react'
-import clsx from 'clsx'
+import { tw } from 'tagged-classnames-free'
 
 import Link from '@/components/Link'
 
@@ -16,11 +16,11 @@ const MenuMobileItem: React.FC<IMenuMobileItemProps> = (props) => {
   return (
     <Link
       href={link.href}
-      className={clsx(
-        'text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100',
-        'flex px-10 py-4 items-center',
-        link.icon,
-      )}
+      className={tw`
+        flex items-center px-10 py-4 text-2xl
+        font-bold tracking-widest text-gray-900 dark:text-gray-100
+        ${link.icon}
+      `}
       onClick={onClick}
     >
       <span className='ml-1'>{link.title}</span>

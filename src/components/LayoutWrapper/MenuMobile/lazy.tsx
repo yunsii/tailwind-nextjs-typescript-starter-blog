@@ -1,5 +1,5 @@
-import clsx from 'clsx'
 import React, { useEffect, useMemo, useRef } from 'react'
+import { cls } from 'tagged-classnames-free'
 
 import menu from 'data/menu'
 
@@ -112,10 +112,10 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
       className={'fixed inset-0 z-10 sm:hidden'}
     >
       <m.div
-        className={clsx(
-          'absolute inset-0',
-          'bg-gray-200 backdrop-blur-lg duration-300 ease-in-out dark:bg-gray-800',
-        )}
+        className={cls`
+          absolute inset-0
+          bg-gray-200 backdrop-blur-lg duration-300 ease-in-out dark:bg-gray-800
+        `}
         variants={bgVariants}
       />
       <m.ul variants={ulVariants} className='absolute inset-0 pt-32'>

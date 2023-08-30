@@ -1,5 +1,5 @@
 import React from 'react'
-import { clsx } from 'clsx'
+import { tw } from 'tagged-classnames-free'
 
 export interface ICssIconProps {
   className?: string
@@ -16,6 +16,6 @@ export default CssIcon
 export function createCssIcon(icon: string) {
   return function Icon(props: ICssIconProps) {
     const { className, ...rest } = props
-    return <CssIcon {...rest} className={clsx(icon, className)} />
+    return <CssIcon {...rest} className={tw`${icon} ${className}`} />
   }
 }

@@ -79,6 +79,12 @@ const nextConfig = {
     },
   },
   webpack: (config, { dev, isServer }) => {
+    config.plugins.push(
+      require('unplugin-polish-tagged-templates/webpack').default({
+        cssTags: ['cls', 'tw'],
+      }),
+    )
+
     config.module.rules.push({
       test: /\.svg$/,
       use: {

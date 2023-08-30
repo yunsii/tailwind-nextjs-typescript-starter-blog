@@ -1,5 +1,5 @@
-import { clsx } from 'clsx'
 import { type ReactNode, useEffect, useRef, useState } from 'react'
+import { cls } from 'tagged-classnames-free'
 
 import menu from 'data/menu'
 import metadata from 'data/metadata'
@@ -75,9 +75,9 @@ const LayoutWrapper = ({ className = '', children }: Props) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className={clsx(
-                    'p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4',
-                  )}
+                  className={cls`
+                    p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4
+                  `}
                 >
                   {link.title}
                 </Link>

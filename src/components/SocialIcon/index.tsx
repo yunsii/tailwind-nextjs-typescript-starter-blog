@@ -1,13 +1,13 @@
-import clsx from 'clsx'
+import { cls, tw } from 'tagged-classnames-free'
 
 const components = {
-  mail: clsx('i-bi--envelope-fill'),
-  github: clsx('i-bi--github'),
-  juejin: clsx('i-social--juejin'),
-  facebook: clsx('i-bi--facebook'),
-  youtube: clsx('i-bi--youtube'),
-  linkedin: clsx('i-bi--linkedin'),
-  twitter: clsx('i-bi--twitter'),
+  mail: cls`i-bi--envelope-fill`,
+  github: cls`i-bi--github`,
+  juejin: cls`i-social--juejin`,
+  facebook: cls`i-bi--facebook`,
+  youtube: cls`i-bi--youtube`,
+  linkedin: cls`i-bi--linkedin`,
+  twitter: cls`i-bi--twitter`,
 }
 
 export interface SocialIconProps {
@@ -37,10 +37,10 @@ const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
     >
       <span className='sr-only'>{kind}</span>
       <span
-        className={clsx(
-          iconClassName,
-          `fill-current text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400`,
-        )}
+        className={tw`
+          ${iconClassName}
+          fill-current text-gray-700 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400
+        `}
         style={{
           width: `${size}rem`,
           height: `${size}rem`,
