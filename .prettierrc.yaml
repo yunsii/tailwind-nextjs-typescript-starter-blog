@@ -13,8 +13,7 @@ plugins:
   # ref: 'https://github.com/prettier/plugin-xml'
   - '@prettier/plugin-xml'
   # ref: https://github.com/tailwindlabs/prettier-plugin-tailwindcss
-  # Error with addDynamicIconSelectors getLocalIconSets
-  # - 'prettier-plugin-tailwindcss'
+  - 'prettier-plugin-tailwindcss'
 overrides:
   - files: '*.svg'
     options: { parser: 'xml' }
