@@ -210,6 +210,13 @@ const config: Config = {
           '@apply btn-primary px-2 py-1 text-sm font-medium transition-colors':
             {},
         },
+        '.custom-scrollbar': {
+          '@apply scrollbar-thin scrollbar-thumb-rounded-full': {},
+          '@apply scrollbar-track-gray-200 scrollbar-thumb-gray-400 hover:scrollbar-thumb-gray-500':
+            {},
+          '@apply dark:scrollbar-thumb-gray-600 dark:hover:scrollbar-thumb-gray-500':
+            {},
+        },
       })
     }),
   ],

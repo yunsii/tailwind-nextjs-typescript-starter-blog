@@ -8,11 +8,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root,
-body *:not(svg) {
-  @apply scrollbar-thin scrollbar-thumb-rounded-full;
-  @apply scrollbar-track-gray-200 scrollbar-thumb-gray-400 hover:scrollbar-thumb-gray-500;
-  @apply dark:scrollbar-thumb-gray-600 dark:hover:scrollbar-thumb-gray-500;
+:root {
+  @apply custom-scrollbar;
 }
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */

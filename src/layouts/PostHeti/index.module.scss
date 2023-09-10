@@ -24,6 +24,7 @@
       }
 
       &-vertical-container {
+        @apply custom-scrollbar;
         @apply h-[30em] w-full overflow-auto;
         border: 1px solid hsl(0deg, 0%, 93%);
         writing-mode: vertical-rl;
