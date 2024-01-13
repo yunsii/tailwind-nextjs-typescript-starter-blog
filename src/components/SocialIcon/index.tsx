@@ -15,11 +15,11 @@ export interface SocialIconProps {
   size?: number
 }
 
-const SocialIcon = ({ kind, href, size = 2 }: SocialIconProps) => {
+function SocialIcon({ kind, href, size = 2 }: SocialIconProps) {
   if (
-    !href ||
-    (kind === 'mail' &&
-      !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
+    !href
+    || (kind === 'mail'
+    && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
   ) {
     return null
   }

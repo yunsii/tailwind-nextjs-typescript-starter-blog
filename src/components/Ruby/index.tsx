@@ -11,10 +11,10 @@ export interface IRubyProps extends React.HTMLAttributes<HTMLElement> {
 const Ruby: FunctionComponent<IRubyProps> = (props) => {
   const { children, rubyText, rubyTextProps, ...rubyProps } = props
 
-  if (rubyText.includes("'")) {
+  if (rubyText.includes('\'')) {
     return (
       <ruby {...rubyProps}>
-        {rubyText.split("'").map((item, index) => {
+        {rubyText.split('\'').map((item, index) => {
           return (
             <Fragment key={item}>
               {children.split('')[index]}

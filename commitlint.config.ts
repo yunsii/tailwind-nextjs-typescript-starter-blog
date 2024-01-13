@@ -28,7 +28,7 @@ const config: UserConfig = {
   prompt: {
     questions: {
       type: {
-        description: "Select the type of change that you're committing",
+        description: 'Select the type of change that you\'re committing',
         enum: {
           feat: {
             description: 'A new feature',
@@ -80,7 +80,7 @@ const config: UserConfig = {
             emoji: '⚙️',
           },
           chore: {
-            description: "Other changes that don't modify src or test files",
+            description: 'Other changes that don\'t modify src or test files',
             title: 'Chores',
             emoji: '♻️',
           },

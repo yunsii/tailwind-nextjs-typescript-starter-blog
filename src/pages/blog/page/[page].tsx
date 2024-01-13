@@ -1,18 +1,17 @@
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
-import ListLayout from '@/layouts/ListLayout'
-import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
-import { PageSEO } from '@/components/SEO'
-
-import { POSTS_PER_PAGE } from '../../blog'
-
 import type { Blog } from 'contentlayer/generated'
-import type { CoreContent } from '@/lib/utils/contentlayer'
 import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next'
+import { POSTS_PER_PAGE } from '../../blog'
+import ListLayout from '@/layouts/ListLayout'
+import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
+import { PageSEO } from '@/components/SEO'
+
+import type { CoreContent } from '@/lib/utils/contentlayer'
 
 export const getStaticPaths: GetStaticPaths<{
   page: string
@@ -42,7 +41,7 @@ export const getStaticProps: GetStaticProps<
 > = async (context) => {
   const page = context.params!.page
   const posts = sortedBlogPost(allBlogs)
-  const pageNumber = parseInt(page, 10)
+  const pageNumber = Number.parseInt(page, 10)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber,

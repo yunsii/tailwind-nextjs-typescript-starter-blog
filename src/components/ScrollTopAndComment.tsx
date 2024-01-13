@@ -1,13 +1,14 @@
 import metadata from 'data/metadata'
 
-const ScrollTopAndComment = () => {
+function ScrollTopAndComment() {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
     const handleWindowScroll = () => {
       if (window.scrollY > 50) {
         setShow(true)
-      } else {
+      }
+      else {
         setShow(false)
       }
     }

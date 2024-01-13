@@ -1,15 +1,14 @@
-import { mkdirSync } from 'fs'
-import path from 'path'
+import { mkdirSync } from 'node:fs'
+import path from 'node:path'
 
 import { encode } from 'html-entities'
 import { slug } from 'github-slugger'
 
+import type { Blog } from 'contentlayer/generated'
 import { allBlogs as _allBlogs } from '../.contentlayer/generated/index.mjs'
 import metadata from '../data/metadata'
 
 import { writeXml } from './_helpers/xml'
-
-import type { Blog } from 'contentlayer/generated'
 
 const allBlogs = _allBlogs as Blog[]
 
@@ -23,7 +22,8 @@ export async function getAllTags() {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
-        } else {
+        }
+        else {
           tagCount[formattedTag] = 1
         }
       })
@@ -33,38 +33,42 @@ export async function getAllTags() {
   return tagCount
 }
 
-const generateRssItem = (post: Record<string, any>) => `
-  <item>
-    <guid>${metadata.siteUrl}/blog/${post.slug}</guid>
-    <title>${encode(post.title)}</title>
-    <link>${metadata.siteUrl}/blog/${post.slug}</link>
-    ${post.summary && `<description>${encode(post.summary)}</description>`}
-    <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-    <author>${metadata.email} (${metadata.author})</author>
-    ${
-      post.tags &&
-      post.tags.map((t: string) => `<category>${t}</category>`).join('')
+function generateRssItem(post: Record<string, any>) {
+  return `
+    <item>
+      <guid>${metadata.siteUrl}/blog/${post.slug}</guid>
+      <title>${encode(post.title)}</title>
+      <link>${metadata.siteUrl}/blog/${post.slug}</link>
+      ${post.summary && `<description>${encode(post.summary)}</description>`}
+      <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+      <author>${metadata.email} (${metadata.author})</author>
+      ${
+      post.tags
+      && post.tags.map((t: string) => `<category>${t}</category>`).join('')
     }
-  </item>
-`
+    </item>
+  `
+}
 
-const generateRss = (posts: Blog[], page = 'feed.xml') => `
-  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-      <title>${encode(metadata.title)}</title>
-      <link>${metadata.siteUrl}/blog</link>
-      <description>${encode(metadata.description)}</description>
-      <language>${metadata.language}</language>
-      <managingEditor>${metadata.email} (${metadata.author})</managingEditor>
-      <webMaster>${metadata.email} (${metadata.author})</webMaster>
-      <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
-      <atom:link href="${
+function generateRss(posts: Blog[], page = 'feed.xml') {
+  return `
+    <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+      <channel>
+        <title>${encode(metadata.title)}</title>
+        <link>${metadata.siteUrl}/blog</link>
+        <description>${encode(metadata.description)}</description>
+        <language>${metadata.language}</language>
+        <managingEditor>${metadata.email} (${metadata.author})</managingEditor>
+        <webMaster>${metadata.email} (${metadata.author})</webMaster>
+        <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
+        <atom:link href="${
         metadata.siteUrl
       }/${page}" rel="self" type="application/rss+xml"/>
-      ${posts.map(generateRssItem).join('')}
-    </channel>
-  </rss>
-`
+        ${posts.map(generateRssItem).join('')}
+      </channel>
+    </rss>
+  `
+}
 
 async function generate() {
   // RSS for blog post

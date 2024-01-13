@@ -1,8 +1,7 @@
+import type { Author } from 'contentlayer/generated'
 import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
 import SocialIcon from '@/components/SocialIcon'
-
-import type { Author } from 'contentlayer/generated'
 
 interface Props {
   children: React.ReactNode
@@ -55,7 +54,7 @@ export default function AuthorLayout({ children, content }: Props) {
               <SocialIcon kind='twitter' href={twitter} />
             </div>
           </div>
-          <div className='prose max-w-none pb-8 pt-8 dark:prose-dark xl:col-span-2'>
+          <div className='prose max-w-none py-8 dark:prose-dark xl:col-span-2'>
             {children}
           </div>
         </div>

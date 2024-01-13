@@ -18,7 +18,7 @@ export default function MenuMobile(props: Partial<LazyMenuProps>) {
   return (
     <LazyFramerMotion
       fallbackOnly={!triggerCenter}
-      fallback={
+      fallback={(
         <nav className={open ? 'fixed inset-0 z-10 block sm:hidden' : 'hidden'}>
           <ul className={bgClassName}>
             {menu.map((link) => {
@@ -35,7 +35,7 @@ export default function MenuMobile(props: Partial<LazyMenuProps>) {
             })}
           </ul>
         </nav>
-      }
+      )}
     >
       {(_props) => {
         return (

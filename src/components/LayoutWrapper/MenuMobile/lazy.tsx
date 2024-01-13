@@ -1,8 +1,8 @@
 import menu from 'data/menu'
 
+import type { Variants } from 'framer-motion'
 import MenuMobileItem from './MenuMobileItem'
 
-import type { Variants } from 'framer-motion'
 import type { LazyFramerMotionChildrenProps } from '@/components/LazyFramerMotion'
 
 const ulVariants = {
@@ -106,7 +106,7 @@ export function LazyMenu(props: LazyFramerMotionChildrenProps & LazyMenuProps) {
           navRef.current.classList.add('block')
         }
       }}
-      className={'fixed inset-0 z-10 sm:hidden'}
+      className='fixed inset-0 z-10 sm:hidden'
     >
       <m.div
         className={cls`

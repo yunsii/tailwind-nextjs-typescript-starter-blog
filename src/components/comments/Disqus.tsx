@@ -1,13 +1,13 @@
 import metadata from 'data/metadata'
 
-import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
 
 interface Props {
   frontMatter: CoreContent<Blog>
 }
 
-const Disqus = ({ frontMatter }: Props) => {
+function Disqus({ frontMatter }: Props) {
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
 
   const COMMENTS_ID = 'disqus_thread'
@@ -26,13 +26,14 @@ const Disqus = ({ frontMatter }: Props) => {
       script.setAttribute('crossorigin', 'anonymous')
       script.async = true
       document.body.appendChild(script)
-    } else {
+    }
+    else {
       window.DISQUS.reset({ reload: true })
     }
   }
 
   return (
-    <div className='pb-6 pt-6 text-center text-gray-700 dark:text-gray-300'>
+    <div className='py-6 text-center text-gray-700 dark:text-gray-300'>
       {enableLoadComments && (
         <button onClick={LoadComments}>Load Comments</button>
       )}

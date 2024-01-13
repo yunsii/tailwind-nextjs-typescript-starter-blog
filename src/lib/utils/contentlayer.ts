@@ -29,20 +29,14 @@ type ConvertPick<T> = ConvertUndefined<T> & PickRequired<T>
  *
  * https://github.com/contentlayerdev/contentlayer/issues/24
  */
-export const pick = <Obj, Keys extends keyof Obj>(
-  obj: Obj,
-  keys: Keys[],
-): ConvertPick<{ [K in Keys]: Obj[K] }> => {
+export function pick<Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): ConvertPick<{ [K in Keys]: Obj[K] }> {
   return keys.reduce((acc, key) => {
     acc[key] = obj[key] ?? null
     return acc
   }, {} as any)
 }
 
-export const omit = <Obj, Keys extends keyof Obj>(
-  obj: Obj,
-  keys: Keys[],
-): Omit<Obj, Keys> => {
+export function omit<Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): Omit<Obj, Keys> {
   const result = Object.assign({}, obj)
   keys.forEach((key) => {
     delete result[key]
@@ -70,7 +64,8 @@ export async function getAllTags(allBlogs: Blog[]) {
         const formattedTag = slug(tag)
         if (formattedTag in tagCount) {
           tagCount[formattedTag] += 1
-        } else {
+        }
+        else {
           tagCount[formattedTag] = 1
         }
       })

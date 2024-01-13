@@ -2,11 +2,11 @@ import { useTheme } from 'next-themes'
 
 import siteMetadata from 'data/metadata'
 
-const Giscus = () => {
+function Giscus() {
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
   const { theme, resolvedTheme } = useTheme()
-  const commentsTheme =
-    siteMetadata.comment?.giscusConfig?.themeURL === ''
+  const commentsTheme
+    = siteMetadata.comment?.giscusConfig?.themeURL === ''
       ? theme === 'dark' || resolvedTheme === 'dark'
         ? siteMetadata.comment.giscusConfig.darkTheme
         : siteMetadata.comment.giscusConfig.theme
@@ -67,7 +67,7 @@ const Giscus = () => {
   }, [LoadComments])
 
   return (
-    <div className='pb-6 pt-6 text-center text-gray-700 dark:text-gray-300'>
+    <div className='py-6 text-center text-gray-700 dark:text-gray-300'>
       {enableLoadComments && (
         <button onClick={LoadComments}>Load Comments</button>
       )}

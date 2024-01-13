@@ -6,7 +6,10 @@ import colors from 'tailwindcss/colors'
 import defaultTheme from 'tailwindcss/defaultTheme'
 import plugin from 'tailwindcss/plugin'
 import { addDynamicIconSelectors } from 'tailwindcss-plugin-iconify'
-import { getLocalIconSets } from 'tailwindcss-plugin-iconify/dist/extensions/local-icon-sets'
+import { getLocalIconSets } from 'tailwindcss-plugin-iconify/local-icon-sets'
+import forms from '@tailwindcss/forms'
+import typography from '@tailwindcss/typography'
+import scrollbar from 'tailwind-scrollbar'
 
 import type { PluginAPI } from 'tailwindcss/types/config'
 import type { Config } from 'tailwindcss'
@@ -166,10 +169,9 @@ const config: Config = {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require('tailwind-scrollbar')({ nocompatible: true }),
+    forms,
+    typography,
+    scrollbar({ nocompatible: true }),
     addDynamicIconSelectors({
       prefix: 'i',
       iconSets: getLocalIconSets({

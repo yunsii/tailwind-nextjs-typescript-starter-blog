@@ -1,23 +1,22 @@
 import 'heti/umd/heti.min.css'
 
+import metadata from 'data/metadata'
+import type { Blog } from 'contentlayer/generated'
+import styles from './index.module.scss'
+import { autoSpacing } from './helpers'
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import formatDate from '@/lib/utils/formatDate'
 import Comments from '@/components/comments'
 import Link from '@/components/Link'
-import metadata from 'data/metadata'
 
-import styles from './index.module.scss'
-import { autoSpacing } from './helpers'
-
-import type { Blog } from 'contentlayer/generated'
 import type { CoreContent } from '@/lib/utils/contentlayer'
 
 interface Props {
   content: CoreContent<Blog>
   children: React.ReactNode
-  next?: { slug: string; title: string }
-  prev?: { slug: string; title: string }
+  next?: { slug: string, title: string }
+  prev?: { slug: string, title: string }
 }
 
 export default function HetiLayout(props: React.PropsWithChildren<Props>) {

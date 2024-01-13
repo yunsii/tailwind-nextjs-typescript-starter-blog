@@ -4,8 +4,8 @@ import { visit } from 'unist-util-visit'
 import { remark } from 'remark'
 
 import type { Heading } from 'mdast'
-import type { Toc } from '@/types/Toc'
 import type { Plugin } from 'unified'
+import type { Toc } from '@/types/Toc'
 
 const remarkTocHeadings: Plugin = () => {
   return (tree, file) => {

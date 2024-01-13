@@ -4,11 +4,10 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 
-import LayoutWrapper from '@/components/LayoutWrapper'
 import metadata from 'data/metadata'
-import Analytics from '@/components/Analytics'
-
 import type { AppProps } from 'next/app'
+import LayoutWrapper from '@/components/LayoutWrapper'
+import Analytics from '@/components/Analytics'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 

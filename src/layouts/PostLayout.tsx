@@ -1,3 +1,5 @@
+import metadata from 'data/metadata'
+import type { Author, Blog } from 'contentlayer/generated'
 import Image from '@/components/Image'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
@@ -5,17 +7,17 @@ import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
-import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { Author, Blog } from 'contentlayer/generated'
 
-const editUrl = (fileName: string) =>
-  `${metadata.siteRepo}/blob/master/data/${fileName}`
-const discussUrl = (slug: string) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
+function editUrl(fileName: string) {
+  return `${metadata.siteRepo}/blob/master/data/${fileName}`
+}
+function discussUrl(slug: string) {
+  return `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `${metadata.siteUrl}/${slug}`,
   )}`
+}
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -27,8 +29,8 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
 interface Props {
   content: CoreContent<Blog>
   authorDetails: CoreContent<Author>[]
-  next?: { slug: string; title: string }
-  prev?: { slug: string; title: string }
+  next?: { slug: string, title: string }
+  prev?: { slug: string, title: string }
   children: React.ReactNode
 }
 
@@ -122,12 +124,12 @@ export default function PostLayout({
               <div className='prose max-w-none pb-8 pt-10 dark:prose-dark'>
                 {children}
               </div>
-              <div className='pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300'>
+              <div className='py-6 text-sm text-gray-700 dark:text-gray-300'>
                 <Link href={discussUrl(path)} rel='nofollow'>
-                  {'Discuss on Twitter'}
+                  Discuss on Twitter
                 </Link>
                 {` • `}
-                <Link href={editUrl(filePath)}>{'View on GitHub'}</Link>
+                <Link href={editUrl(filePath)}>View on GitHub</Link>
               </div>
               <Comments frontMatter={content} />
             </div>

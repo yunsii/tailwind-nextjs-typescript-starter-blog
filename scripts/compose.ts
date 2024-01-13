@@ -1,13 +1,13 @@
-import fs from 'fs'
-import path from 'path'
-
+import fs from 'node:fs'
+import path from 'node:path'
+import process from 'node:process'
 import dedent from 'dedent'
 import inquirer from 'inquirer'
 import consola from 'consola'
 
 const root = process.cwd()
 
-const getAuthors = () => {
+function getAuthors() {
   const authorPath = path.join(root, 'data', 'authors')
   const authorList = fs
     .readdirSync(authorPath)
@@ -15,7 +15,7 @@ const getAuthors = () => {
   return authorList
 }
 
-const getLayouts = () => {
+function getLayouts() {
   const layoutPath = path.join(root, 'src', 'layouts')
   const layoutList = fs
     .readdirSync(layoutPath)
@@ -24,7 +24,7 @@ const getLayouts = () => {
   return layoutList
 }
 
-const genFrontMatter = (answers: Record<string, any>) => {
+function genFrontMatter(answers: Record<string, any>) {
   const d = new Date()
   const date = [
     d.getFullYear(),
@@ -33,19 +33,20 @@ const genFrontMatter = (answers: Record<string, any>) => {
   ].join('-')
   const tagArray: string[] = answers.tags.split(',')
   tagArray.forEach((tag, index) => (tagArray[index] = tag.trim()))
-  const tags = `'${tagArray.join("','")}'`
-  const authorArray =
-    answers.authors.length > 0 ? `'${answers.authors.join("','")}'` : ''
+  const tags = `'${tagArray.join('\',\'')}'`
+  const authorArray
+    = answers.authors.length > 0 ? `'${answers.authors.join('\',\'')}'` : ''
 
-  let frontMatter = dedent`---
-  title: ${answers.title ? answers.title : 'Untitled'}
-  date: '${date}'
-  tags: [${answers.tags ? tags : ''}]
-  draft: ${answers.draft === 'yes'}
-  summary: ${answers.summary ? answers.summary : ' '}
-  images: []
-  layout: ${answers.layout}
-  canonicalUrl: ${answers.canonicalUrl}
+  let frontMatter = dedent`
+    ---
+      title: ${answers.title ? answers.title : 'Untitled'}
+      date: '${date}'
+      tags: [${answers.tags ? tags : ''}]
+      draft: ${answers.draft === 'yes'}
+      summary: ${answers.summary ? answers.summary : ' '}
+      images: []
+      layout: ${answers.layout}
+      canonicalUrl: ${answers.canonicalUrl}
   `
 
   if (answers.authors.length > 0) {
@@ -113,15 +114,17 @@ inquirer
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
-      } else {
+      }
+      else {
         consola.log(`Blog post generated successfully at ${filePath}`)
       }
     })
   })
   .catch((error) => {
     if (error.isTtyError) {
-      consola.log("Prompt couldn't be rendered in the current environment")
-    } else {
+      consola.log('Prompt couldn\'t be rendered in the current environment')
+    }
+    else {
       consola.log('Something went wrong, sorry!')
     }
   })

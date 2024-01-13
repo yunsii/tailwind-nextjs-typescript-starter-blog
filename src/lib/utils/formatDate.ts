@@ -1,9 +1,6 @@
 import metadata from 'data/metadata'
 
-const formatDate = (
-  date: string,
-  locale: Intl.LocalesArgument = metadata.locale,
-) => {
+function formatDate(date: string, locale: Intl.LocalesArgument = metadata.locale) {
   const options: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',

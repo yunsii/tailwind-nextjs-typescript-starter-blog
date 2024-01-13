@@ -1,10 +1,10 @@
+import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import Pagination from '@/components/Pagination'
 import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
 
 interface Props {
   posts: CoreContent<Blog>[]
@@ -21,14 +21,14 @@ export default function ListLayout({
 }: Props) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {
-    const searchContent =
-      frontMatter.title + frontMatter.summary + frontMatter.tags?.join(' ')
+    const searchContent
+      = frontMatter.title + frontMatter.summary + frontMatter.tags?.join(' ')
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
   // If initialDisplayPosts exist, display it if no searchValue is specified
-  const displayPosts =
-    initialDisplayPosts.length > 0 && !searchValue
+  const displayPosts
+    = initialDisplayPosts.length > 0 && !searchValue
       ? initialDisplayPosts
       : filteredBlogPosts
 

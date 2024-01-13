@@ -36,15 +36,17 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
 
   return (
     <LazyFramerMotion
-      fallback={
+      fallback={(
         <button ref={fallbackRef} {...buttonProps}>
-          {open ? (
-            <span className='i-custom--close h-full w-full' />
-          ) : (
-            <span className='i-custom--menu h-full w-full' />
-          )}
+          {open
+            ? (
+              <span className='i-custom--close h-full w-full' />
+              )
+            : (
+              <span className='i-custom--menu h-full w-full' />
+              )}
         </button>
-      }
+      )}
     >
       {(_props) => {
         return (

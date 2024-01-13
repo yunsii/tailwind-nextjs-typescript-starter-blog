@@ -1,6 +1,5 @@
-import { idleQueue } from '@/helpers/idle'
-
 import { useMountOnce } from './react'
+import { idleQueue } from '@/helpers/idle'
 
 async function importFramerMotion() {
   return await import('framer-motion')
@@ -10,13 +9,13 @@ export type FramerMotionModules = Awaited<ReturnType<typeof importFramerMotion>>
 
 export type UseFramerMotionResult =
   | {
-      ready: false
-      modules: null
-    }
+    ready: false
+    modules: null
+  }
   | {
-      ready: true
-      modules: FramerMotionModules
-    }
+    ready: true
+    modules: FramerMotionModules
+  }
 
 let modules: FramerMotionModules | null = null
 let pushed = false
@@ -52,13 +51,13 @@ export type InterpolateFn = Awaited<
 
 export type UseFlubberInterpolateResult =
   | {
-      ready: false
-      interpolate: null
-    }
+    ready: false
+    interpolate: null
+  }
   | {
-      ready: true
-      interpolate: InterpolateFn
-    }
+    ready: true
+    interpolate: InterpolateFn
+  }
 
 let interpolate: InterpolateFn | null = null
 let interpolateTaskPushed = false

@@ -2,10 +2,10 @@ import 'katex/dist/katex.css'
 
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { coreContent } from '@/lib/utils/contentlayer'
-import { getLayout } from '@/layouts/dynamic'
-
+import type { MDXComponents } from 'mdx/types'
+import type { Author, Blog } from 'contentlayer/generated'
 import Image from '../Image'
+
 import CustomLink from '../Link'
 import { BlogNewsletterForm } from '../NewsletterForm'
 import Pre from '../Pre'
@@ -13,10 +13,10 @@ import TOCInline from '../TOCInline'
 import Ruby from '../Ruby'
 
 import styles from './prism.module.scss'
+import { getLayout } from '@/layouts/dynamic'
+import { coreContent } from '@/lib/utils/contentlayer'
 
 import type { Layout } from '@/layouts/constants'
-import type { MDXComponents } from 'mdx/types'
-import type { Author, Blog } from 'contentlayer/generated'
 
 interface MDXLayout {
   layout: Layout
@@ -24,7 +24,7 @@ interface MDXLayout {
   [key: string]: unknown
 }
 
-const Wrapper = ({ layout, ...rest }: MDXLayout) => {
+function Wrapper({ layout, ...rest }: MDXLayout) {
   const Layout = getLayout(layout)
   return <Layout {...(rest as any)} />
 }
@@ -48,7 +48,7 @@ interface Props {
   [key: string]: unknown
 }
 
-export const MDXLayoutRenderer = ({ layout, content, ...rest }: Props) => {
+export function MDXLayoutRenderer({ layout, content, ...rest }: Props) {
   const MDXLayout = useMDXComponent(content.body.code)
   const mainContent = coreContent(content)
 

@@ -5,7 +5,7 @@ interface Props {
   text: string
 }
 
-const Tag = ({ text }: Props) => {
+function Tag({ text }: Props) {
   return (
     <Link href={`/tags/${slug(text)}`} className='btn-link uppercase'>
       {text.split(' ').join('-')}

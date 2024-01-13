@@ -1,9 +1,8 @@
 import { omit, omitBy } from 'lodash-es'
 import { isValidMotionProp, type motion } from 'framer-motion'
 
-import { useFramerMotion } from '@/hooks/framer-motion'
-
 import { htmlElements, svgElements } from './support-elements'
+import { useFramerMotion } from '@/hooks/framer-motion'
 
 import type { FramerMotionModules } from '@/hooks/framer-motion'
 
@@ -85,8 +84,8 @@ function LazyFramerMotion<Dom extends HTMLElement = any>(
   }, [modules?.motion, ready])
 
   const restModules = omit(modules, 'motion')
-  const fallbackDom =
-    typeof fallback === 'function'
+  const fallbackDom
+    = typeof fallback === 'function'
       ? fallback?.({ m, domRef: fallbackRef })
       : fallback
 

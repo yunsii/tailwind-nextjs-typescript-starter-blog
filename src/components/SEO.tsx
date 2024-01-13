@@ -4,15 +4,15 @@ import { ArticleJsonLd, NextSeo } from 'next-seo'
 
 import metadata from 'data/metadata'
 
-import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { Author, Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
 
 interface PageSEOProps {
   title: string
   description?: string
 }
 
-export const PageSEO = ({ title, description }: PageSEOProps) => {
+export function PageSEO({ title, description }: PageSEOProps) {
   const ogImageUrl = metadata.siteUrl + metadata.socialBanner
   return (
     <NextSeo
@@ -26,7 +26,7 @@ export const PageSEO = ({ title, description }: PageSEOProps) => {
   )
 }
 
-export const TagSEO = ({ title, description }: PageSEOProps) => {
+export function TagSEO({ title, description }: PageSEOProps) {
   const ogImageUrl = metadata.siteUrl + metadata.socialBanner
   const router = useRouter()
   return (
@@ -56,7 +56,7 @@ interface BlogSeoProps extends CoreContent<Blog> {
   url: string
 }
 
-export const BlogSEO = ({
+export function BlogSEO({
   authorDetails,
   title,
   summary,
@@ -65,15 +65,15 @@ export const BlogSEO = ({
   url,
   images = [],
   canonicalUrl = url,
-}: BlogSeoProps) => {
+}: BlogSeoProps) {
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()
-  const imagesArr =
-    images.length === 0
+  const imagesArr
+    = images.length === 0
       ? [metadata.socialBanner]
       : typeof images === 'string'
-      ? [images]
-      : images
+        ? [images]
+        : images
 
   const featuredImages = imagesArr.map((img) => {
     return {
@@ -90,7 +90,8 @@ export const BlogSEO = ({
         'name': author.name,
       }
     })
-  } else {
+  }
+  else {
     authorList = {
       '@type': 'Person',
       'name': metadata.author,

@@ -1,9 +1,8 @@
 import { allAuthors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { Layout } from '@/layouts/constants'
-
 import type { Author } from 'contentlayer/generated'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import { Layout } from '@/layouts/constants'
 
 const DEFAULT_LAYOUT = Layout.AuthorDefault
 

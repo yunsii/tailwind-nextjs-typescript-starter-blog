@@ -16,7 +16,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const LayoutWrapper = ({ className = '', children }: Props) => {
+function LayoutWrapper({ className = '', children }: Props) {
   const [open, setOpen] = useState(false)
   const [triggerCenter, setTriggerCenter] = useState<{
     x: number
@@ -56,13 +56,15 @@ const LayoutWrapper = ({ className = '', children }: Props) => {
                 <div className='flex items-center sm:mr-3'>
                   <Logo />
                 </div>
-                {typeof metadata.headerTitle === 'string' ? (
-                  <div className='hidden text-2xl font-semibold sm:block'>
-                    {metadata.headerTitle}
-                  </div>
-                ) : (
-                  metadata.headerTitle
-                )}
+                {typeof metadata.headerTitle === 'string'
+                  ? (
+                    <div className='hidden text-2xl font-semibold sm:block'>
+                      {metadata.headerTitle}
+                    </div>
+                    )
+                  : (
+                      metadata.headerTitle
+                    )}
               </div>
             </Link>
           </div>

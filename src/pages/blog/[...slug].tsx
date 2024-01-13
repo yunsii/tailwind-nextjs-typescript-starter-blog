@@ -1,11 +1,11 @@
 import { allAuthors, allBlogs } from 'contentlayer/generated'
+import type { Author, Blog } from 'contentlayer/generated'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import PageTitle from '@/components/PageTitle'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { coreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { Author, Blog } from 'contentlayer/generated'
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 const DEFAULT_LAYOUT = 'PostDefault'
 
@@ -70,25 +70,28 @@ export default function BlogDetail({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      {'draft' in post && post.draft !== true ? (
-        <MDXLayoutRenderer
-          layout={post.layout || DEFAULT_LAYOUT}
-          toc={post.toc}
-          content={post}
-          authorDetails={authorDetails}
-          prev={prev}
-          next={next}
-        />
-      ) : (
-        <div className='mt-24 text-center'>
-          <PageTitle>
-            Under Construction{' '}
-            <span role='img' aria-label='roadwork sign'>
-              🚧
-            </span>
-          </PageTitle>
-        </div>
-      )}
+      {'draft' in post && post.draft !== true
+        ? (
+          <MDXLayoutRenderer
+            layout={post.layout || DEFAULT_LAYOUT}
+            toc={post.toc}
+            content={post}
+            authorDetails={authorDetails}
+            prev={prev}
+            next={next}
+          />
+          )
+        : (
+          <div className='mt-24 text-center'>
+            <PageTitle>
+              Under Construction
+              {' '}
+              <span role='img' aria-label='roadwork sign'>
+                🚧
+              </span>
+            </PageTitle>
+          </div>
+          )}
     </>
   )
 }

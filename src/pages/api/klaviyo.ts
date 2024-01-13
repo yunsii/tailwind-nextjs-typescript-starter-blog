@@ -1,6 +1,6 @@
+import process from 'node:process'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-/* eslint-disable import/no-anonymous-default-export */
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body
   if (!email) {
@@ -31,7 +31,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       })
     }
     return res.status(201).json({ error: '' })
-  } catch (error) {
+  }
+  catch (error) {
     if (error instanceof Error) {
       return res.status(500).json({ error: error.message || error.toString() })
     }

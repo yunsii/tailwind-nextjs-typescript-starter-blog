@@ -2,8 +2,9 @@ import dynamic from 'next/dynamic'
 
 import metadata from 'data/metadata'
 
-import type { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 interface Props {
   frontMatter: CoreContent<Blog>
 }
@@ -27,7 +28,7 @@ const DisqusComponent = dynamic(
   { ssr: false },
 )
 
-const Comments = ({ frontMatter }: Props) => {
+function Comments({ frontMatter }: Props) {
   const commentProvider = metadata?.comment?.provider
   if (!commentProvider) {
     return <></>

@@ -1,6 +1,6 @@
+import type { MotionValue } from 'framer-motion'
 import { useFlubberInterpolate, useFramerMotion } from '@/hooks/framer-motion'
 
-import type { MotionValue } from 'framer-motion'
 import type { FramerMotionModules } from '@/hooks/framer-motion'
 
 export const getIndex = (_: any, index: number) => index

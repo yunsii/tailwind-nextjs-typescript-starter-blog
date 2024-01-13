@@ -1,5 +1,8 @@
-const bundleAnalyzer = require('@next/bundle-analyzer')
-const { withContentlayer } = require('next-contentlayer')
+import process from 'node:process'
+import bundleAnalyzer from '@next/bundle-analyzer'
+import { withContentlayer } from 'next-contentlayer'
+import autoImport from 'unplugin-auto-import/webpack'
+import polishTaggedTemplates from 'unplugin-polish-tagged-templates/webpack'
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -80,7 +83,7 @@ const nextConfig = {
   },
   webpack: (config, { dev, isServer }) => {
     config.plugins.push(
-      require('unplugin-auto-import/webpack')({
+      autoImport({
         include: [
           /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
         ],
@@ -96,7 +99,7 @@ const nextConfig = {
     )
 
     config.plugins.push(
-      require('unplugin-polish-tagged-templates/webpack').default({
+      polishTaggedTemplates({
         cssTags: ['cls', 'tw'],
       }),
     )
@@ -143,4 +146,4 @@ const nextConfig = {
 
 const result = withBundleAnalyzer(withContentlayer(nextConfig))
 
-module.exports = result
+export default result

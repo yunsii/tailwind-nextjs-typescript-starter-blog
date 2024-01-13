@@ -1,19 +1,19 @@
+import metadata from 'data/metadata'
+import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Comments from '@/components/comments'
 import formatDate from '@/lib/utils/formatDate'
-import metadata from 'data/metadata'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
 
 interface Props {
   content: CoreContent<Blog>
   children: React.ReactNode
-  next?: { slug: string; title: string }
-  prev?: { slug: string; title: string }
+  next?: { slug: string, title: string }
+  prev?: { slug: string, title: string }
 }
 
 export default function PostSimple({ content, next, prev, children }: Props) {

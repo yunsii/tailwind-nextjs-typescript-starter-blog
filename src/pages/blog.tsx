@@ -1,14 +1,13 @@
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
+import type { InferGetStaticPropsType } from 'next'
 import ListLayout from '@/layouts/ListLayout'
 import { PageSEO } from '@/components/SEO'
 import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
-import type { InferGetStaticPropsType } from 'next'
-
 export const POSTS_PER_PAGE = 5
 
-export const getStaticProps = async () => {
+export async function getStaticProps() {
   const posts = sortedBlogPost(allBlogs)
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {

@@ -2,17 +2,17 @@ import { slug } from 'github-slugger'
 
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
-import { TagSEO } from '@/components/SEO'
-import ListLayout from '@/layouts/ListLayout'
-import { allCoreContent, getAllTags } from '@/lib/utils/contentlayer'
-
 import type { Blog } from 'contentlayer/generated'
-import type { CoreContent } from '@/lib/utils/contentlayer'
 import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next'
+import { TagSEO } from '@/components/SEO'
+import ListLayout from '@/layouts/ListLayout'
+import { allCoreContent, getAllTags } from '@/lib/utils/contentlayer'
+
+import type { CoreContent } from '@/lib/utils/contentlayer'
 
 export const getStaticPaths: GetStaticPaths<{ tag: string }> = async () => {
   const tags = await getAllTags(allBlogs)

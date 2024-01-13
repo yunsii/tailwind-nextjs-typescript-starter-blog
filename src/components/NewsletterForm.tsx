@@ -1,6 +1,6 @@
 import metadata from 'data/metadata'
 
-const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
+function NewsletterForm({ title = 'Subscribe to the newsletter' }) {
   const inputElRef = useRef<HTMLInputElement>(null)
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
@@ -52,7 +52,7 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
             id='email-input'
             name='email'
             placeholder={
-              subscribed ? "You're subscribed !  🎉" : 'Enter your email'
+              subscribed ? 'You\'re subscribed !  🎉' : 'Enter your email'
             }
             ref={inputElRef}
             required
@@ -89,7 +89,7 @@ export interface BlogNewsletterFormProps {
   title: string
 }
 
-export const BlogNewsletterForm = (props: BlogNewsletterFormProps) => {
+export function BlogNewsletterForm(props: BlogNewsletterFormProps) {
   const { title } = props
 
   return (

@@ -1,5 +1,7 @@
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import type { Blog } from 'contentlayer/generated'
 import Link from '@/components/Link'
 import NewsletterForm from '@/components/NewsletterForm'
 import { PageSEO } from '@/components/SEO'
@@ -9,8 +11,6 @@ import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 import LinkGo from '@/components/LinkGo'
 
 import type { CoreContent } from '@/lib/utils/contentlayer'
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
-import type { Blog } from 'contentlayer/generated'
 
 const MAX_DISPLAY = 5
 

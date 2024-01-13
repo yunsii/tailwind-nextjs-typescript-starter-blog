@@ -1,13 +1,12 @@
 import { slug } from 'github-slugger'
 
+import { allBlogs } from 'contentlayer/generated'
+import metadata from 'data/metadata'
+import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
 import { getAllTags } from '@/lib/utils/contentlayer'
-import { allBlogs } from 'contentlayer/generated'
-import metadata from 'data/metadata'
-
-import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 // TODO: refactor into contentlayer once compute over all docs is enabled
 
@@ -39,7 +38,7 @@ export default function Tags({
           {Object.keys(tags).length === 0 && 'No tags found.'}
           {sortedTags.map((t) => {
             return (
-              <div key={t} className='mb-2 mr-5 mt-2'>
+              <div key={t} className='my-2 mr-5'>
                 <Tag text={t} />
                 <Link
                   href={`/tags/${slug(t)}`}

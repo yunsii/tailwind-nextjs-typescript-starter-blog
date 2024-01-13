@@ -1,5 +1,5 @@
-import fs from 'fs'
-
+import fs from 'node:fs'
+import process from 'node:process'
 import sizeOf from 'image-size'
 import { visit } from 'unist-util-visit'
 import { get, set } from 'lodash-es'
@@ -20,8 +20,8 @@ export default function remarkImgToJsx() {
       // only visit p tags that contain an img element
       (node) => {
         return (
-          node.type === 'paragraph' &&
-          (get(node, 'children') || []).some((n: Node) => n.type === 'image')
+          node.type === 'paragraph'
+          && (get(node, 'children') || []).some((n: Node) => n.type === 'image')
         )
       },
       (node) => {

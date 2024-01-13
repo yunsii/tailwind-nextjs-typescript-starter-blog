@@ -1,7 +1,0 @@
-root: true
-extends:
-  - next/core-web-vitals
-  - ./node_modules/@jannajs/lint/dist/eslint.cjs
-rules:
-  no-console: 'warn'
-  react/prop-types: 'off'

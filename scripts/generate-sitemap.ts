@@ -1,13 +1,12 @@
 import path from 'node:path'
-
+import process from 'node:process'
 import globby from 'globby'
 
 import { allBlogs as _allBlogs } from '../.contentlayer/generated/index.mjs'
 import metadata from '../data/metadata'
 
-import { writeXml } from './_helpers/xml'
-
 import type { Blog } from '../.contentlayer/generated'
+import { writeXml } from './_helpers/xml'
 
 const allBlogs = _allBlogs as Blog[]
 
@@ -27,9 +26,9 @@ async function generate() {
   ])
 
   const sitemap = `
-        <?xml version="1.0" encoding="UTF-8"?>
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            ${pages
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+        ${pages
               .concat(contentPages)
               .map((page) => {
                 const path = page
@@ -41,14 +40,14 @@ async function generate() {
                   .replace('/feed.xml', '')
                 const route = path === '/index' ? '' : path
                 return `
-                        <url>
-                            <loc>${metadata.siteUrl}${route}</loc>
-                        </url>
-                    `
+                  <url>
+                      <loc>${metadata.siteUrl}${route}</loc>
+                  </url>
+                `
               })
               .join('')}
-        </urlset>
-    `
+    </urlset>
+  `
 
   await writeXml(sitemap, outputFilePath)
 }
