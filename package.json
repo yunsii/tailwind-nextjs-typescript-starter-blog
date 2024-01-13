@@ -1,6 +1,5 @@
 {
   "name": "tailwind-nextjs-typescript-starter-blog",
-  "type": "module",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@8.14.1",

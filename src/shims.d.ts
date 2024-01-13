@@ -43,3 +43,6 @@ declare module 'flubber' {
 declare interface EnhancedStyle extends React.CSSProperties {
   viewTransitionName?: string
 }
+
+declare module 'rehype-citation'
+declare module 'rehype-prism-plus'
