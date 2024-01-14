@@ -61,8 +61,5 @@
     "Umami",
     "vfile"
   ],
-  "[xml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "tailwindCSS.experimental.classRegex": ["cls`([^`]*)", "raw`([^`]*)"]
 }
