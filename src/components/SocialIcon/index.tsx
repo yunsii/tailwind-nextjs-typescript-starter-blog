@@ -19,6 +19,7 @@ function SocialIcon({ kind, href, size = 2 }: SocialIconProps) {
   if (
     !href
     || (kind === 'mail'
+    // eslint-disable-next-line regexp/no-super-linear-backtracking, regexp/no-unused-capturing-group, regexp/no-misleading-capturing-group
     && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href))
   ) {
     return null

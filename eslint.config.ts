@@ -6,5 +6,6 @@ export default janna({
 }, {
   rules: {
     'react/prop-types': 'off',
+    'style/jsx-indent': 'off',
   },
 })

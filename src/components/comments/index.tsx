@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-
 import metadata from 'data/metadata'
 
 import type { Blog } from 'contentlayer/generated'
@@ -31,7 +30,7 @@ const DisqusComponent = dynamic(
 function Comments({ frontMatter }: Props) {
   const commentProvider = metadata?.comment?.provider
   if (!commentProvider) {
-    return <></>
+    return null
   }
   return (
     <div id='comment'>

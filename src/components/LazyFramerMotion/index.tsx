@@ -2,9 +2,10 @@ import { omit, omitBy } from 'lodash-es'
 import { isValidMotionProp, type motion } from 'framer-motion'
 
 import { htmlElements, svgElements } from './support-elements'
-import { useFramerMotion } from '@/hooks/framer-motion'
 
 import type { FramerMotionModules } from '@/hooks/framer-motion'
+
+import { useFramerMotion } from '@/hooks/framer-motion'
 
 export interface LazyFramerMotionAction<Dom extends HTMLElement = any> {
   getDom: () => Dom | null
@@ -63,6 +64,7 @@ function LazyFramerMotion<Dom extends HTMLElement = any>(
     const fallbackMotion = {} as typeof motion
 
     ;[...htmlElements, ...svgElements].forEach((item) => {
+      // eslint-disable-next-line react/no-nested-components
       function FallbackMotionElement(_props: any, ref: any) {
         const props: any = omitBy(_props, (_, key) => {
           if (key === 'style') {
@@ -99,35 +101,3 @@ function LazyFramerMotion<Dom extends HTMLElement = any>(
 }
 
 export default LazyFramerMotion
-
-export function withLazyFramerMotion<
-  Props extends LazyFramerMotionChildrenProps = LazyFramerMotionChildrenProps,
->(
-  WrappedComponent: React.ComponentType<Props>,
-  lazyFramerMotionProps: Omit<LazyFramerMotionProps, 'children' | 'actionRef'>,
-) {
-  const WithLazyFramerMotion = (
-    extraProps: Omit<Props, keyof LazyFramerMotionChildrenProps> & {
-      actionRef?: LazyFramerMotionProps['actionRef']
-    },
-  ) => {
-    return (
-      <LazyFramerMotion {...lazyFramerMotionProps}>
-        {(props) => {
-          const mergedProps = { ...extraProps, ...props } as Props
-          return <WrappedComponent {...mergedProps} />
-        }}
-      </LazyFramerMotion>
-    )
-  }
-
-  WithLazyFramerMotion.displayName = `WithLazyFramerMotion(${getDisplayName(
-    WrappedComponent,
-  )})`
-
-  return WithLazyFramerMotion
-}
-
-function getDisplayName(WrappedComponent: React.ComponentType<any>) {
-  return WrappedComponent.displayName || WrappedComponent.name || 'Component'
-}

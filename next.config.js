@@ -1,4 +1,5 @@
 const process = require('node:process')
+
 const bundleAnalyzer = require('@next/bundle-analyzer')
 const { withContentlayer } = require('next-contentlayer')
 

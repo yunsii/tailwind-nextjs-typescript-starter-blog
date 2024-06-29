@@ -3,9 +3,10 @@ import '@/css/theme-switch.scss'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-
 import metadata from 'data/metadata'
+
 import type { AppProps } from 'next/app'
+
 import LayoutWrapper from '@/components/LayoutWrapper'
 import Analytics from '@/components/Analytics'
 

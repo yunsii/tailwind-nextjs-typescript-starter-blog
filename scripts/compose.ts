@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
+
 import dedent from 'dedent'
 import inquirer from 'inquirer'
 import consola from 'consola'
@@ -103,7 +104,7 @@ inquirer
     // Remove special characters and replace space with -
     const fileName = answers.title
       .toLowerCase()
-      .replace(/[^a-zA-Z0-9 ]/g, '')
+      .replace(/[^a-z0-9 ]/gi, '')
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)

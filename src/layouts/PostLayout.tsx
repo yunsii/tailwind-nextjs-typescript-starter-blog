@@ -1,5 +1,8 @@
 import metadata from 'data/metadata'
+
 import type { Author, Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 import Image from '@/components/Image'
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
@@ -7,8 +10,6 @@ import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Tag from '@/components/Tag'
 import Comments from '@/components/comments'
-
-import type { CoreContent } from '@/lib/utils/contentlayer'
 
 function editUrl(fileName: string) {
   return `${metadata.siteRepo}/blob/master/data/${fileName}`

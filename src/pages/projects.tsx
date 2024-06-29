@@ -1,5 +1,6 @@
 import metadata from 'data/metadata'
 import projectsData from 'data/projects'
+
 import Card from '@/components/Card'
 import { PageSEO } from '@/components/SEO'
 

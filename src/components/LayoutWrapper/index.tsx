@@ -58,9 +58,9 @@ function LayoutWrapper({ className = '', children }: Props) {
                 </div>
                 {typeof metadata.headerTitle === 'string'
                   ? (
-                    <div className='hidden text-2xl font-semibold sm:block'>
-                      {metadata.headerTitle}
-                    </div>
+                      <div className='hidden text-2xl font-semibold sm:block'>
+                        {metadata.headerTitle}
+                      </div>
                     )
                   : (
                       metadata.headerTitle

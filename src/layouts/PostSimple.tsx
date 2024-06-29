@@ -1,13 +1,14 @@
 import metadata from 'data/metadata'
+
 import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import { BlogSEO } from '@/components/SEO'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Comments from '@/components/comments'
 import formatDate from '@/lib/utils/formatDate'
-
-import type { CoreContent } from '@/lib/utils/contentlayer'
 
 interface Props {
   content: CoreContent<Blog>

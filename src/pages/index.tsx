@@ -1,7 +1,10 @@
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
+
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
 import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 import Link from '@/components/Link'
 import NewsletterForm from '@/components/NewsletterForm'
 import { PageSEO } from '@/components/SEO'
@@ -10,10 +13,9 @@ import formatDate from '@/lib/utils/formatDate'
 import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 import LinkGo from '@/components/LinkGo'
 
-import type { CoreContent } from '@/lib/utils/contentlayer'
-
 const MAX_DISPLAY = 5
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticProps: GetStaticProps<{
   posts: CoreContent<Blog>[]
 }> = async () => {

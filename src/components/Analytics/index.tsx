@@ -1,7 +1,8 @@
+/* eslint-disable react-dom/no-missing-iframe-sandbox */
 import Analytics from 'analytics'
 import googleTagManager from '@analytics/google-tag-manager'
-
 import metadata from 'data/metadata'
+
 import { IS_DEV } from '@/helpers/env'
 import { idleQueue } from '@/helpers/idle'
 

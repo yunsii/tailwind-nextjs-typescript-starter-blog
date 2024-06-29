@@ -37,20 +37,20 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
   return (
     <LazyFramerMotion
       fallback={(
-        <button ref={fallbackRef} {...buttonProps}>
+        <button ref={fallbackRef} type='button' {...buttonProps}>
           {open
             ? (
-              <span className='i-custom--close h-full w-full' />
+                <span className='i-custom--close h-full w-full' />
               )
             : (
-              <span className='i-custom--menu h-full w-full' />
+                <span className='i-custom--menu h-full w-full' />
               )}
         </button>
       )}
     >
       {(_props) => {
         return (
-          <button ref={renderRef} {...buttonProps}>
+          <button ref={renderRef} type='button' {...buttonProps}>
             <LazyIcon {..._props} open={open} />
           </button>
         )
@@ -59,4 +59,6 @@ function MenuButton(props: MenuButtonProps, ref: React.Ref<MenuButtonAction>) {
   )
 }
 
-export default forwardRef<MenuButtonAction, MenuButtonProps>(MenuButton)
+const WrapMenuButton = forwardRef<MenuButtonAction, MenuButtonProps>(MenuButton)
+
+export default WrapMenuButton

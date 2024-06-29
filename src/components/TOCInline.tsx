@@ -60,12 +60,12 @@ function TOCInline({
     <>
       {asDisclosure
         ? (
-          <details open>
-            <summary className='ml-6 py-2 text-xl font-bold'>
-              Table of Contents
-            </summary>
-            <div className='ml-6'>{tocList}</div>
-          </details>
+            <details open>
+              <summary className='ml-6 py-2 text-xl font-bold'>
+                Table of Contents
+              </summary>
+              <div className='ml-6'>{tocList}</div>
+            </details>
           )
         : (
             tocList

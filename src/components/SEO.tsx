@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ArticleJsonLd, NextSeo } from 'next-seo'
-
 import metadata from 'data/metadata'
 
 import type { Author, Blog } from 'contentlayer/generated'
 import type { CoreContent } from '@/lib/utils/contentlayer'
+
+import { emptyArray } from '@/constants/react'
 
 interface PageSEOProps {
   title: string
@@ -63,7 +64,7 @@ export function BlogSEO({
   date,
   lastmod,
   url,
-  images = [],
+  images = emptyArray,
   canonicalUrl = url,
 }: BlogSeoProps) {
   const publishedAt = new Date(date).toISOString()

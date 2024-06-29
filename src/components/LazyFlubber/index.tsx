@@ -1,9 +1,7 @@
 import type { MotionValue } from 'framer-motion'
-import { useFlubberInterpolate, useFramerMotion } from '@/hooks/framer-motion'
-
 import type { FramerMotionModules } from '@/hooks/framer-motion'
 
-export const getIndex = (_: any, index: number) => index
+import { useFlubberInterpolate, useFramerMotion } from '@/hooks/framer-motion'
 
 export type UseFlubber = (
   progress: MotionValue<number>,
@@ -29,7 +27,9 @@ const LazyFlubber: React.FC<ILazyFramerMotionProps> = (props) => {
 
   if (modulesReady && interpolateReady && !fallbackOnly) {
     const useFlubber = (progress: MotionValue<number>, paths: string[]) => {
-      return modules.useTransform(progress, paths.map(getIndex), paths, {
+      return modules.useTransform(progress, paths.map((_, index) => {
+        return index
+      }), paths, {
         mixer: (a, b) => {
           return interpolate(a, b, { maxSegmentLength: 0.1 })
         },

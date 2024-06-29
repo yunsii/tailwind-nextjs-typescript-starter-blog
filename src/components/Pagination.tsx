@@ -14,6 +14,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
       <nav className='flex justify-between'>
         {!prevPage && (
           <button
+            type='button'
             className='cursor-auto disabled:opacity-50'
             disabled={!prevPage}
           >
@@ -26,7 +27,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
               currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`
             }
           >
-            <button>Previous</button>
+            <button type='button'>Previous</button>
           </Link>
         )}
         <span>
@@ -37,6 +38,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
         </span>
         {!nextPage && (
           <button
+            type='button'
             className='cursor-auto disabled:opacity-50'
             disabled={!nextPage}
           >
@@ -45,7 +47,7 @@ export default function Pagination({ totalPages, currentPage }: Props) {
         )}
         {nextPage && (
           <Link href={`/blog/page/${currentPage + 1}`}>
-            <button>Next</button>
+            <button type='button'>Next</button>
           </Link>
         )}
       </nav>

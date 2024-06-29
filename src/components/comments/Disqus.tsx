@@ -35,7 +35,7 @@ function Disqus({ frontMatter }: Props) {
   return (
     <div className='py-6 text-center text-gray-700 dark:text-gray-300'>
       {enableLoadComments && (
-        <button onClick={LoadComments}>Load Comments</button>
+        <button type='button' onClick={LoadComments}>Load Comments</button>
       )}
       <div className='disqus-frame' id={COMMENTS_ID} />
     </div>

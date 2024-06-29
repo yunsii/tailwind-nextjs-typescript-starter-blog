@@ -1,8 +1,8 @@
 import menu from 'data/menu'
 
-import type { Variants } from 'framer-motion'
 import MenuMobileItem from './MenuMobileItem'
 
+import type { Variants } from 'framer-motion'
 import type { LazyFramerMotionChildrenProps } from '@/components/LazyFramerMotion'
 
 const ulVariants = {

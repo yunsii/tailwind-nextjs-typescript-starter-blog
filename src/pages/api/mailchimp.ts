@@ -1,5 +1,7 @@
 import process from 'node:process'
+
 import mailchimp from '@mailchimp/mailchimp_marketing'
+
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 mailchimp.setConfig({

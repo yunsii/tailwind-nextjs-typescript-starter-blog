@@ -1,5 +1,4 @@
 import { useTheme } from 'next-themes'
-
 import metadata from 'data/metadata'
 
 function Utterances() {
@@ -55,7 +54,7 @@ function Utterances() {
   return (
     <div className='py-6 text-center text-gray-700 dark:text-gray-300'>
       {enableLoadComments && (
-        <button onClick={LoadComments}>Load Comments</button>
+        <button type='button' onClick={LoadComments}>Load Comments</button>
       )}
       <div className='utterances-frame relative' id={COMMENTS_ID} />
     </div>

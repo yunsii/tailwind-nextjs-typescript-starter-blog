@@ -27,7 +27,7 @@ function ThemeSwitch() {
     )
 
     const $document = document as Document & {
-      startViewTransition(callback?: () => void | Promise<void>): any
+      startViewTransition: (callback?: () => void | Promise<void>) => any
     }
 
     // Create a transition:

@@ -4,11 +4,12 @@ import path from 'node:path'
 import { encode } from 'html-entities'
 import { slug } from 'github-slugger'
 
-import type { Blog } from 'contentlayer/generated'
 import { allBlogs as _allBlogs } from '../.contentlayer/generated/index.mjs'
 import metadata from '../data/metadata'
 
 import { writeXml } from './_helpers/xml'
+
+import type { Blog } from 'contentlayer/generated'
 
 const allBlogs = _allBlogs as Blog[]
 

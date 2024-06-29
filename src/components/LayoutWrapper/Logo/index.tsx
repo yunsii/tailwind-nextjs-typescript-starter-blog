@@ -1,6 +1,6 @@
 import LogoSvg from 'data/logo.svg'
 
-import { withLazyFramerMotion } from '../../LazyFramerMotion'
+import { withLazyFramerMotion } from '../../LazyFramerMotion/hoc'
 
 import type { LazyFramerMotionChildrenProps } from '../../LazyFramerMotion'
 
@@ -19,6 +19,8 @@ function Logo(props: LogoProps) {
   )
 }
 
-export default withLazyFramerMotion(Logo, {
+const WrapLogo = withLazyFramerMotion(Logo, {
   fallback: <LogoSvg height={44} />,
 })
+
+export default WrapLogo

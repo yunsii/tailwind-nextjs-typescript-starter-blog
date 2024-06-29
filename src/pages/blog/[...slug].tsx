@@ -1,14 +1,16 @@
 import { allAuthors, allBlogs } from 'contentlayer/generated'
+
 import type { Author, Blog } from 'contentlayer/generated'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 import PageTitle from '@/components/PageTitle'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { coreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 
-import type { CoreContent } from '@/lib/utils/contentlayer'
-
 const DEFAULT_LAYOUT = 'PostDefault'
 
+// eslint-disable-next-line react-refresh/only-export-components
 export async function getStaticPaths() {
   return {
     paths: allBlogs.map((p) => ({ params: { slug: p.slug.split('/') } })),
@@ -16,6 +18,7 @@ export async function getStaticPaths() {
   }
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticProps: GetStaticProps<{
   post: Blog
   authorDetails: CoreContent<Author>[]
@@ -72,25 +75,25 @@ export default function BlogDetail({
     <>
       {'draft' in post && post.draft !== true
         ? (
-          <MDXLayoutRenderer
-            layout={post.layout || DEFAULT_LAYOUT}
-            toc={post.toc}
-            content={post}
-            authorDetails={authorDetails}
-            prev={prev}
-            next={next}
-          />
+            <MDXLayoutRenderer
+              layout={post.layout || DEFAULT_LAYOUT}
+              toc={post.toc}
+              content={post}
+              authorDetails={authorDetails}
+              prev={prev}
+              next={next}
+            />
           )
         : (
-          <div className='mt-24 text-center'>
-            <PageTitle>
-              Under Construction
-              {' '}
-              <span role='img' aria-label='roadwork sign'>
-                🚧
-              </span>
-            </PageTitle>
-          </div>
+            <div className='mt-24 text-center'>
+              <PageTitle>
+                Under Construction
+                {' '}
+                <span role='img' aria-label='roadwork sign'>
+                  🚧
+                </span>
+              </PageTitle>
+            </div>
           )}
     </>
   )

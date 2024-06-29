@@ -1,18 +1,20 @@
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
+
 import type { Blog } from 'contentlayer/generated'
 import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next'
-import { POSTS_PER_PAGE } from '../../blog'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 import ListLayout from '@/layouts/ListLayout'
 import { allCoreContent, sortedBlogPost } from '@/lib/utils/contentlayer'
 import { PageSEO } from '@/components/SEO'
+import { POSTS_PER_PAGE } from '@/constants/settings'
 
-import type { CoreContent } from '@/lib/utils/contentlayer'
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticPaths: GetStaticPaths<{
   page: string
 }> = async () => {
@@ -28,6 +30,7 @@ export const getStaticPaths: GetStaticPaths<{
   }
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticProps: GetStaticProps<
   {
     initialDisplayPosts: CoreContent<Blog>[]

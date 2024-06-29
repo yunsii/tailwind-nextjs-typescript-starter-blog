@@ -1,8 +1,9 @@
 import { slug } from 'github-slugger'
-
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
+
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
@@ -10,6 +11,7 @@ import { getAllTags } from '@/lib/utils/contentlayer'
 
 // TODO: refactor into contentlayer once compute over all docs is enabled
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticProps: GetStaticProps<{
   tags: Record<string, number>
 }> = async () => {

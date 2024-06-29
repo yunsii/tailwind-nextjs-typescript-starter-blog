@@ -13,12 +13,13 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 
-import type { ComputedFields } from 'contentlayer/source-files'
 import { Layout } from './src/layouts/constants'
 import remarkImgToJsx from './src/lib/remark-img-to-jsx'
 import { extractTocHeadings } from './src/lib/remark-toc-headings'
 import remarkCodeTitles from './src/lib/remark-code-title'
 import remarkExtractFrontmatter from './src/lib/remark-extract-frontmatter'
+
+import type { ComputedFields } from 'contentlayer/source-files'
 
 const root = process.cwd()
 

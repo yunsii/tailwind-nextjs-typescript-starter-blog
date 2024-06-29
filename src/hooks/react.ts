@@ -8,5 +8,6 @@ export function useMountOnce(callback: () => void) {
     mountedRef.current = true
 
     callback()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 }

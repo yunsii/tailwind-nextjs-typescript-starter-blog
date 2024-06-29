@@ -1,4 +1,5 @@
 import type { Author } from 'contentlayer/generated'
+
 import Image from '@/components/Image'
 import { PageSEO } from '@/components/SEO'
 import SocialIcon from '@/components/SocialIcon'

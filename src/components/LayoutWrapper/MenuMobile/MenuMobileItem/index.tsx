@@ -1,6 +1,6 @@
-import Link from '@/components/Link'
-
 import type { MenuItem } from '@/defines/menu'
+
+import Link from '@/components/Link'
 
 export interface IMenuMobileItemProps {
   link: MenuItem

@@ -1,4 +1,5 @@
 import { useMountOnce } from './react'
+
 import { idleQueue } from '@/helpers/idle'
 
 async function importFramerMotion() {

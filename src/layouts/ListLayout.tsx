@@ -1,10 +1,11 @@
 import type { Blog } from 'contentlayer/generated'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 import Link from '@/components/Link'
 import Pagination from '@/components/Pagination'
 import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
-
-import type { CoreContent } from '@/lib/utils/contentlayer'
+import { emptyArray } from '@/constants/react'
 
 interface Props {
   posts: CoreContent<Blog>[]
@@ -16,7 +17,7 @@ interface Props {
 export default function ListLayout({
   posts,
   title,
-  initialDisplayPosts = [],
+  initialDisplayPosts = emptyArray,
   pagination,
 }: Props) {
   const [searchValue, setSearchValue] = useState('')

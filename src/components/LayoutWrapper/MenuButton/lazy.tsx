@@ -1,7 +1,7 @@
 import type { SVGMotionProps } from 'framer-motion'
-import { useRuntimeComponent } from '@/hooks/framer-motion'
-
 import type { LazyFramerMotionChildrenProps } from '@/components/LazyFramerMotion'
+
+import { useRuntimeComponent } from '@/hooks/framer-motion'
 
 export function LazyIcon(
   props: LazyFramerMotionChildrenProps & { open?: boolean },

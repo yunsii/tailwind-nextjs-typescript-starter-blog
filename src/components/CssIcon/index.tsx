@@ -9,10 +9,3 @@ const CssIcon: React.FC<ICssIconProps> = (props) => {
 }
 
 export default CssIcon
-
-export function createCssIcon(icon: string) {
-  return function Icon(props: ICssIconProps) {
-    const { className, ...rest } = props
-    return <CssIcon {...rest} className={tw`${icon} ${className}`} />
-  }
-}

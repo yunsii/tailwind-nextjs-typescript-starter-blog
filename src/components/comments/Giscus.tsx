@@ -1,5 +1,4 @@
 import { useTheme } from 'next-themes'
-
 import siteMetadata from 'data/metadata'
 
 function Giscus() {
@@ -69,7 +68,7 @@ function Giscus() {
   return (
     <div className='py-6 text-center text-gray-700 dark:text-gray-300'>
       {enableLoadComments && (
-        <button onClick={LoadComments}>Load Comments</button>
+        <button type='button' onClick={LoadComments}>Load Comments</button>
       )}
       <div className='giscus' id={COMMENTS_ID} />
     </div>

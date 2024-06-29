@@ -1,12 +1,14 @@
 import path from 'node:path'
 import process from 'node:process'
+
 import globby from 'globby'
 
 import { allBlogs as _allBlogs } from '../.contentlayer/generated/index.mjs'
 import metadata from '../data/metadata'
 
-import type { Blog } from '../.contentlayer/generated'
 import { writeXml } from './_helpers/xml'
+
+import type { Blog } from '../.contentlayer/generated'
 
 const allBlogs = _allBlogs as Blog[]
 

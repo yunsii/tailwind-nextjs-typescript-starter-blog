@@ -1,19 +1,20 @@
 import { slug } from 'github-slugger'
-
 import { allBlogs } from 'contentlayer/generated'
 import metadata from 'data/metadata'
+
 import type { Blog } from 'contentlayer/generated'
 import type {
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
 } from 'next'
+import type { CoreContent } from '@/lib/utils/contentlayer'
+
 import { TagSEO } from '@/components/SEO'
 import ListLayout from '@/layouts/ListLayout'
 import { allCoreContent, getAllTags } from '@/lib/utils/contentlayer'
 
-import type { CoreContent } from '@/lib/utils/contentlayer'
-
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticPaths: GetStaticPaths<{ tag: string }> = async () => {
   const tags = await getAllTags(allBlogs)
 
@@ -27,6 +28,7 @@ export const getStaticPaths: GetStaticPaths<{ tag: string }> = async () => {
   }
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticProps: GetStaticProps<
   {
     posts: CoreContent<Blog>[]

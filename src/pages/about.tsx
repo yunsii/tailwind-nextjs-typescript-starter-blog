@@ -1,11 +1,14 @@
 import { allAuthors } from 'contentlayer/generated'
+
 import type { Author } from 'contentlayer/generated'
 import type { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { Layout } from '@/layouts/constants'
 
 const DEFAULT_LAYOUT = Layout.AuthorDefault
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const getStaticProps: GetStaticProps<{ author: Author }> = async () => {
   const author = allAuthors.find((p) => p.slug === 'default')
 
