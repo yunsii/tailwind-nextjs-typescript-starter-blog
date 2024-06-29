@@ -15,8 +15,6 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "eslint .",
-    "lint-staged": "lint-staged",
-    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
     "lint:fix": "eslint --fix .",
     "prepare": "husky install",
     "lint-staged:lint": "eslint"
@@ -35,7 +33,7 @@
     "idlization": "^0.0.3",
     "image-size": "1.0.0",
     "katex": "^0.16.8",
-    "kbar": "0.1.0-beta.43",
+    "kbar": "0.1.0-beta.45",
     "lodash-es": "^4.17.21",
     "mdast-util-to-string": "^4.0.0",
     "next": "^13.4.19",
@@ -59,17 +57,17 @@
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.6.2",
-    "@antfu/eslint-config-react": "^0.35.3",
-    "@commitlint/cli": "^18.4.4",
-    "@commitlint/config-conventional": "^18.4.4",
-    "@commitlint/types": "^18.4.4",
+    "@antfu/eslint-config": "^2.21.2",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/types": "^19.0.3",
+    "@eslint-react/eslint-plugin": "^1.5.18",
     "@iconify-json/bi": "^1.1.18",
     "@iconify-json/bx": "^1.1.7",
     "@iconify-json/iconamoon": "^1.1.1",
     "@iconify-json/mdi": "^1.1.54",
     "@iconify-json/svg-spinners": "^1.1.2",
-    "@jannajs/lint": "3.0.0-next.3",
+    "@jannajs/lint": "3.0.0-next.13",
     "@next/bundle-analyzer": "12.0.9",
     "@next/eslint-plugin-next": "^14.0.4",
     "@svgr/webpack": "^8.0.1",
@@ -89,20 +87,19 @@
     "cross-env": "^7.0.3",
     "dedent": "^1.0.2",
     "esbuild": "^0.18.13",
-    "eslint": "npm:eslint-ts-patch@8.56.0-0",
+    "eslint": "npm:eslint-ts-patch@8.57.0-0",
     "eslint-config-next": "13.4.8",
-    "eslint-plugin-format": "^0.1.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.4",
+    "eslint-plugin-format": "^0.1.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
     "eslint-plugin-tailwindcss": "^3.13.1",
-    "eslint-ts-patch": "^8.56.0-0",
+    "eslint-ts-patch": "8.57.0-0",
     "execa": "^7.1.1",
     "globby": "11.0.3",
-    "husky": "^6.0.0",
+    "husky": "^9.0.11",
     "inquirer": "^8.2.1",
     "js-yaml": "^4.1.0",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^15.2.7",
     "next-contentlayer": "^0.3.4",
     "postcss": "^8.4.12",
     "sass": "^1.63.6",
@@ -110,10 +107,9 @@
     "tailwindcss": "^3.4.1",
     "tailwindcss-plugin-iconify": "1.4.2",
     "tsx": "^3.12.7",
-    "typescript": "^5.1.6",
+    "typescript": "^5.5.2",
     "unplugin-auto-import": "^0.16.6",
-    "unplugin-polish-tagged-templates": "0.1.1-beta.2",
-    "unplugin-svg-sprite": "^1.1.4"
+    "unplugin-polish-tagged-templates": "0.1.1-beta.2"
   },
   "pnpm": {
     "overrides": {
@@ -139,6 +135,6 @@
     }
   },
   "lint-staged": {
-    "*": "npm run lint-staged:lint"
+    "*": "eslint --fix"
   }
 }
